@@ -1,59 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Corporate Website — Laravel 12
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-featured corporate website with admin panel, built on Laravel 12.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Layer | Technology |
+|---|---|
+| Framework | Laravel 12, PHP 8.2+ |
+| Frontend | Tailwind CSS v3, Alpine.js, Vite |
+| Database | MySQL 8 |
+| Auth | Laravel Breeze (admin only) |
+| Images | Intervention Image v3 (WebP conversion) |
+| Mail | Laravel Markdown Mail (queued) |
+| SEO | Custom SeoService + polymorphic `seo_metas` table |
+| Sitemap | Custom SitemapService + scheduled command |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Public Site
+- **Home page** — hero, stats, featured services, industries grid, case studies, blog preview, CTA
+- **Services** — listing + detail pages with SEO
+- **Industries** — listing + filtered case studies per industry
+- **Case Studies** — filterable grid (by category & industry), detail with gallery + PDF download
+- **Blog** — listing, category/tag filter, search, full article with related posts
+- **Contact** — form with reCAPTCHA, auto-reply email, admin notification
+- **Generic pages** — privacy policy, terms, careers, etc. (CMS-driven)
+- **Sitemap** — dynamic XML sitemap with caching
 
-## Learning Laravel
+### Admin Panel (`/admin`)
+- **Dashboard** — stat cards, 30-day lead chart, latest leads
+- **Blogs** — full CRUD, publish/draft toggle, featured flag, tag assignment, SEO fields
+- **Blog Categories & Tags** — CRUD
+- **Case Studies** — full CRUD, gallery upload, PDF upload, SEO fields
+- **Case Study Categories** — CRUD
+- **Industries** — CRUD with icon and image
+- **Services** — full CRUD with SEO fields
+- **Pages** — edit-only for fixed pages (hero, sections, SEO)
+- **Leads** — filterable table, status management, CSV export
+- **Settings** — tabbed form: general, contact, social, analytics (GA4/GTM)
+- **Users** — CRUD for admin accounts
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Quick Start
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+cp .env.example .env
+composer install
+php artisan key:generate
+# Edit .env with your DB credentials
+php artisan migrate --seed
+php artisan storage:link
+npm install && npm run dev
+php artisan serve
+```
 
-## Laravel Sponsors
+Admin: `http://localhost:8000/admin`
+Credentials: printed during seeding.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Directory Structure
 
-### Premium Partners
+```
+app/
+  Console/Commands/     SitemapGenerate, LeadsCleanup
+  Http/Controllers/
+    Admin/              AdminControllers.php (all admin resource controllers)
+    Frontend/           FrontendControllers.php (all public controllers)
+  Http/Middleware/      AdminMiddleware, SetSeoDefaults
+  Http/Requests/        Frontend form requests
+  Mail/                 NewLeadNotification, LeadConfirmation
+  Models/               All Eloquent models
+  Observers/            Blog, CaseStudy, Page observers
+  Providers/            AppServiceProvider (registers all)
+  Services/             SeoService, SitemapService, ImageService, LeadService
+  View/Composers/       LayoutComposer, AdminLayoutComposer
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+database/
+  migrations/           13 migration files
+  seeders/              User, Setting, Page, Blog Category, Tag, Industry, Service, CS Category
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+resources/
+  css/                  app.css, admin.css (Tailwind)
+  js/                   app.js (Alpine + AJAX), admin.js
+  views/
+    layouts/            app.blade.php, admin.blade.php
+    frontend/           All public pages + partials
+    admin/              All admin CRUD views
+    emails/             Lead notification templates
+    sitemap/            XML template
+```
