@@ -10,7 +10,6 @@ use App\Models\Industry;
 use App\Models\Page;
 use App\Models\Service;
 use App\Services\SeoService;
-use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -25,12 +24,6 @@ class HomeController extends Controller
             'latestBlogs' => Blog::published()->with(['category', 'author'])->latest('published_at')->limit(3)->get(),
             'industries' => Industry::active()->limit(8)->get(),
         ];
-
-        if (! is_array($data) || ! array_key_exists('heroSlides', $data)) {
-            Cache::forget('home_page_data');
-
-            return redirect()->route('home');
-        }
 
         $page = Page::where('slug', 'home')->first();
         $seo = $page ? $this->seoService->for($page) : [];
