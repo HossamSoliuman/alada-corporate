@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  deploy-demo:
-    name: FTP Deploy (Demo)
+  deploy:
+    name: FTP Deploy
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
