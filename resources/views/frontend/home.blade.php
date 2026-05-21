@@ -197,33 +197,55 @@
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 reveal">
-            <p class="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-4">How We Deliver</p>
-            <h2 class="text-4xl md:text-5xl font-heading text-white mb-4">Project Lifecycle.<br><em class="font-display not-italic text-brown-300">Dedicated. Value Driven.</em></h2>
-            <p class="text-slate-400 max-w-2xl mx-auto">From first site visit to operational handover — our structured delivery methodology ensures quality, compliance, and performance at every stage.</p>
+        {{-- Header --}}
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-20">
+            <div class="reveal-left">
+                <p class="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-4">Our Involvement</p>
+                <h2 class="text-4xl md:text-5xl font-heading text-white leading-tight">Project Lifecycle.<br><em class="font-display not-italic text-brown-300">Dedicated. Value Driven.</em></h2>
+            </div>
+            <p class="reveal-right text-slate-400 leading-relaxed">
+                Alada supports its partners at every stage — from bidding and early planning through detailed design, construction, and as-built handover. Backed by rigorous engineering and digital workflows, we deliver seamless coordination, accurate deliverables, and practical solutions that keep projects moving forward — an integrated extension of your team from concept to completion.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            @foreach([
-                ['01', 'Surveying & Site Analysis',      'GIS mapping, topographic surveys, geotechnical investigation, and environmental baseline studies to establish project foundations.',                           'magnifying-glass'],
-                ['02', 'Preliminary Design',              'Feasibility analysis, route studies, concept drawings, cost estimates, and stakeholder alignment to define the optimal engineering solution.',              'light-bulb'],
-                ['03', 'Detailed Engineering Design',     'Full engineering documentation, specifications, construction-ready drawings, and BIM coordination developed to international quality standards.',           'document-text'],
-                ['04', 'Construction Management',         'Site supervision, quality assurance, contractor coordination, progress monitoring, and compliance management throughout the build phase.',                  'building-office-2'],
-                ['05', 'Commissioning & Testing',         'System validation, performance testing, regulatory compliance checks, and structured handover to ensure the asset performs as designed from day one.',     'check-badge'],
-                ['06', 'Operations & Maintenance',        'Asset management strategy, lifecycle performance monitoring, maintenance planning, and ongoing technical support for long-term operational excellence.',     'cog-6-tooth'],
-            ] as $i => [$num, $title, $desc, $icon])
-            <div class="reveal group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-teal-500/30 transition-all duration-300"
-                 style="transition-delay: {{ $i * 80 }}ms">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="font-display text-4xl font-bold text-teal-500/40 group-hover:text-teal-400 transition-colors duration-300 leading-none">{{ $num }}</span>
-                    <div class="w-10 h-10 rounded-xl bg-teal-600/20 text-teal-400 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
-                        <x-icon name="{{ $icon }}" class="w-5 h-5"/>
+        {{-- Connected lifecycle timeline --}}
+        <div class="relative">
+            {{-- Spine --}}
+            <span class="pointer-events-none absolute top-4 bottom-4 left-7 lg:left-1/2 lg:-translate-x-1/2 w-px bg-gradient-to-b from-teal-500/0 via-teal-500/50 to-teal-500/0"></span>
+
+            <div class="space-y-8 lg:space-y-2">
+                @foreach([
+                    ['01', 'Tendering',                'BOQ preparation, conceptual design, visualizations, and end-to-end bid support.',                              'clipboard-document-list'],
+                    ['02', 'Preliminary Design',       'Project setup, workflow definition, feasibility studies, and preliminary engineering design.',                 'pencil-square'],
+                    ['03', 'Detailed Design',          'Detailed engineering, multi-discipline coordination, IFC drawings, and BIM model development.',                 'cube-transparent'],
+                    ['04', 'Construction',             'Temporary works design, 4D/5D modeling, quantity take-offs, utility coordination, and RFI support.',           'building-office-2'],
+                    ['05', 'Handover',                 'As-built documentation, consolidated RFIs, and finalized coordinated models ready for operation.',            'shield-check'],
+                    ['06', 'Operations & Maintenance', 'Digital twin delivery, asset registers, and continuously updated as-built lifecycle data.',                    'cog-6-tooth'],
+                ] as $i => [$num, $title, $desc, $icon])
+                @php $isLeft = $i % 2 === 0; @endphp
+                <div class="relative flex {{ $isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse' }} reveal" style="transition-delay: {{ $i * 80 }}ms">
+                    {{-- Node on the spine --}}
+                    <span class="absolute z-10 left-7 lg:left-1/2 top-7 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-teal-400 ring-4 ring-teal-400/15"></span>
+
+                    {{-- Stage card --}}
+                    <div class="w-full lg:w-1/2 pl-16 lg:pl-0 {{ $isLeft ? 'lg:pr-14 lg:text-right' : 'lg:pl-14' }}">
+                        <div class="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/[0.08] hover:border-teal-500/30 transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-4 {{ $isLeft ? 'lg:flex-row-reverse' : '' }}">
+                                <span class="font-display text-5xl font-bold leading-none text-teal-500/40 group-hover:text-teal-400 transition-colors duration-300">{{ $num }}</span>
+                                <div class="w-11 h-11 rounded-xl bg-teal-600/20 text-teal-400 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shrink-0">
+                                    <x-icon name="{{ $icon }}" class="w-5 h-5"/>
+                                </div>
+                            </div>
+                            <h3 class="font-heading text-xl text-white mb-2 leading-snug">{{ $title }}</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">{{ $desc }}</p>
+                        </div>
                     </div>
+
+                    {{-- Spacer keeps the card on its side of the spine --}}
+                    <div class="hidden lg:block lg:w-1/2"></div>
                 </div>
-                <h3 class="font-heading text-lg text-white mb-3 leading-snug">{{ $title }}</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">{{ $desc }}</p>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </section>

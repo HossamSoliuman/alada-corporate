@@ -6,7 +6,11 @@
       "Bash(curl -s -k \"https://blog-corporate.test/\")",
       "Bash(curl -s -k \"https://blog-corporate.test/admin/hero-slides\")",
       "PowerShell(head *)",
-      "Bash(grep -o \"x-data=\\\\\"{ current: 0, total: [0-9]*\")"
+      "Bash(grep -o \"x-data=\\\\\"{ current: 0, total: [0-9]*\")",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Get-Content *)",
+      "Bash(curl -s --max-time 15 \"http://blog-corporate.test\" -o /tmp/home.html)",
+      "Read(//tmp/**)"
     ]
   },
   "enableAllProjectMcpServers": true,
