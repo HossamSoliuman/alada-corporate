@@ -48,6 +48,7 @@
                 <a href="{{ route('industries.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Industries</a>
                 <a href="{{ route('case-studies.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Projects</a>
                 <a href="{{ route('blog.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Insights</a>
+                <a href="{{ route('careers') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Careers</a>
 
                 <a href="{{ route('contact') }}"
                    class="ml-2 inline-flex items-center gap-2 bg-navy-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
@@ -63,13 +64,47 @@
         </div>
     </div>
 
+    {{-- Secondary Country/Region Nav --}}
+    <div class="hidden lg:block border-t border-slate-200/40 bg-navy-900/95 backdrop-blur-sm" x-data="{ hovered: null }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+            @php
+            $regions = [
+                'Americas' => ['United States', 'Canada', 'Latin America'],
+                'Europe' => ['United Kingdom', 'Sweden', 'Italy', 'France', 'Germany', 'Poland', 'Netherlands', 'Austria', 'Greece'],
+                'Asia' => ['India', 'Singapore', 'Hong Kong', 'Indonesia', 'Malaysia', 'Vietnam'],
+                'Middle East' => ['Bahrain', 'Oman', 'Kuwait', 'Qatar', 'Saudi Arabia', 'Jordan', 'Iran', 'Iraq', 'Dubai'],
+                'Oceania' => ['Australia', 'New Zealand'],
+            ];
+            @endphp
+            @foreach($regions as $region => $countries)
+            <div class="relative group" @mouseenter="hovered = '{{ $region }}'" @mouseleave="hovered = null">
+                <button class="px-5 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 uppercase tracking-widest transition-colors flex items-center gap-1.5">
+                    {{ $region }}
+                    <x-icon name="chevron-down" class="w-3 h-3"/>
+                </button>
+                <div x-show="hovered === '{{ $region }}'" x-cloak
+                     x-transition:enter="transition ease-out duration-150"
+                     x-transition:enter-start="opacity-0 -translate-y-1"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     class="absolute top-full left-0 min-w-56 bg-navy-950 border border-white/10 shadow-2xl rounded-b-xl py-2 z-50">
+                    @foreach($countries as $country)
+                    <span class="block px-5 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-white/10 cursor-default transition-colors">
+                        {{ $country }}
+                    </span>
+                    @endforeach
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
     <div x-show="mobileOpen" x-cloak
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0 -translate-y-2"
          x-transition:enter-end="opacity-100 translate-y-0"
          class="lg:hidden border-t border-slate-100 bg-white">
         <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            @foreach([['home','Home'],['about','About'],['services.index','Services'],['industries.index','Industries'],['case-studies.index','Projects'],['blog.index','Insights']] as [$r,$l])
+            @foreach([['home','Home'],['about','About'],['services.index','Services'],['industries.index','Industries'],['case-studies.index','Projects'],['blog.index','Insights'],['careers','Careers']] as [$r,$l])
             <a href="{{ route($r) }}" class="block px-4 py-3 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">{{ $l }}</a>
             @endforeach
             <a href="{{ route('contact') }}" class="block px-4 py-3 rounded-xl text-sm font-semibold text-white bg-navy-900 text-center mt-2 hover:bg-teal-600 transition-colors">Get in Touch</a>

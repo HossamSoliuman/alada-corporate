@@ -1,6 +1,16 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(php artisan *)",
+      "Bash(npm list *)",
+      "Bash(curl -s -k \"https://blog-corporate.test/\")",
+      "Bash(curl -s -k \"https://blog-corporate.test/admin/hero-slides\")",
+      "PowerShell(head *)",
+      "Bash(grep -o \"x-data=\\\\\"{ current: 0, total: [0-9]*\")"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "laravel-boost"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

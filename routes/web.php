@@ -1,7 +1,21 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\BlogTagController;
+use App\Http\Controllers\Admin\CaseStudyCategoryController;
+use App\Http\Controllers\Admin\CaseStudyController as AdminCaseStudyController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HeroSlideController;
+use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
+use App\Http\Controllers\Admin\LeadController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
+use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\CaseStudyController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -9,21 +23,9 @@ use App\Http\Controllers\Frontend\IndustryController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\ServiceController;
 use App\Http\Controllers\Frontend\SitemapController;
-use App\Http\Controllers\Admin\BlogCategoryController;
-use App\Http\Controllers\Admin\BlogController as AdminBlogController;
-use App\Http\Controllers\Admin\BlogTagController;
-use App\Http\Controllers\Admin\CaseStudyCategoryController;
-use App\Http\Controllers\Admin\CaseStudyController as AdminCaseStudyController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
-use App\Http\Controllers\Admin\LeadController;
-use App\Http\Controllers\Admin\PageController as AdminPageController;
-use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -42,6 +44,8 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
 Route::get('/blog/tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+Route::get('/careers', [CareerController::class, 'index'])->name('careers');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit')->middleware('throttle:5,1');
@@ -66,6 +70,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('industries', AdminIndustryController::class);
 
     Route::resource('services', AdminServiceController::class);
+
+    Route::resource('hero-slides', HeroSlideController::class);
+    Route::patch('hero-slides/{heroSlide}/toggle', [HeroSlideController::class, 'toggleActive'])->name('hero-slides.toggle');
 
     Route::get('pages', [AdminPageController::class, 'index'])->name('pages.index');
     Route::get('pages/{page}/edit', [AdminPageController::class, 'edit'])->name('pages.edit');
