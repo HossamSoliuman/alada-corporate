@@ -71,8 +71,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
     Route::resource('services', AdminServiceController::class);
 
-    Route::resource('hero-slides', HeroSlideController::class);
-    Route::patch('hero-slides/{heroSlide}/toggle', [HeroSlideController::class, 'toggleActive'])->name('hero-slides.toggle');
+    Route::get('hero-slides', [HeroSlideController::class, 'index'])->name('hero-slides.index');
+    Route::post('hero-slides', [HeroSlideController::class, 'store'])->name('hero-slides.store');
+    Route::delete('hero-slides/{heroSlide}', [HeroSlideController::class, 'destroy'])->name('hero-slides.destroy');
 
     Route::get('pages', [AdminPageController::class, 'index'])->name('pages.index');
     Route::get('pages/{page}/edit', [AdminPageController::class, 'edit'])->name('pages.edit');

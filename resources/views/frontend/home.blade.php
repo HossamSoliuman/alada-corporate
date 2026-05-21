@@ -2,44 +2,12 @@
 
 @section('content')
 
-@php
-$heroTypes = collect($heroSlides ?? [])->map(fn ($s) => "'".$s->type."'")->implode(', ');
-@endphp
-
 {{-- ═══ HERO ═══ --}}
-<section class="relative min-h-screen flex items-end pb-24 overflow-hidden" x-data="{
-    current: 0,
-    slides: {{ count($heroSlides ?? []) }},
-    types: [{{ $heroTypes }}],
-    timer: null,
-    go(i) { this.current = (i + this.slides) % this.slides; this.schedule(); },
-    next() { this.go(this.current + 1); },
-    prev() { this.go(this.current - 1); },
-    schedule() {
-        clearTimeout(this.timer);
-        for (let k = 0; k < this.slides; k++) { const vid = this.$refs['v' + k]; if (vid) { vid.pause(); } }
-        this.$nextTick(() => {
-            const v = this.$refs['v' + this.current];
-            if (this.types[this.current] === 'video' && v) { v.currentTime = 0; v.play(); }
-            else if (this.slides > 1) { this.timer = setTimeout(() => this.next(), 6000); }
-        });
-    }
-}" @init="schedule()">
-    {{-- Background Carousel --}}
+<section class="relative min-h-screen flex items-end pb-24 overflow-hidden">
     <div class="absolute inset-0 z-0">
-        @forelse($heroSlides as $i => $slide)
-            @if($slide->type === 'video')
-            <video x-ref="v{{ $i }}" x-show="current === {{ $i }}" x-transition.opacity.duration.500ms @ended="if (current === {{ $i }}) next()" muted playsinline class="w-full h-full object-cover">
-                <source src="{{ $slide->url }}" type="video/mp4">
-            </video>
-            @else
-            <img x-show="current === {{ $i }}" x-transition.opacity.duration.500ms src="{{ $slide->url }}" alt="{{ $slide->title }}" class="w-full h-full object-cover">
-            @endif
-        @empty
-            <video autoplay muted loop playsinline class="w-full h-full object-cover">
-                <source src="{{asset('videos/hero-construction.mp4')}}" type="video/mp4">
-            </video>
-        @endforelse
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="{{ $heroVideo?->url ?? asset('videos/hero-construction.mp4') }}" type="video/mp4">
+        </video>
         <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/70 to-transparent"></div>
     </div>
 
@@ -69,25 +37,6 @@ $heroTypes = collect($heroSlides ?? [])->map(fn ($s) => "'".$s->type."'")->implo
             </div>
         </div>
     </div>
-
-    {{-- Prev / Next Arrows --}}
-    @if(count($heroSlides ?? []) > 1)
-    <button type="button" @click.prevent="prev()" aria-label="Previous slide"
-            class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white backdrop-blur-sm transition-all duration-300">
-        <x-icon name="chevron-left" class="w-6 h-6"/>
-    </button>
-    <button type="button" @click.prevent="next()" aria-label="Next slide"
-            class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white backdrop-blur-sm transition-all duration-300">
-        <x-icon name="chevron-right" class="w-6 h-6"/>
-    </button>
-
-    {{-- Slide Indicators/Dots --}}
-    <div class="absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-        @foreach($heroSlides as $i => $slide)
-        <button type="button" @click.prevent="go({{ $i }})" :class="current === {{ $i }} ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/70 w-2'" class="h-2 rounded-full transition-all duration-300 cursor-pointer"></button>
-        @endforeach
-    </div>
-    @endif
 
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10">
         <span class="text-xs text-slate-400 uppercase tracking-widest">Scroll</span>

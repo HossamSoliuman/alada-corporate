@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'heroSlides' => HeroSlide::active()->get(),
+            'heroVideo' => HeroSlide::active()->first(),
             'featuredServices' => Service::active()->featured()->with('seo')->limit(6)->get(),
             'featuredCaseStudies' => CaseStudy::published()->featured()->with(['category', 'industry'])->limit(3)->get(),
             'latestBlogs' => Blog::published()->with(['category', 'author'])->latest('published_at')->limit(3)->get(),

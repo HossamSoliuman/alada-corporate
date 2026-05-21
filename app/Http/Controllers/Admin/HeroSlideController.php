@@ -12,61 +12,31 @@ class HeroSlideController extends Controller
 {
     public function index()
     {
-        $slides = HeroSlide::orderBy('sort_order')->paginate(20);
+        $heroVideo = HeroSlide::first();
 
-        return view('admin.hero-slides.index', compact('slides'));
-    }
-
-    public function create()
-    {
-        return view('admin.hero-slides.create');
+        return view('admin.hero-slides.index', compact('heroVideo'));
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'type' => 'required|in:video,image',
-            'file' => 'required|file|max:102400',
-            'title' => 'nullable|string|max:150',
-            'is_active' => 'boolean',
-            'sort_order' => 'integer|min:0',
+        $request->validate([
+            'file' => 'required|file|mimes:mp4,webm|max:204800',
         ]);
 
-        if ($request->hasFile('file')) {
-            $validated['file_path'] = $this->storeFile($request->file('file'));
+        $existing = HeroSlide::first();
+        if ($existing) {
+            $this->deleteFile($existing->file_path);
+            $existing->delete();
         }
 
-        $validated['is_active'] = $request->boolean('is_active');
-
-        HeroSlide::create($validated);
-
-        return redirect()->route('admin.hero-slides.index')->with('success', 'Hero slide created.');
-    }
-
-    public function edit(HeroSlide $heroSlide)
-    {
-        return view('admin.hero-slides.edit', compact('heroSlide'));
-    }
-
-    public function update(Request $request, HeroSlide $heroSlide)
-    {
-        $validated = $request->validate([
-            'type' => 'required|in:video,image',
-            'file' => 'nullable|file|max:102400',
-            'title' => 'nullable|string|max:150',
-            'is_active' => 'boolean',
-            'sort_order' => 'integer|min:0',
+        HeroSlide::create([
+            'type'       => 'video',
+            'file_path'  => $this->storeFile($request->file('file')),
+            'is_active'  => true,
+            'sort_order' => 0,
         ]);
 
-        if ($request->hasFile('file')) {
-            $validated['file_path'] = $this->storeFile($request->file('file'), $heroSlide->file_path);
-        }
-
-        $validated['is_active'] = $request->boolean('is_active');
-
-        $heroSlide->update($validated);
-
-        return redirect()->route('admin.hero-slides.index')->with('success', 'Hero slide updated.');
+        return back()->with('success', 'Hero video updated.');
     }
 
     public function destroy(HeroSlide $heroSlide)
@@ -74,13 +44,9 @@ class HeroSlideController extends Controller
         $this->deleteFile($heroSlide->file_path);
         $heroSlide->delete();
 
-        return back()->with('success', 'Hero slide deleted.');
+        return back()->with('success', 'Hero video removed.');
     }
 
-    /**
-     * Move an uploaded file directly into the public directory so it is
-     * web-accessible over FTP without needing the storage:link symlink.
-     */
     private function storeFile(UploadedFile $file, ?string $oldPath = null): string
     {
         $this->deleteFile($oldPath);
@@ -96,12 +62,5 @@ class HeroSlideController extends Controller
         if ($path && file_exists(public_path($path))) {
             @unlink(public_path($path));
         }
-    }
-
-    public function toggleActive(HeroSlide $heroSlide)
-    {
-        $heroSlide->update(['is_active' => ! $heroSlide->is_active]);
-
-        return back()->with('success', 'Hero slide status updated.');
     }
 }
