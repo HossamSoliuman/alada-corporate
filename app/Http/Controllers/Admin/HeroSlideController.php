@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\HeroSlide;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 
 class HeroSlideController extends Controller
 {
@@ -31,8 +33,7 @@ class HeroSlideController extends Controller
         ]);
 
         if ($request->hasFile('file')) {
-            $filePath = $request->file('file')->store('hero-slides', 'public');
-            $validated['file_path'] = $filePath;
+            $validated['file_path'] = $this->storeFile($request->file('file'));
         }
 
         $validated['is_active'] = $request->boolean('is_active');
@@ -58,8 +59,7 @@ class HeroSlideController extends Controller
         ]);
 
         if ($request->hasFile('file')) {
-            $filePath = $request->file('file')->store('hero-slides', 'public');
-            $validated['file_path'] = $filePath;
+            $validated['file_path'] = $this->storeFile($request->file('file'), $heroSlide->file_path);
         }
 
         $validated['is_active'] = $request->boolean('is_active');
@@ -71,9 +71,31 @@ class HeroSlideController extends Controller
 
     public function destroy(HeroSlide $heroSlide)
     {
+        $this->deleteFile($heroSlide->file_path);
         $heroSlide->delete();
 
         return back()->with('success', 'Hero slide deleted.');
+    }
+
+    /**
+     * Move an uploaded file directly into the public directory so it is
+     * web-accessible over FTP without needing the storage:link symlink.
+     */
+    private function storeFile(UploadedFile $file, ?string $oldPath = null): string
+    {
+        $this->deleteFile($oldPath);
+
+        $filename = Str::uuid()->toString().'.'.$file->getClientOriginalExtension();
+        $file->move(public_path('uploads/hero-slides'), $filename);
+
+        return 'uploads/hero-slides/'.$filename;
+    }
+
+    private function deleteFile(?string $path): void
+    {
+        if ($path && file_exists(public_path($path))) {
+            @unlink(public_path($path));
+        }
     }
 
     public function toggleActive(HeroSlide $heroSlide)

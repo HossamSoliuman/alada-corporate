@@ -19,6 +19,6 @@ class HeroSlide extends Model
 
     public function getUrlAttribute(): string
     {
-        return asset('storage/'.$this->file_path);
+        return asset($this->file_path);
     }
 }
