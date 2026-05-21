@@ -158,16 +158,16 @@
             @foreach([
                 ['01', 'Land Development',
                  'Site planning, grading, drainage design, and infrastructure layout for residential, commercial, and mixed-use developments.',
-                 'https://images.pexels.com/photos/2097540/pexels-photo-2097540.jpeg?auto=compress&cs=tinysrgb&w=1200'],
+                 '/images/Subdivision-land-course-hero-image.png'],
                 ['02', 'Transportation Infrastructure',
                  'Road, bridge, highway, and rail design engineered for capacity, safety, and long-term performance at any scale.',
-                 'https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=1200'],
+                 '/images/Transportation Infrastructure.jpg'],
                 ['03', 'Industrial Plant & Piping',
                  'Process plant design, piping systems, industrial infrastructure, and facility engineering for complex industrial environments.',
-                 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200'],
+                 '/images/Process-Piping.jpg'],
                 ['04', 'Digital Twin & Parametric Modeling',
                  'BIM-driven design, parametric modelling, and digital twin delivery for data-rich asset management and informed decision-making.',
-                 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200'],
+                 '/images/Digital-Twin-Model.jpg'],
             ] as $i => [$num, $title, $desc, $img])
             <div class="group relative overflow-hidden rounded-3xl reveal aspect-[4/3]" style="transition-delay: {{ $i * 100 }}ms">
                 <img src="{{ $img }}" alt="{{ $title }}"
