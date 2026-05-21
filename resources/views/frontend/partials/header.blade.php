@@ -58,8 +58,7 @@
             </nav>
 
             <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg text-navy-600 hover:bg-slate-100 transition-colors">
-                <x-icon x-show="!mobileOpen" name="bars-3" class="w-6 h-6"/>
-                <x-icon x-show="mobileOpen" x-cloak name="x-mark" class="w-6 h-6"/>
+                <x-icon name="bars-3" class="w-6 h-6"/>
             </button>
         </div>
     </div>
