@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build & FTP Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, bcmath, ctype, fileinfo, openssl, pdo, tokenizer, xml, gd, intl
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy via FTPS
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate false;
+            open -u '$FTP_USERNAME','$FTP_PASSWORD' $FTP_HOST;
+            mirror --reverse --delete --verbose \
+              --exclude-glob .git/ \
+              --exclude-glob .github/ \
+              --exclude-glob node_modules/ \
+              --exclude-glob tests/ \
+              --exclude-glob .env \
+              --exclude-glob storage/logs/ \
+              . ${FTP_REMOTE_DIR:-/};
+          "
