@@ -79,15 +79,15 @@
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
                 </a>
             </div>
-            <div class="reveal-right grid grid-cols-2 gap-4">
+            <div class="reveal-right grid grid-cols-1 sm:grid-cols-2 gap-4">
                 @foreach([
                     ['Consulting Expertise',  'Renowned International Civil Engineers with Diverse Skill Set'],
                     ['Robust Delivery',       'Consistent on-time, on-budget project completion globally'],
                     ['Rapid Value Creation',  'Fast-tracked design cycles without compromising quality or compliance'],
                     ['Tech-Forward Approach', 'BIM, digital twin, and parametric modeling embedded across all disciplines'],
                 ] as [$t, $d])
-                <div class="bg-white rounded-2xl p-5 border border-slate-100 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300">
-                    <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-3">
+                <div class="bg-white rounded-2xl p-5 border border-slate-100 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 text-center sm:text-left">
+                    <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-3 mx-auto sm:mx-0">
                         <x-icon name="check-circle" class="w-5 h-5"/>
                     </div>
                     <h4 class="font-semibold text-navy-900 text-sm mb-1">{{ $t }}</h4>
