@@ -10,7 +10,9 @@
       "PowerShell(Test-Path *)",
       "PowerShell(Get-Content *)",
       "Bash(curl -s --max-time 15 \"http://blog-corporate.test\" -o /tmp/home.html)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(curl -s --max-time 15 \"http://blog-corporate.test\" -o /tmp/home2.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} | type=%{content_type} | bytes=%{size_download}\\\\n\" --max-time 15 \"http://blog-corporate.test/images/Our%20Expertise.svg\")"
     ]
   },
   "enableAllProjectMcpServers": true,

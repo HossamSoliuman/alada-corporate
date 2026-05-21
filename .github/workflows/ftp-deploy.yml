@@ -13,15 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: mbstring, bcmath, ctype, fileinfo, openssl, pdo, tokenizer, xml, gd, intl
-
-      - name: Install Composer dependencies
-        run: composer install --no-dev --optimize-autoloader --no-interaction
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -39,21 +30,24 @@ jobs:
 
       - name: Deploy via FTPS
         env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOST:       ${{ secrets.FTP_HOST }}
+          FTP_USERNAME:   ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD:   ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
         run: |
           lftp -c "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
             set ssl:verify-certificate false;
-            open -u '$FTP_USERNAME','$FTP_PASSWORD' $FTP_HOST;
+            open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_HOST';
             mirror --reverse --delete --verbose \
               --exclude-glob .git/ \
               --exclude-glob .github/ \
               --exclude-glob node_modules/ \
+              --exclude-glob vendor/ \
+              --exclude-glob claude/ \
               --exclude-glob tests/ \
-              --exclude-glob .env \
               --exclude-glob storage/logs/ \
+              --exclude-glob .env \
               . ${FTP_REMOTE_DIR:-/};
           "

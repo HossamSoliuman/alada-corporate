@@ -318,6 +318,26 @@
 </section>
 @endif
 
+{{-- ═══ PROJECT FOOTPRINT ═══ --}}
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12">
+            <div class="reveal-left">
+                <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Our Project's Footprint</p>
+                <h2 class="text-4xl md:text-5xl font-heading text-navy-900 leading-tight">Infrastructure. Industry.<br><em class="font-display not-italic text-brown-500">Environment.</em></h2>
+            </div>
+            <p class="reveal-right text-slate-600 leading-relaxed">
+                Alada has built a strong footprint across regions spanning the infrastructure and industrial sectors. We continue to expand our capabilities and partnerships to deliver sustainable, compliant solutions in a rapidly evolving environment.
+            </p>
+        </div>
+
+        <div class="reveal-scale">
+            <img src="{{ asset('images/Our%20Expertise.svg') }}" alt="Map of Alada's global project footprint across infrastructure and industry"
+                 loading="lazy" class="w-full h-auto select-none pointer-events-none">
+        </div>
+    </div>
+</section>
+
 {{-- ═══ GLOBAL STATS BAND ═══ --}}
 <section class="bg-navy-900 py-16 relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]">
@@ -329,9 +349,9 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             @foreach([
-                ['2100', '+', 'Delivered Projects',    'Infrastructure & industrial worldwide'],
-                ['55',   '+', 'Delivered Clients',      'Long-term global partnerships'],
-                ['70',   '+', 'Team of Skilled Experts','Multi-disciplinary engineering talent'],
+                ['5000', '+', 'Delivered Projects',     'Project lifecycle consistently delivered on time'],
+                ['55',   '+', 'Delighted Clients',       'Consistently positive feedback from valued clients'],
+                ['100',  '+', 'Team of Skilled Experts', 'A strong, skilled team providing diverse expertise'],
             ] as [$num, $suf, $label, $sub])
             <div class="reveal">
                 <div class="font-display text-6xl md:text-7xl font-bold text-white mb-2"
