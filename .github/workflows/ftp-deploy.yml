@@ -55,5 +55,5 @@ jobs:
               --exclude-glob tests/ \
               --exclude-glob .env \
               --exclude-glob storage/logs/ \
-              . ${FTP_REMOTE_DIR:-/};
+              . /;
           "
