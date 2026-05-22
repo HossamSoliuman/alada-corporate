@@ -20,7 +20,11 @@
       "PowerShell(php artisan tinker --execute \"echo json_encode\\(App\\\\Models\\\\Page::where\\('slug','careers'\\)->first\\(\\)->toArray\\(\\), JSON_PRETTY_PRINT\\);\")",
       "PowerShell(vendor/bin/pint app/Http/Controllers/Frontend/CareerController.php --format agent)",
       "PowerShell(vendor/bin/pint app/Http/Controllers/Admin/PageController.php --format agent)",
-      "PowerShell(php artisan view:clear)"
+      "PowerShell(php artisan view:clear)",
+      "PowerShell(php artisan route:list --except-vendor 2>&1 | Select-Object -First 60)",
+      "PowerShell(php artisan route:list --except-vendor 2>&1 | Select-Object -Last 30)",
+      "PowerShell(php artisan tinker --execute 'App\\\\Models\\\\Page::select\\(\"id\",\"title\",\"slug\"\\)->get\\(\\)->each\\(function\\($p\\){ echo $p->id . \" | \" . $p->slug . \" | \" . $p->title . \"\\\\n\"; }\\);')",
+      "PowerShell(php artisan tinker --execute 'print_r\\(App\\\\Models\\\\Page::select\\(\"id\",\"title\",\"slug\"\\)->get\\(\\)->toArray\\(\\)\\);')"
     ]
   },
   "enableAllProjectMcpServers": true,

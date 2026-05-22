@@ -24,8 +24,9 @@
                 @if($page->slug !== 'careers')
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Content</label>
-                    <textarea name="content" id="page-content" rows="14"
-                              class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500">{{ old('content', $page->content) }}</textarea>
+                    <p class="text-xs text-gray-500 mb-1.5">Plain text. Each blank line starts a new paragraph.</p>
+                    <textarea name="content" id="page-content" rows="20"
+                              class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500 resize-y leading-relaxed">{{ old('content', $page->content) }}</textarea>
                 </div>
                 @endif
             </div>

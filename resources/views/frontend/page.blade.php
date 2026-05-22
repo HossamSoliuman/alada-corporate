@@ -11,14 +11,18 @@
 <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         @if($page->content)
-        <div class="prose prose-lg max-w-none">{!! $page->content !!}</div>
+        <div class="space-y-4 text-gray-700 text-base leading-relaxed">
+            @foreach(array_filter(explode("\n\n", $page->content)) as $paragraph)
+            <p>{!! nl2br(e(trim($paragraph))) !!}</p>
+            @endforeach
+        </div>
         @endif
 
         @if($page->sections)
             @foreach($page->sections as $section)
             <div class="mt-12">
                 @if(!empty($section['title']))<h2 class="text-2xl font-heading font-bold text-navy-900 mb-4">{{ $section['title'] }}</h2>@endif
-                @if(!empty($section['content']))<div class="prose max-w-none">{!! $section['content'] !!}</div>@endif
+                @if(!empty($section['content']))<div class="prose prose-headings:font-heading prose-headings:text-navy-900 prose-a:text-teal-600 max-w-none">{!! $section['content'] !!}</div>@endif
             </div>
             @endforeach
         @endif
