@@ -144,40 +144,21 @@
 {{-- ═══ PROVEN. SCALABLE. DELIVERABLE. ═══ --}}
 <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-end mb-16">
-            <div class="reveal-left">
-                <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Core Capabilities</p>
-                <h2 class="text-4xl md:text-5xl font-heading text-navy-900 leading-tight">Proven. Scalable.<br><em class="font-display not-italic text-brown-500">Deliverable.</em></h2>
-            </div>
-            <div class="reveal-right">
-                <p class="text-slate-500 leading-relaxed">From land preparation to complex industrial systems — we deliver engineering solutions built to international standards, at any scale, in any environment across five continents.</p>
-            </div>
-        </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @foreach([
-                ['01', 'Land Development',
-                 'Site planning, grading, drainage design, and infrastructure layout for residential, commercial, and mixed-use developments.',
-                 '/images/Subdivision-land-course-hero-image.png'],
-                ['02', 'Transportation Infrastructure',
-                 'Road, bridge, highway, and rail design engineered for capacity, safety, and long-term performance at any scale.',
-                 '/images/Transportation Infrastructure.jpg'],
-                ['03', 'Industrial Plant & Piping',
-                 'Process plant design, piping systems, industrial infrastructure, and facility engineering for complex industrial environments.',
-                 '/images/Process-Piping.jpg'],
-                ['04', 'Digital Twin & Parametric Modeling',
-                 'BIM-driven design, parametric modelling, and digital twin delivery for data-rich asset management and informed decision-making.',
-                 '/images/Digital-Twin-Model.jpg'],
-            ] as $i => [$num, $title, $desc, $img])
-            <div class="group relative overflow-hidden rounded-3xl reveal aspect-[4/3]" style="transition-delay: {{ $i * 100 }}ms">
-                <img src="{{ $img }}" alt="{{ $title }}"
-                     loading="lazy"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-950/92 via-navy-950/40 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 p-8">
-                    <span class="inline-block text-xs font-semibold text-teal-400 uppercase tracking-widest mb-2">{{ $num }}</span>
-                    <h3 class="font-heading text-2xl text-white mb-2 leading-snug">{{ $title }}</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed max-w-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">{{ $desc }}</p>
+                ['Land Development',         '/images/Subdivision-land-course-hero-image.png'],
+                ['Transportation Infrastructure', '/images/Transportation Infrastructure.jpg'],
+                ['Industrial Plant & Piping', '/images/Process-Piping.jpg'],
+                ['Digital Twin & Parametric Modeling', '/images/Digital-Twin-Model.jpg'],
+            ] as $i => [$title, $img])
+            <div class="group rounded-3xl overflow-hidden reveal" style="transition-delay: {{ $i * 100 }}ms">
+                <div class="relative overflow-hidden aspect-[4/3]">
+                    <img src="{{ $img }}" alt="{{ $title }}"
+                         loading="lazy"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="pt-5 pb-2 px-1">
+                    <h3 class="font-heading text-2xl text-navy-900 leading-snug">{{ $title }}</h3>
                 </div>
             </div>
             @endforeach
