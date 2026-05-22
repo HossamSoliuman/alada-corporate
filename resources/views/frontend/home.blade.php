@@ -167,65 +167,111 @@
 </section>
 
 {{-- ═══ PROJECT LIFECYCLE ═══ --}}
-<section class="py-24 bg-navy-900 relative overflow-hidden texture">
-    <div class="absolute inset-0 opacity-[0.03]">
-        <svg viewBox="0 0 1000 600" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <defs><pattern id="hex" x="0" y="0" width="40" height="46" patternUnits="userSpaceOnUse">
-                <polygon points="20,2 38,12 38,34 20,44 2,34 2,12" fill="none" stroke="white" stroke-width="0.6"/>
-            </pattern></defs>
-            <rect width="100%" height="100%" fill="url(#hex)"/>
-        </svg>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {{-- Header --}}
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-20">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-20">
             <div class="reveal-left">
-                <p class="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-4">Our Involvement</p>
-                <h2 class="text-4xl md:text-5xl font-heading text-white leading-tight">Project Lifecycle.<br><em class="font-display not-italic text-brown-300">Dedicated. Value Driven.</em></h2>
+                <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Our Involvement</p>
+                <h2 class="text-4xl md:text-5xl font-heading text-navy-900 leading-tight">Project Lifecycle.<br><em class="font-display not-italic text-brown-500">Dedicated. Value Driven.</em></h2>
             </div>
-            <p class="reveal-right text-slate-400 leading-relaxed">
+            <p class="reveal-right text-slate-500 leading-relaxed">
                 Alada supports its partners at every stage — from bidding and early planning through detailed design, construction, and as-built handover. Backed by rigorous engineering and digital workflows, we deliver seamless coordination, accurate deliverables, and practical solutions that keep projects moving forward — an integrated extension of your team from concept to completion.
             </p>
         </div>
 
-        {{-- Connected lifecycle timeline --}}
-        <div class="relative">
-            {{-- Spine --}}
-            <span class="pointer-events-none absolute top-4 bottom-4 left-7 lg:left-1/2 lg:-translate-x-1/2 w-px bg-gradient-to-b from-teal-500/0 via-teal-500/50 to-teal-500/0"></span>
+        {{-- Desktop: horizontal zigzag timeline --}}
+        {{-- Tall cards (01,03,05): h-[400px] — start at top. Short cards (02,04,06): h-[310px] — bottom-aligned, so they start 90px lower. --}}
+        <div class="hidden lg:flex items-end gap-4 overflow-visible reveal">
 
-            <div class="space-y-8 lg:space-y-2">
-                @foreach([
-                    ['01', 'Tendering',                'BOQ preparation, conceptual design, visualizations, and end-to-end bid support.',                              'clipboard-document-list'],
-                    ['02', 'Preliminary Design',       'Project setup, workflow definition, feasibility studies, and preliminary engineering design.',                 'pencil-square'],
-                    ['03', 'Detailed Design',          'Detailed engineering, multi-discipline coordination, IFC drawings, and BIM model development.',                 'cube-transparent'],
-                    ['04', 'Construction',             'Temporary works design, 4D/5D modeling, quantity take-offs, utility coordination, and RFI support.',           'building-office-2'],
-                    ['05', 'Handover',                 'As-built documentation, consolidated RFIs, and finalized coordinated models ready for operation.',            'shield-check'],
-                    ['06', 'Operations & Maintenance', 'Digital twin delivery, asset registers, and continuously updated as-built lifecycle data.',                    'cog-6-tooth'],
-                ] as $i => [$num, $title, $desc, $icon])
-                @php $isLeft = $i % 2 === 0; @endphp
-                <div class="relative flex {{ $isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse' }} reveal" style="transition-delay: {{ $i * 80 }}ms">
-                    {{-- Node on the spine --}}
-                    <span class="absolute z-10 left-7 lg:left-1/2 top-7 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-teal-400 ring-4 ring-teal-400/15"></span>
-
-                    {{-- Stage card --}}
-                    <div class="w-full lg:w-1/2 pl-16 lg:pl-0 {{ $isLeft ? 'lg:pr-14 lg:text-right' : 'lg:pl-14' }}">
-                        <div class="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/[0.08] hover:border-teal-500/30 transition-all duration-300">
-                            <div class="flex items-center gap-3 mb-4 {{ $isLeft ? 'lg:flex-row-reverse' : '' }}">
-                                <span class="font-display text-5xl font-bold leading-none text-teal-500/40 group-hover:text-teal-400 transition-colors duration-300">{{ $num }}</span>
-                                <div class="w-11 h-11 rounded-xl bg-teal-600/20 text-teal-400 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shrink-0">
-                                    <x-icon name="{{ $icon }}" class="w-5 h-5"/>
-                                </div>
-                            </div>
-                            <h3 class="font-heading text-xl text-white mb-2 leading-snug">{{ $title }}</h3>
-                            <p class="text-sm text-slate-400 leading-relaxed">{{ $desc }}</p>
-                        </div>
-                    </div>
-
-                    {{-- Spacer keeps the card on its side of the spine --}}
-                    <div class="hidden lg:block lg:w-1/2"></div>
+            {{-- 01 · tall --}}
+            <div class="flex-1 relative">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
+                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">01</span>
+                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Tendering Stage</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">BOQs, conceptual designs, visualizations, bid support.</p>
                 </div>
-                @endforeach
+               
+            </div>
+
+            {{-- 02 · short --}}
+            <div class="flex-1 relative">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[310px] flex flex-col">
+                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">02</span>
+                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Preliminary Design Stage</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
+                </div>
+                </div>
+
+            {{-- 03 · tall --}}
+            <div class="flex-1 relative">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
+                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">03</span>
+                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Detailed Design Stage</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Detailed engineering, coordination, IFC drawings, BIM, machine guidance.</p>
+                </div>
+                  </div>
+
+            {{-- 04 · short --}}
+            <div class="flex-1 relative">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[310px] flex flex-col">
+                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">04</span>
+                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Construction Stage</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
+                </div>
+                 </div>
+
+            {{-- 05 · tall --}}
+            <div class="flex-1 relative">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
+                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">05</span>
+                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Handover Stage</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">As-built documentation, consolidated RFIs, finalized coordinated models.</p>
+                </div>
+                 </div>
+
+            {{-- 06 · short --}}
+            <div class="flex-1 relative">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[310px] flex flex-col">
+                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">06</span>
+                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Operations & Maintenance Stage</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
+                </div>
+            </div>
+
+        </div>
+
+        {{-- Mobile: vertical stack --}}
+        <div class="lg:hidden space-y-4">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
+                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">01</span>
+                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Tendering Stage</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">BOQs, conceptual designs, visualizations, bid support.</p>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
+                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">02</span>
+                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Preliminary Design Stage</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
+                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">03</span>
+                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Detailed Design Stage</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Detailed engineering, coordination, IFC drawings, BIM, machine guidance.</p>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
+                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">04</span>
+                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Construction Stage</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
+                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">05</span>
+                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Handover Stage</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">As-built documentation, consolidated RFIs, finalized coordinated models.</p>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
+                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">06</span>
+                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Operations & Maintenance Stage</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
             </div>
         </div>
     </div>
