@@ -12,7 +12,15 @@
       "Bash(curl -s --max-time 15 \"http://blog-corporate.test\" -o /tmp/home.html)",
       "Read(//tmp/**)",
       "Bash(curl -s --max-time 15 \"http://blog-corporate.test\" -o /tmp/home2.html)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code} | type=%{content_type} | bytes=%{size_download}\\\\n\" --max-time 15 \"http://blog-corporate.test/images/Our%20Expertise.svg\")"
+      "Bash(curl -s -o /dev/null -w \"%{http_code} | type=%{content_type} | bytes=%{size_download}\\\\n\" --max-time 15 \"http://blog-corporate.test/images/Our%20Expertise.svg\")",
+      "PowerShell(vendor/bin/pint app/Http/Controllers/Frontend/CareerController.php --format agent 2>&1)",
+      "PowerShell(php artisan tinker --execute 'echo json_encode\\(App\\\\Models\\\\Page::pluck\\(\"slug\",\"id\"\\)->toArray\\(\\)\\);')",
+      "PowerShell(php artisan tinker --execute 'echo json_encode\\(App\\\\Models\\\\Page::all\\(\\)->pluck\\(\"slug\",\"id\"\\)->toArray\\(\\)\\);')",
+      "PowerShell(php artisan tinker --execute \"echo json_encode\\(App\\\\Models\\\\Page::all\\(\\)->pluck\\('slug','id'\\)->toArray\\(\\)\\);\")",
+      "PowerShell(php artisan tinker --execute \"echo json_encode\\(App\\\\Models\\\\Page::where\\('slug','careers'\\)->first\\(\\)->toArray\\(\\), JSON_PRETTY_PRINT\\);\")",
+      "PowerShell(vendor/bin/pint app/Http/Controllers/Frontend/CareerController.php --format agent)",
+      "PowerShell(vendor/bin/pint app/Http/Controllers/Admin/PageController.php --format agent)",
+      "PowerShell(php artisan view:clear)"
     ]
   },
   "enableAllProjectMcpServers": true,

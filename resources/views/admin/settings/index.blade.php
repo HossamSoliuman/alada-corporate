@@ -9,7 +9,7 @@
     @csrf @method('PUT')
 
     {{-- Tabs --}}
-    <div class="flex gap-1 mb-6 bg-gray-100 p-1 rounded-xl w-fit">
+    <div class="flex flex-wrap gap-1 mb-6 bg-gray-100 p-1 rounded-xl w-fit">
         @foreach(['general','contact','social','analytics'] as $t)
         <button type="button" @click="tab='{{ $t }}'"
                 :class="tab==='{{ $t }}' ? 'bg-white shadow text-gray-900' : 'text-gray-500 hover:text-gray-700'"
