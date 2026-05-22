@@ -15,7 +15,7 @@
 
                 <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
                     <button class="flex items-center gap-1 text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">
-                        Services
+                        Expertise
                         <x-icon name="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" ::class="open ? 'rotate-180' : ''"/>
                     </button>
                     <div x-show="open" x-cloak
@@ -46,7 +46,7 @@
                 </div>
 
                 <a href="{{ route('industries.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Industries</a>
-                <a href="{{ route('case-studies.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Projects</a>
+                <a href="{{ route('case-studies.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Experience</a>
                 <a href="{{ route('blog.index') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Insights</a>
                 <a href="{{ route('careers') }}" class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Careers</a>
 
