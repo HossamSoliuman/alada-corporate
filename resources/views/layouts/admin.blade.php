@@ -17,15 +17,17 @@
                         brown: { 50:'#f5ede4',100:'#e8d4bf',200:'#dab898',300:'#cc9c71',400:'#bf834e',500:'#8e6b51',600:'#785840',700:'#62462f' },
                         slate: { 50:'#f4f6f7',100:'#e8edef',200:'#c1cfd2',300:'#a0b4b9',400:'#7d98a0',500:'#5e7f88',600:'#4a6870',700:'#385159',800:'#273b42',900:'#18272c' },
                     },
-                    fontFamily: { sans: ['"DM Sans"','ui-sans-serif'] }
+                    fontFamily: { sans: ['"Inter"','ui-sans-serif'], heading: ['"Poppins"','ui-sans-serif'] }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         [x-cloak]{display:none!important}
-        body { font-family:'DM Sans',ui-sans-serif,system-ui; }
+        body { font-family:'Inter',ui-sans-serif,system-ui; }
+        h1,h2,h3,h4,h5,h6 { font-family:'Poppins',ui-sans-serif,system-ui; font-weight:700; }
+        button,[type="button"],[type="submit"] { font-family:'Poppins',ui-sans-serif,system-ui; font-weight:500; }
     </style>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
     @stack('styles')

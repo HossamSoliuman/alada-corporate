@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -72,8 +72,8 @@
                     },
                     fontFamily: {
                         sans: ['"Inter"', 'ui-sans-serif', 'system-ui'],
-                        heading: ['"Playfair Display"', 'Georgia', 'serif'],
-                        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        heading: ['"Poppins"', 'ui-sans-serif', 'system-ui'],
+                        display: ['"Poppins"', 'ui-sans-serif', 'system-ui'],
                     },
                 }
             }
@@ -98,11 +98,21 @@
         h2,
         h3,
         h4 {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-weight: 700;
         }
 
         .font-display {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Poppins', ui-sans-serif, system-ui;
+        }
+
+        button,
+        [type="button"],
+        [type="submit"],
+        [role="button"],
+        a[class*="btn"] {
+            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-weight: 500;
         }
 
         .line-clamp-2 {
@@ -130,7 +140,8 @@
         .prose h2,
         .prose h3,
         .prose h4 {
-            font-family: 'DM Serif Display', Georgia, serif;
+            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-weight: 700;
         }
 
         /* Reveal animations */
@@ -253,7 +264,8 @@
 
         /* Count-up */
         .count-up {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-weight: 700;
         }
 
         /* Connecting line draw */
