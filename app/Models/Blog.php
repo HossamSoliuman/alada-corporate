@@ -55,7 +55,7 @@ class Blog extends Model
 
     public function getReadingTimeAttribute(): int
     {
-        if ($this->attributes['reading_time']) {
+        if ($this->attributes['reading_time'] ?? null) {
             return (int) $this->attributes['reading_time'];
         }
         $words = str_word_count(strip_tags($this->content ?? ''));
