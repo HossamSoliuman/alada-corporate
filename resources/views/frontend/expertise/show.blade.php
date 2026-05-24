@@ -1,4 +1,77 @@
 @extends('layouts.app')
+
+@push('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<style>
+/* Bootstrap-compatible grid inside description */
+.service-desc .row { display: flex; flex-wrap: wrap; margin: 0 -0.75rem; }
+.service-desc [class*="col-"] { padding: 0 0.75rem; box-sizing: border-box; width: 100%; }
+@media (min-width: 768px) {
+    .service-desc .col-md-6 { width: 50%; }
+}
+@media (min-width: 992px) {
+    .service-desc .col-lg-4 { width: 33.333%; }
+}
+
+/* Bootstrap utilities */
+.service-desc .list-unstyled { list-style: none; padding-left: 0; margin: 0; }
+.service-desc .text-center { text-align: center; }
+.service-desc .mt-4 { margin-top: 1.5rem; }
+.service-desc .mb-3 { margin-bottom: 0.75rem; }
+.service-desc .mb-4 { margin-bottom: 1rem; }
+.service-desc .mb-5 { margin-bottom: 2rem; }
+.service-desc .me-2 { margin-right: 0.5rem; }
+.service-desc .mt-5 { margin-top: 2rem; }
+
+/* Section headers */
+.service-desc .service-section h2,
+.service-desc .service-intro + * h2 {
+    font-family: 'Poppins', ui-sans-serif, system-ui;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0d3041;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e8eef3;
+}
+
+/* Expertise cards */
+.service-desc .expertise-card {
+    background: #f4f6f7;
+    border: 1px solid #e8eef3;
+    border-radius: 1rem;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+    color: #0d3041;
+}
+.service-desc .expertise-card h5 {
+    font-family: 'Poppins', ui-sans-serif, system-ui;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    color: #0d3041;
+}
+.service-desc .expertise-card i { color: #19587f; }
+
+/* Icon colors */
+.service-desc .text-primary { color: #19587f; }
+.service-desc .text-success { color: #16a34a; }
+.service-desc i.fa-3x { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+
+/* Blockquote */
+.service-desc .blockquote {
+    background: #e6eff6;
+    border-left: 4px solid #19587f;
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: #193d55;
+    margin: 0;
+}
+</style>
+@endpush
+
 @section('content')
 
 <section class="bg-navy-900 relative overflow-hidden texture py-28">
@@ -25,7 +98,7 @@
                 <img src="{{ asset($service->featured_image) }}" alt="{{ $service->name }}"
                      class="w-full rounded-2xl mb-8 aspect-video object-cover shadow-sm">
                 @endif
-                <div class="prose prose-slate prose-lg max-w-none">{!! $service->description !!}</div>
+                <div class="prose prose-slate prose-lg max-w-none service-desc">{!! $service->description !!}</div>
             </article>
 
             <aside class="space-y-6 reveal-right">
