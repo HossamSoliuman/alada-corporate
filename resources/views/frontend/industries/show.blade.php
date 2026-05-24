@@ -3,7 +3,7 @@
 @section('content')
 <section class="bg-navy-900 relative overflow-hidden texture text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <x-breadcrumbs :items="[['name'=>'Industries','url'=>route('industries.index')],['name'=>$industry->name]]"/>
+        <x-breadcrumbs :items="[['name'=>'Industries'],['name'=>$industry->name]]"/>
         <h1 class="text-4xl md:text-5xl font-heading font-bold mt-6 mb-4">{{ $industry->name }}</h1>
         @if($industry->description)<p class="text-xl text-slate-300">{{ $industry->description }}</p>@endif
     </div>

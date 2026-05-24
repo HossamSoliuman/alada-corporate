@@ -33,7 +33,6 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/expertise', [ServiceController::class, 'index'])->name('expertise.index');
 Route::get('/expertise/{slug}', [ServiceController::class, 'show'])->name('expertise.show');
 
-Route::get('/industries', [IndustryController::class, 'index'])->name('industries.index');
 Route::get('/industries/{slug}', [IndustryController::class, 'show'])->name('industries.show');
 
 Route::get('/case-studies', [CaseStudyController::class, 'index'])->name('case-studies.index');
