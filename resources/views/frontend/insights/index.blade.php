@@ -18,7 +18,7 @@
         <div class="flex flex-col lg:flex-row gap-10">
 
             <aside class="w-full lg:w-64 shrink-0 space-y-6 reveal-left">
-                <form method="GET" action="{{ route('blog.index') }}">
+                <form method="GET" action="{{ route('insights.index') }}">
                     <div class="relative">
                         <input type="text" name="search" value="{{ request('search') }}"
                                placeholder="Search articles..."
@@ -32,11 +32,11 @@
                 <div class="bg-white rounded-2xl border border-slate-100 p-5">
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">Categories</h3>
                     <div class="space-y-1">
-                        <a href="{{ route('blog.index') }}" class="block px-3 py-2 rounded-lg text-sm {{ !request('category') ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-slate-600 hover:bg-slate-50' }} transition-colors">
+                        <a href="{{ route('insights.index') }}" class="block px-3 py-2 rounded-lg text-sm {{ !request('category') ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-slate-600 hover:bg-slate-50' }} transition-colors">
                             All Posts
                         </a>
                         @foreach($categories as $cat)
-                        <a href="{{ route('blog.category', $cat->slug) }}"
+                        <a href="{{ route('insights.category', $cat->slug) }}"
                            class="flex items-center justify-between px-3 py-2 rounded-lg text-sm {{ request('category') === $cat->slug ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-slate-600 hover:bg-slate-50' }} transition-colors">
                             <span>{{ $cat->name }}</span>
                             <span class="text-xs text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">{{ $cat->blogs_count }}</span>
@@ -50,7 +50,7 @@
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">Tags</h3>
                     <div class="flex flex-wrap gap-2">
                         @foreach($latestTags as $tag)
-                        <a href="{{ route('blog.tag', $tag->slug) }}"
+                        <a href="{{ route('insights.tag', $tag->slug) }}"
                            class="text-xs px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-teal-400 hover:text-teal-700 hover:bg-teal-50 transition-all">
                             {{ $tag->name }}
                         </a>
@@ -64,7 +64,7 @@
                 @if($blogs->count())
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     @foreach($blogs as $i => $blog)
-                    @include('frontend.blog._card', ['blog' => $blog, 'delay' => $i * 60])
+                    @include('frontend.insights._card', ['blog' => $blog, 'delay' => $i * 60])
                     @endforeach
                 </div>
                 <div class="mt-10">{{ $blogs->links() }}</div>

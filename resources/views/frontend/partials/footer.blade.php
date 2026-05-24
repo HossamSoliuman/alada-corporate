@@ -44,7 +44,7 @@
             <div>
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Company</h4>
                 <ul class="space-y-2.5">
-                    @foreach([['about','About Alada'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['blog.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
+                    @foreach([['about','About Alada'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['insights.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
                     <li>
                         <a href="{{ $link[0] === 'page.show' ? route($link[0], 'careers') : route($link[0]) }}"
                            class="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-2 group">

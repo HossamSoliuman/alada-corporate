@@ -54,7 +54,7 @@
 
 <a href="{{ route('case-studies.index') }}"
                     class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Case Studies</a>
-                <a href="{{ route('blog.index') }}"
+                <a href="{{ route('insights.index') }}"
                     class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Insights</a>
 
                 @php
@@ -139,7 +139,7 @@
         x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
         class="lg:hidden border-t border-slate-100 bg-white">
         <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            @foreach ([['home', 'Home'], ['about', 'About'], ['expertise.index', 'Expertise'], ['case-studies.index', 'Projects'], ['blog.index', 'Insights'], ['careers', 'Careers']] as [$r, $l])
+            @foreach ([['home', 'Home'], ['about', 'About'], ['expertise.index', 'Expertise'], ['case-studies.index', 'Projects'], ['insights.index', 'Insights'], ['careers', 'Careers']] as [$r, $l])
                 <a href="{{ route($r) }}"
                     class="block px-4 py-3 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">{{ $l }}</a>
             @endforeach

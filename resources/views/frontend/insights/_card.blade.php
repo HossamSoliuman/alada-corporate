@@ -1,5 +1,5 @@
 @php $delay = $delay ?? 0; @endphp
-<a href="{{ route('blog.show', $blog->slug) }}"
+<a href="{{ route('insights.show', $blog->slug) }}"
    class="group flex flex-col bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-navy-900/8 hover:border-slate-200 transition-all duration-500 reveal"
    style="transition-delay: {{ $delay }}ms">
     @if($blog->featured_image)

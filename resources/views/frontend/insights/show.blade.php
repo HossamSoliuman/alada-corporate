@@ -4,9 +4,9 @@
 <section class="bg-navy-900 relative overflow-hidden texture py-28">
     <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-teal-900/40"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <x-breadcrumbs :items="[['name'=>'Insights','url'=>route('blog.index')],['name'=>$blog->title]]"/>
+        <x-breadcrumbs :items="[['name'=>'Insights','url'=>route('insights.index')],['name'=>$blog->title]]"/>
         @if($blog->category)
-        <a href="{{ route('blog.category', $blog->category->slug) }}" class="mt-6 inline-block text-xs font-semibold text-teal-400 uppercase tracking-widest hover:text-white transition-colors">{{ $blog->category->name }}</a>
+        <a href="{{ route('insights.category', $blog->category->slug) }}" class="mt-6 inline-block text-xs font-semibold text-teal-400 uppercase tracking-widest hover:text-white transition-colors">{{ $blog->category->name }}</a>
         @endif
         <h1 class="text-4xl md:text-5xl font-heading text-white mt-3 mb-6 leading-tight">{{ $blog->title }}</h1>
         <div class="flex items-center gap-3 text-slate-400 text-sm">
@@ -29,7 +29,7 @@
                 @if($blog->tags->count())
                 <div class="mt-8 flex flex-wrap gap-2">
                     @foreach($blog->tags as $tag)
-                    <a href="{{ route('blog.tag', $tag->slug) }}" class="text-xs px-3 py-1.5 rounded-full bg-teal-50 text-teal-700 hover:bg-teal-100 transition-colors font-medium">{{ $tag->name }}</a>
+                    <a href="{{ route('insights.tag', $tag->slug) }}" class="text-xs px-3 py-1.5 rounded-full bg-teal-50 text-teal-700 hover:bg-teal-100 transition-colors font-medium">{{ $tag->name }}</a>
                     @endforeach
                 </div>
                 @endif
@@ -46,7 +46,7 @@
                     <h3 class="font-semibold text-navy-900 mb-4 text-sm">Related Articles</h3>
                     <div class="space-y-4">
                         @foreach($related as $rel)
-                        <a href="{{ route('blog.show', $rel->slug) }}" class="flex gap-3 group">
+                        <a href="{{ route('insights.show', $rel->slug) }}" class="flex gap-3 group">
                             @if($rel->featured_image)
                             <img src="{{ asset('storage/'.$rel->featured_image) }}" alt="{{ $rel->title }}" class="w-16 h-16 object-cover rounded-xl shrink-0">
                             @endif

@@ -400,14 +400,14 @@
                 <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Knowledge</p>
                 <h2 class="text-4xl md:text-5xl font-heading text-navy-900">Latest<br><em class="font-display not-italic text-brown-500">Insights</em></h2>
             </div>
-            <a href="{{ route('blog.index') }}" class="reveal-right inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-teal-600 transition-colors group shrink-0">
+            <a href="{{ route('insights.index') }}" class="reveal-right inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-teal-600 transition-colors group shrink-0">
                 All Articles
                 <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
             </a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
             @foreach($latestBlogs as $i => $blog)
-            @include('frontend.blog._card', ['blog' => $blog, 'delay' => $i * 100])
+            @include('frontend.insights._card', ['blog' => $blog, 'delay' => $i * 100])
             @endforeach
         </div>
     </div>

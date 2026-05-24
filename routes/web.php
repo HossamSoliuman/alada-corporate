@@ -39,10 +39,10 @@ Route::get('/case-studies', [CaseStudyController::class, 'index'])->name('case-s
 Route::get('/case-studies/{slug}', [CaseStudyController::class, 'show'])->name('case-studies.show');
 Route::get('/case-studies/{slug}/download', [CaseStudyController::class, 'downloadPdf'])->name('case-studies.download');
 
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
-Route::get('/blog/tag/{slug}', [BlogController::class, 'tag'])->name('blog.tag');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/insights', [BlogController::class, 'index'])->name('insights.index');
+Route::get('/insights/category/{slug}', [BlogController::class, 'category'])->name('insights.category');
+Route::get('/insights/tag/{slug}', [BlogController::class, 'tag'])->name('insights.tag');
+Route::get('/insights/{slug}', [BlogController::class, 'show'])->name('insights.show');
 
 Route::get('/careers', [CareerController::class, 'index'])->name('careers');
 
