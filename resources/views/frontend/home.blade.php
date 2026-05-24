@@ -181,7 +181,7 @@
         </div>
 
         {{-- Desktop: horizontal zigzag timeline --}}
-        {{-- Tall cards (01,03,05): h-[400px] — start at top. Short cards (02,04,06): h-[310px] — bottom-aligned, so they start 90px lower. --}}
+        {{-- Tall cards (01,03,05): h-[400px] — start at top. Short cards (02,04,06): h-[370px] — bottom-aligned, so they start 90px lower. --}}
         <div class="hidden lg:flex items-end gap-4 overflow-visible reveal">
 
             {{-- 01 · tall --}}
@@ -196,7 +196,7 @@
 
             {{-- 02 · short --}}
             <div class="flex-1 relative">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[310px] flex flex-col">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">02</span>
                     <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Preliminary Design Stage</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
@@ -214,7 +214,7 @@
 
             {{-- 04 · short --}}
             <div class="flex-1 relative">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[310px] flex flex-col">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">04</span>
                     <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Construction Stage</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
@@ -232,7 +232,7 @@
 
             {{-- 06 · short --}}
             <div class="flex-1 relative">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[310px] flex flex-col">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">06</span>
                     <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Operations & Maintenance Stage</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
