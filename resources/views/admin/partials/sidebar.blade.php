@@ -17,7 +17,7 @@
             ['admin.case-studies.index',  'clipboard-document-list','Case Studies',       'admin/case-studies'],
             ['admin.case-study-categories.index','folder',         'CS Categories',      'admin/case-study-categories'],
             ['admin.industries.index',    'building-office',        'Industries',         'admin/industries'],
-            ['admin.services.index',      'cog-6-tooth',            'Services',           'admin/services'],
+            ['admin.expertise.index',     'cog-6-tooth',            'Expertise',          'admin/expertise'],
             ['admin.hero-slides.index',   'film',                   'Hero Video',         'admin/hero-slides'],
             ['admin.pages.index',         'document-arrow-down',    'Pages',              'admin/pages'],
             ['admin.users.index',         'user-circle',            'Users',              'admin/users'],

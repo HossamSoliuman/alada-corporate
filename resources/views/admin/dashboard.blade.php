@@ -11,7 +11,7 @@
         ['label'=>'Leads (Month)','value'=>$stats['leads_month'], 'color'=>'bg-violet-50 text-violet-700','border'=>'border-violet-200'],
         ['label'=>'Blog Posts',   'value'=>$stats['blogs_total'], 'color'=>'bg-emerald-50 text-emerald-700','border'=>'border-emerald-200'],
         ['label'=>'Case Studies', 'value'=>$stats['case_studies'],'color'=>'bg-amber-50 text-amber-700',  'border'=>'border-amber-200'],
-        ['label'=>'Services',     'value'=>$stats['services'],    'color'=>'bg-rose-50 text-rose-700',    'border'=>'border-rose-200'],
+        ['label'=>'Expertise',    'value'=>$stats['expertise'],   'color'=>'bg-rose-50 text-rose-700',    'border'=>'border-rose-200'],
     ] as $stat)
     <div class="bg-white rounded-xl border {{ $stat['border'] }} p-5">
         <p class="text-xs font-medium text-gray-500 mb-1">{{ $stat['label'] }}</p>

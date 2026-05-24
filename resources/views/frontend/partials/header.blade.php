@@ -31,7 +31,7 @@
                         class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[560px] bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-slate-100 p-5 z-50">
                         <div class="grid grid-cols-2 gap-1">
                             @foreach ($footerServices as $svc)
-                                <a href="{{ route('services.show', $svc->slug) }}"
+                                <a href="{{ route('expertise.show',$svc->slug) }}"
                                     class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
                                     <div
                                         class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover/item:bg-teal-600 group-hover/item:text-white transition-all shrink-0">
@@ -43,9 +43,9 @@
                             @endforeach
                         </div>
                         <div class="mt-3 pt-3 border-t border-slate-100">
-                            <a href="{{ route('services.index') }}"
+                            <a href="{{ route('expertise.index') }}"
                                 class="flex items-center gap-2 text-xs font-semibold text-teal-600 hover:text-teal-700 transition-colors">
-                                View all services
+                                View all expertise
                                 <x-icon name="arrow-long-right" class="w-4 h-4 arrow-nudge" />
                             </a>
                         </div>
@@ -141,7 +141,7 @@
         x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
         class="lg:hidden border-t border-slate-100 bg-white">
         <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            @foreach ([['home', 'Home'], ['about', 'About'], ['services.index', 'Services'], ['industries.index', 'Industries'], ['case-studies.index', 'Projects'], ['blog.index', 'Insights'], ['careers', 'Careers']] as [$r, $l])
+            @foreach ([['home', 'Home'], ['about', 'About'], ['expertise.index', 'Expertise'], ['industries.index', 'Industries'], ['case-studies.index', 'Projects'], ['blog.index', 'Insights'], ['careers', 'Careers']] as [$r, $l])
                 <a href="{{ route($r) }}"
                     class="block px-4 py-3 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">{{ $l }}</a>
             @endforeach

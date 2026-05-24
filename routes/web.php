@@ -30,8 +30,8 @@ require __DIR__.'/auth.php';
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
-Route::get('/services/{slug}', [ServiceController::class, 'show'])->name('services.show');
+Route::get('/expertise', [ServiceController::class, 'index'])->name('expertise.index');
+Route::get('/expertise/{slug}', [ServiceController::class, 'show'])->name('expertise.show');
 
 Route::get('/industries', [IndustryController::class, 'index'])->name('industries.index');
 Route::get('/industries/{slug}', [IndustryController::class, 'show'])->name('industries.show');
@@ -69,7 +69,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 
     Route::resource('industries', AdminIndustryController::class);
 
-    Route::resource('services', AdminServiceController::class);
+    Route::resource('expertise', AdminServiceController::class);
 
     Route::get('hero-slides', [HeroSlideController::class, 'index'])->name('hero-slides.index');
     Route::post('hero-slides', [HeroSlideController::class, 'store'])->name('hero-slides.store');

@@ -3,22 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
-use App\Models\BlogCategory;
-use App\Models\BlogTag;
-use App\Models\CaseStudy;
-use App\Models\CaseStudyCategory;
-use App\Models\Industry;
-use App\Models\Lead;
-use App\Models\Page;
 use App\Models\Service;
-use App\Models\Setting;
-use App\Models\User;
 use App\Services\ImageService;
 use App\Services\SeoService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Maatwebsite\Excel\Facades\Excel;
 
 class ServiceController extends Controller
 {
@@ -27,25 +15,26 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::orderBy('order')->paginate(20);
-        return view('admin.services.index', compact('services'));
+
+        return view('admin.expertise.index', compact('services'));
     }
 
     public function create()
     {
-        return view('admin.services.create');
+        return view('admin.expertise.create');
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name'              => 'required|string|max:150',
+            'name' => 'required|string|max:150',
             'short_description' => 'required|string|max:300',
-            'description'       => 'required|string',
-            'icon'              => 'nullable|string|max:100',
-            'featured_image'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'is_featured'       => 'boolean',
-            'is_active'         => 'boolean',
-            'order'             => 'integer|min:0',
+            'description' => 'required|string',
+            'icon' => 'nullable|string|max:100',
+            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'is_featured' => 'boolean',
+            'is_active' => 'boolean',
+            'order' => 'integer|min:0',
         ]);
 
         if ($request->hasFile('featured_image')) {
@@ -54,31 +43,32 @@ class ServiceController extends Controller
         }
 
         $validated['is_featured'] = $request->boolean('is_featured');
-        $validated['is_active']   = $request->boolean('is_active');
+        $validated['is_active'] = $request->boolean('is_active');
 
         $service = Service::create($validated);
         $this->seoService->saveFor($service, $request->only(['meta_title', 'meta_description', 'og_image', 'robots']));
 
-        return redirect()->route('admin.services.index')->with('success', 'Service created.');
+        return redirect()->route('admin.expertise.index')->with('success', 'Service created.');
     }
 
-    public function edit(Service $service)
+    public function edit(Service $expertise)
     {
-        $service->load('seo');
-        return view('admin.services.edit', compact('service'));
+        $expertise->load('seo');
+
+        return view('admin.expertise.edit', ['service' => $expertise]);
     }
 
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Service $expertise)
     {
         $validated = $request->validate([
-            'name'              => 'required|string|max:150',
+            'name' => 'required|string|max:150',
             'short_description' => 'required|string|max:300',
-            'description'       => 'required|string',
-            'icon'              => 'nullable|string|max:100',
-            'featured_image'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'is_featured'       => 'boolean',
-            'is_active'         => 'boolean',
-            'order'             => 'integer|min:0',
+            'description' => 'required|string',
+            'icon' => 'nullable|string|max:100',
+            'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'is_featured' => 'boolean',
+            'is_active' => 'boolean',
+            'order' => 'integer|min:0',
         ]);
 
         if ($request->hasFile('featured_image')) {
@@ -87,18 +77,19 @@ class ServiceController extends Controller
         }
 
         $validated['is_featured'] = $request->boolean('is_featured');
-        $validated['is_active']   = $request->boolean('is_active');
+        $validated['is_active'] = $request->boolean('is_active');
 
-        $service->update($validated);
-        $this->seoService->saveFor($service, $request->only(['meta_title', 'meta_description', 'og_image', 'robots']));
+        $expertise->update($validated);
+        $this->seoService->saveFor($expertise, $request->only(['meta_title', 'meta_description', 'og_image', 'robots']));
 
-        return redirect()->route('admin.services.index')->with('success', 'Service updated.');
+        return redirect()->route('admin.expertise.index')->with('success', 'Expertise updated.');
     }
 
-    public function destroy(Service $service)
+    public function destroy(Service $expertise)
     {
-        $service->delete();
-        return back()->with('success', 'Service deleted.');
+        $expertise->delete();
+
+        return back()->with('success', 'Expertise deleted.');
     }
 }
 

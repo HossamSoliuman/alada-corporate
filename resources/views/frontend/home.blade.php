@@ -24,7 +24,7 @@
             </p>
 
             <div class="reveal delay-200 flex flex-col sm:flex-row gap-4">
-                <a href="{{ route('services.index') }}"
+                <a href="{{ route('expertise.index') }}"
                    class="group inline-flex items-center justify-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brown-900/30">
                     Explore Services
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
@@ -111,7 +111,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($featuredServices as $i => $service)
-            <a href="{{ route('services.show', $service->slug) }}"
+            <a href="{{ route('expertise.show',$service->slug) }}"
                class="service-card group bg-white border border-slate-100 rounded-2xl p-7 flex flex-col reveal"
                style="transition-delay: {{ $i * 80 }}ms">
                 <div class="flex items-start justify-between mb-5">
@@ -132,8 +132,8 @@
         </div>
 
         <div class="text-center mt-10 reveal">
-            <a href="{{ route('services.index') }}" class="inline-flex items-center gap-3 bg-navy-900 text-white font-semibold px-8 py-4 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
-                All Engineering Services
+            <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 bg-navy-900 text-white font-semibold px-8 py-4 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
+                All Engineering Expertise
                 <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
             </a>
         </div>
@@ -433,7 +433,7 @@
                     Get in Touch
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
                 </a>
-                <a href="{{ route('services.index') }}" class="inline-flex items-center gap-3 border border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300">
+                <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 border border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300">
                     Our Services
                 </a>
             </div>

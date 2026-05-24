@@ -27,11 +27,11 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Services</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Expertise</h4>
                 <ul class="space-y-2.5">
                     @foreach($footerServices as $svc)
                     <li>
-                        <a href="{{ route('services.show', $svc->slug) }}"
+                        <a href="{{ route('expertise.show',$svc->slug) }}"
                            class="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-2 group">
                             <span class="w-1 h-1 rounded-full bg-teal-500 group-hover:bg-brown-400 transition-colors"></span>
                             {{ $svc->name }}
@@ -44,7 +44,7 @@
             <div>
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Company</h4>
                 <ul class="space-y-2.5">
-                    @foreach([['about','About Alada'],['services.index','Our Services'],['case-studies.index','Projects'],['industries.index','Industries'],['blog.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
+                    @foreach([['about','About Alada'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['industries.index','Industries'],['blog.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
                     <li>
                         <a href="{{ $link[0] === 'page.show' ? route($link[0], 'careers') : route($link[0]) }}"
                            class="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-2 group">

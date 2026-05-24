@@ -27,7 +27,8 @@
       "PowerShell(php artisan tinker --execute 'print_r\\(App\\\\Models\\\\Page::select\\(\"id\",\"title\",\"slug\"\\)->get\\(\\)->toArray\\(\\)\\);')",
       "PowerShell(php artisan make:migration add_order_to_case_studies_table --no-interaction)",
       "PowerShell(php artisan migrate --no-interaction)",
-      "PowerShell(vendor/bin/pint --dirty --format agent)"
+      "PowerShell(vendor/bin/pint --dirty --format agent)",
+      "PowerShell(Rename-Item *)"
     ]
   },
   "enableAllProjectMcpServers": true,

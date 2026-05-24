@@ -4,7 +4,7 @@
 <section class="bg-navy-900 relative overflow-hidden texture py-28">
     <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-teal-900/40"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <x-breadcrumbs :items="[['name'=>'Services','url'=>route('services.index')],['name'=>$service->name]]"/>
+        <x-breadcrumbs :items="[['name'=>'Expertise','url'=>route('expertise.index')],['name'=>$service->name]]"/>
         <div class="mt-8 flex items-start gap-6">
             <div class="w-16 h-16 rounded-2xl bg-teal-600/30 flex items-center justify-center text-teal-300 shrink-0">
                 <x-icon name="{{ $service->icon ?? 'building-office-2' }}" class="w-8 h-8"/>
@@ -39,10 +39,10 @@
 
                 @if($related->count())
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <h3 class="font-semibold text-navy-900 mb-4 text-sm uppercase tracking-wide">Related Services</h3>
+                    <h3 class="font-semibold text-navy-900 mb-4 text-sm uppercase tracking-wide">Related Expertise</h3>
                     <div class="space-y-3">
                         @foreach($related as $rel)
-                        <a href="{{ route('services.show', $rel->slug) }}"
+                        <a href="{{ route('expertise.show', $rel->slug) }}"
                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-white border border-transparent hover:border-slate-200 transition-all group">
                             <div class="w-9 h-9 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all shrink-0">
                                 <x-icon name="{{ $rel->icon ?? 'building-office-2' }}" class="w-4 h-4"/>

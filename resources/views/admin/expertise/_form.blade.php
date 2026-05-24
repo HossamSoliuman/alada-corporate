@@ -1,4 +1,4 @@
-{{-- admin/services/_form.blade.php --}}
+{{-- admin/expertise/_form.blade.php --}}
 @props(['service' => null])
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
     <div class="xl:col-span-2 space-y-5">
@@ -48,7 +48,7 @@
         </div>
         <div class="flex gap-3">
             <button type="submit" class="flex-1 bg-teal-600 text-white py-2.5 px-5 rounded-lg font-semibold hover:bg-teal-700 transition-colors text-sm">Save</button>
-            <a href="{{ route('admin.services.index') }}" class="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50">Cancel</a>
+            <a href="{{ route('admin.expertise.index') }}" class="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50">Cancel</a>
         </div>
     </div>
 </div>
