@@ -15,6 +15,7 @@
     <table class="w-full text-sm">
         <thead class="bg-gray-50 border-b"><tr>
             <th class="px-4 py-3 text-left font-semibold text-gray-700">Title</th>
+            <th class="px-4 py-3 text-left font-semibold text-gray-700 hidden md:table-cell">Order</th>
             <th class="px-4 py-3 text-left font-semibold text-gray-700 hidden md:table-cell">Client</th>
             <th class="px-4 py-3 text-left font-semibold text-gray-700">Status</th>
             <th class="px-4 py-3 text-right font-semibold text-gray-700">Actions</th>
@@ -29,6 +30,7 @@
                         @if($cs->industry)<span class="text-xs text-gray-300">·</span><span class="text-xs text-gray-400">{{ $cs->industry->name }}</span>@endif
                     </div>
                 </td>
+                <td class="px-4 py-3 text-gray-500 hidden md:table-cell">{{ $cs->order }}</td>
                 <td class="px-4 py-3 text-gray-500 hidden md:table-cell">{{ $cs->client_name ?? '—' }}</td>
                 <td class="px-4 py-3">
                     <div class="flex gap-1.5 flex-wrap">
@@ -46,7 +48,7 @@
                 </td>
             </tr>
             @empty
-            <tr><td colspan="4" class="px-4 py-10 text-center text-gray-400">No case studies yet.</td></tr>
+            <tr><td colspan="5" class="px-4 py-10 text-center text-gray-400">No case studies yet.</td></tr>
             @endforelse
         </tbody>
     </table>

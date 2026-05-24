@@ -9,18 +9,18 @@ use Spatie\Sluggable\SlugOptions;
 
 class CaseStudy extends Model
 {
-    use HasSlug, HasSeoMeta;
+    use HasSeoMeta, HasSlug;
 
     protected $fillable = [
         'case_study_category_id', 'industry_id', 'title', 'slug',
         'client_name', 'client_logo', 'challenge', 'solution', 'result',
         'featured_image', 'gallery', 'pdf_file', 'cta_title', 'cta_text',
-        'cta_link', 'is_featured', 'is_published', 'published_at',
+        'cta_link', 'is_featured', 'is_published', 'published_at', 'order',
     ];
 
     protected $casts = [
-        'gallery'      => 'array',
-        'is_featured'  => 'boolean',
+        'gallery' => 'array',
+        'is_featured' => 'boolean',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];

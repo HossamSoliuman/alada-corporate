@@ -24,7 +24,10 @@
       "PowerShell(php artisan route:list --except-vendor 2>&1 | Select-Object -First 60)",
       "PowerShell(php artisan route:list --except-vendor 2>&1 | Select-Object -Last 30)",
       "PowerShell(php artisan tinker --execute 'App\\\\Models\\\\Page::select\\(\"id\",\"title\",\"slug\"\\)->get\\(\\)->each\\(function\\($p\\){ echo $p->id . \" | \" . $p->slug . \" | \" . $p->title . \"\\\\n\"; }\\);')",
-      "PowerShell(php artisan tinker --execute 'print_r\\(App\\\\Models\\\\Page::select\\(\"id\",\"title\",\"slug\"\\)->get\\(\\)->toArray\\(\\)\\);')"
+      "PowerShell(php artisan tinker --execute 'print_r\\(App\\\\Models\\\\Page::select\\(\"id\",\"title\",\"slug\"\\)->get\\(\\)->toArray\\(\\)\\);')",
+      "PowerShell(php artisan make:migration add_order_to_case_studies_table --no-interaction)",
+      "PowerShell(php artisan migrate --no-interaction)",
+      "PowerShell(vendor/bin/pint --dirty --format agent)"
     ]
   },
   "enableAllProjectMcpServers": true,
