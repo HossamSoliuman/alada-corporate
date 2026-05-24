@@ -11,6 +11,7 @@
         <thead class="bg-gray-50 border-b border-gray-200">
             <tr>
                 <th class="px-4 py-3 text-left font-semibold text-gray-700">Industry</th>
+                <th class="px-4 py-3 text-left font-semibold text-gray-700 hidden md:table-cell">Order</th>
                 <th class="px-4 py-3 text-left font-semibold text-gray-700 hidden md:table-cell">Case Studies</th>
                 <th class="px-4 py-3 text-left font-semibold text-gray-700">Status</th>
                 <th class="px-4 py-3 text-right font-semibold text-gray-700">Actions</th>
@@ -20,6 +21,7 @@
             @forelse($industries as $industry)
             <tr class="hover:bg-gray-50">
                 <td class="px-4 py-3 font-medium text-gray-900">{{ $industry->icon ?? '' }} {{ $industry->name }}</td>
+                <td class="px-4 py-3 text-gray-500 hidden md:table-cell">{{ $industry->order }}</td>
                 <td class="px-4 py-3 text-gray-500 hidden md:table-cell">{{ $industry->case_studies_count }}</td>
                 <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 {{ $industry->is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500' }} rounded-full">{{ $industry->is_active ? 'Active' : 'Inactive' }}</span></td>
                 <td class="px-4 py-3 text-right">
@@ -33,7 +35,7 @@
                 </td>
             </tr>
             @empty
-            <tr><td colspan="4" class="px-4 py-10 text-center text-gray-400">No industries yet.</td></tr>
+            <tr><td colspan="5" class="px-4 py-10 text-center text-gray-400">No industries yet.</td></tr>
             @endforelse
         </tbody>
     </table>

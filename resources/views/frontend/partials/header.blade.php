@@ -55,7 +55,7 @@
                 <a href="{{ route('industries.index') }}"
                     class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Industries</a>
                 <a href="{{ route('case-studies.index') }}"
-                    class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Experience</a>
+                    class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Case Studies</a>
                 <a href="{{ route('blog.index') }}"
                     class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Insights</a>
 
