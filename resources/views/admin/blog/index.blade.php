@@ -44,7 +44,7 @@
                 <td class="px-4 py-3">
                     <div class="flex items-center gap-3">
                         @if($blog->featured_image)
-                        <img src="{{ asset('storage/'.$blog->featured_image) }}" alt="" class="w-10 h-10 rounded-lg object-cover hidden sm:block">
+                        <img src="{{ asset($blog->featured_image) }}" alt="" class="w-10 h-10 rounded-lg object-cover hidden sm:block">
                         @endif
                         <div>
                             <p class="font-medium text-gray-900 truncate max-w-xs">{{ $blog->title }}</p>

@@ -15,7 +15,7 @@
             <a href="{{ route('industries.show', $industry->slug) }}"
                class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg border border-slate-100 hover:border-teal-200 transition-all duration-300 text-center">
                 @if($industry->featured_image)
-                <img src="{{ asset('storage/'.$industry->featured_image) }}" alt="{{ $industry->name }}" loading="lazy" class="w-full h-32 object-cover rounded-xl mb-4 not-prose">
+                <img src="{{ asset($industry->featured_image) }}" alt="{{ $industry->name }}" loading="lazy" class="w-full h-32 object-cover rounded-xl mb-4 not-prose">
                 @endif
                 <div class="text-3xl mb-3">{{ $industry->icon ?? '🏢' }}</div>
                 <h3 class="font-semibold text-navy-900 group-hover:text-teal-600 transition-colors mb-2">{{ $industry->name }}</h3>

@@ -22,7 +22,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Featured Image</label>
             <input type="file" name="featured_image" accept="image/*" class="text-sm text-gray-600">
             @if($industry?->featured_image)
-            <img src="{{ asset('storage/'.$industry->featured_image) }}" class="mt-2 h-24 rounded-lg object-cover">
+            <img src="{{ asset($industry->featured_image) }}" class="mt-2 h-24 rounded-lg object-cover">
             @endif
         </div>
         <div>

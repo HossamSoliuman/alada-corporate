@@ -301,7 +301,7 @@
                style="transition-delay:{{ $i*100 }}ms">
                 @if($cs->featured_image)
                 <div class="aspect-[4/3] overflow-hidden">
-                    <img src="{{ asset('storage/'.$cs->featured_image) }}" alt="{{ $cs->title }}" loading="lazy"
+                    <img src="{{ asset($cs->featured_image) }}" alt="{{ $cs->title }}" loading="lazy"
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
                 @else

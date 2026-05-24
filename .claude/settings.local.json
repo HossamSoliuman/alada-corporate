@@ -37,7 +37,8 @@
       "PowerShell(php artisan make:controller Admin/CareerImageController --no-interaction 2>&1)",
       "PowerShell(php artisan migrate --no-interaction 2>&1)",
       "PowerShell(vendor/bin/pint app/Http/Controllers/Admin/CareerImageController.php app/Http/Controllers/Frontend/CareerController.php app/Models/CareerImage.php --format agent 2>&1)",
-      "PowerShell(php artisan route:list --name=admin.career --no-interaction 2>&1)"
+      "PowerShell(php artisan route:list --name=admin.career --no-interaction 2>&1)",
+      "PowerShell(vendor/bin/pint app/Services/ImageService.php app/Http/Controllers/Admin/PageController.php app/Http/Controllers/Admin/CaseStudyController.php app/Http/Controllers/Frontend/CaseStudyController.php --format agent 2>&1)"
     ]
   },
   "enableAllProjectMcpServers": true,

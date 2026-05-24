@@ -2,7 +2,7 @@
    class="group block bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-navy-900/10 transition-all duration-500 reveal flex flex-col">
     @if($cs->featured_image)
     <div class="aspect-[4/3] overflow-hidden">
-        <img src="{{ asset('storage/'.$cs->featured_image) }}" alt="{{ $cs->title }}" loading="lazy"
+        <img src="{{ asset($cs->featured_image) }}" alt="{{ $cs->title }}" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
     </div>
     @else

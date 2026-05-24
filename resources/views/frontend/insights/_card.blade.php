@@ -4,7 +4,7 @@
    style="transition-delay: {{ $delay }}ms">
     @if($blog->featured_image)
     <div class="aspect-[16/9] overflow-hidden">
-        <img src="{{ asset('storage/'.$blog->featured_image) }}" alt="{{ $blog->title }}" loading="lazy"
+        <img src="{{ asset($blog->featured_image) }}" alt="{{ $blog->title }}" loading="lazy"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
     </div>
     @else

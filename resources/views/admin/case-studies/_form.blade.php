@@ -47,7 +47,7 @@
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Featured Image{{ $caseStudy ? '' : ' *' }}</label>
                 <input type="file" name="featured_image" accept="image/*" {{ $caseStudy ? '' : 'required' }} class="text-sm text-gray-600 w-full">
-                @if($caseStudy?->featured_image)<img src="{{ asset('storage/'.$caseStudy->featured_image) }}" class="mt-2 w-full h-32 object-cover rounded-lg">@endif
+                @if($caseStudy?->featured_image)<img src="{{ asset($caseStudy->featured_image) }}" class="mt-2 w-full h-32 object-cover rounded-lg">@endif
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Gallery (multiple)</label>

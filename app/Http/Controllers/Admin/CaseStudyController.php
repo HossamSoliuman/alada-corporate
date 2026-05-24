@@ -9,6 +9,7 @@ use App\Models\Industry;
 use App\Services\ImageService;
 use App\Services\SeoService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CaseStudyController extends Controller
 {
@@ -60,7 +61,13 @@ class CaseStudyController extends Controller
         }
 
         if ($request->hasFile('pdf_file')) {
-            $validated['pdf_file'] = $request->file('pdf_file')->store('case-studies/pdfs', 'public');
+            $pdfDir = public_path('case-studies/pdfs');
+            if (! is_dir($pdfDir)) {
+                mkdir($pdfDir, 0755, true);
+            }
+            $pdfName = Str::uuid().'.'.$request->file('pdf_file')->getClientOriginalExtension();
+            $request->file('pdf_file')->move($pdfDir, $pdfName);
+            $validated['pdf_file'] = 'case-studies/pdfs/'.$pdfName;
         }
 
         if ($request->hasFile('gallery')) {

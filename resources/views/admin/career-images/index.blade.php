@@ -36,7 +36,7 @@
     @foreach($images as $image)
     <div class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
         <div class="relative aspect-[4/3] overflow-hidden">
-            <img src="{{ asset('storage/'.$image->path) }}" alt="{{ $image->alt ?? '' }}"
+            <img src="{{ asset($image->path) }}" alt="{{ $image->alt ?? '' }}"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
         </div>
         <div class="p-3 space-y-2">

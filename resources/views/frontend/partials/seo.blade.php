@@ -27,7 +27,7 @@
 <meta property="og:url" content="{{ $canonical }}">
 <meta property="og:site_name" content="{{ $seoData['site_name'] ?? config('app.name') }}">
 @if($ogImage)
-<meta property="og:image" content="{{ Str::startsWith($ogImage, 'http') ? $ogImage : asset('storage/'.$ogImage) }}">
+<meta property="og:image" content="{{ Str::startsWith($ogImage, 'http') ? $ogImage : asset($ogImage) }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 @endif
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="{{ $seoData['twitter_title'] ?? $ogTitle }}">
 <meta name="twitter:description" content="{{ $seoData['twitter_description'] ?? $ogDesc }}">
 @if($ogImage)
-<meta name="twitter:image" content="{{ Str::startsWith($ogImage, 'http') ? $ogImage : asset('storage/'.$ogImage) }}">
+<meta name="twitter:image" content="{{ Str::startsWith($ogImage, 'http') ? $ogImage : asset($ogImage) }}">
 @endif
 
 {{-- Custom Schema --}}

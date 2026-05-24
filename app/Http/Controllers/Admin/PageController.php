@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Services\SeoService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -36,6 +37,19 @@ class PageController extends Controller
         ]);
 
         $validated['is_published'] = $request->boolean('is_published');
+
+        if ($request->hasFile('featured_image')) {
+            $file = $request->file('featured_image');
+            $dir = public_path('pages');
+            if (! is_dir($dir)) {
+                mkdir($dir, 0755, true);
+            }
+            $filename = Str::uuid().'.'.$file->getClientOriginalExtension();
+            $file->move($dir, $filename);
+            $validated['featured_image'] = 'pages/'.$filename;
+        } else {
+            unset($validated['featured_image']);
+        }
 
         // Sections come from named array inputs (sections[key]) on custom page types.
         // Handle outside validation so type mismatches from stale requests never block saves.

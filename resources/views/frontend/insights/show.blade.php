@@ -23,7 +23,7 @@
         <div class="grid lg:grid-cols-3 gap-12">
             <article class="lg:col-span-2 reveal-left">
                 @if($blog->featured_image)
-                <img src="{{ asset('storage/'.$blog->featured_image) }}" alt="{{ $blog->title }}" class="w-full rounded-2xl mb-8 shadow-sm aspect-video object-cover">
+                <img src="{{ asset($blog->featured_image) }}" alt="{{ $blog->title }}" class="w-full rounded-2xl mb-8 shadow-sm aspect-video object-cover">
                 @endif
                 <div class="prose prose-slate prose-lg max-w-none">{!! $blog->content !!}</div>
                 @if($blog->tags->count())
@@ -48,7 +48,7 @@
                         @foreach($related as $rel)
                         <a href="{{ route('insights.show', $rel->slug) }}" class="flex gap-3 group">
                             @if($rel->featured_image)
-                            <img src="{{ asset('storage/'.$rel->featured_image) }}" alt="{{ $rel->title }}" class="w-16 h-16 object-cover rounded-xl shrink-0">
+                            <img src="{{ asset($rel->featured_image) }}" alt="{{ $rel->title }}" class="w-16 h-16 object-cover rounded-xl shrink-0">
                             @endif
                             <div>
                                 <p class="text-sm font-medium text-navy-900 group-hover:text-teal-600 leading-snug transition-colors">{{ $rel->title }}</p>

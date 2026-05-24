@@ -28,7 +28,7 @@
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Featured Image</label>
                 <input type="file" name="featured_image" accept="image/*" class="text-sm text-gray-600 w-full">
                 @if($service?->featured_image)
-                <img src="{{ asset('storage/'.$service->featured_image) }}" class="mt-2 w-full h-32 object-cover rounded-lg">
+                <img src="{{ asset($service->featured_image) }}" class="mt-2 w-full h-32 object-cover rounded-lg">
                 @endif
             </div>
             <div>

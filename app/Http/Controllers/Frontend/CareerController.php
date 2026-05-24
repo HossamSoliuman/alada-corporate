@@ -51,7 +51,7 @@ class CareerController extends Controller
             'subheading' => $s['why_subheading'] ?? 'Be part of an environment where your skills are nurtured, your ideas matter, and your work creates real value for clients and communities.',
         ];
 
-        $dbImages = CareerImage::ordered()->pluck('path')->map(fn ($p) => asset('storage/'.$p))->all();
+        $dbImages = CareerImage::ordered()->pluck('path')->map(fn ($p) => asset($p))->all();
         $galleryImages = $dbImages ?: [
             'https://cdn.prod.website-files.com/696659aa8fa6ba842420cbf1/6994a3b9a75fb3e304fada24_21_converted.avif',
             'https://cdn.prod.website-files.com/696659aa8fa6ba842420cbf1/6994a3b9af7401cb78c4dbe6_1_converted.avif',

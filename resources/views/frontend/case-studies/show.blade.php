@@ -18,7 +18,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <article class="lg:col-span-2 space-y-10">
                 @if($caseStudy->featured_image)
-                <img src="{{ asset('storage/'.$caseStudy->featured_image) }}" alt="{{ $caseStudy->title }}"
+                <img src="{{ asset($caseStudy->featured_image) }}" alt="{{ $caseStudy->title }}"
                      class="w-full rounded-2xl shadow-sm">
                 @endif
 
@@ -41,7 +41,7 @@
                     <h2 class="text-2xl font-heading font-bold text-navy-900 mb-6">Gallery</h2>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         @foreach($caseStudy->gallery as $img)
-                        <img src="{{ asset('storage/'.$img) }}" alt="Gallery" loading="lazy" class="rounded-xl w-full h-40 object-cover">
+                        <img src="{{ asset($img) }}" alt="Gallery" loading="lazy" class="rounded-xl w-full h-40 object-cover">
                         @endforeach
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         @foreach($related as $rel)
                         <a href="{{ route('case-studies.show', $rel->slug) }}" class="flex gap-3 group">
                             @if($rel->featured_image)
-                            <img src="{{ asset('storage/'.$rel->featured_image) }}" alt="{{ $rel->title }}" class="w-16 h-16 object-cover rounded-lg shrink-0">
+                            <img src="{{ asset($rel->featured_image) }}" alt="{{ $rel->title }}" class="w-16 h-16 object-cover rounded-lg shrink-0">
                             @endif
                             <div>
                                 <p class="text-sm font-medium text-navy-900 group-hover:text-teal-600 leading-snug">{{ $rel->title }}</p>

@@ -22,7 +22,7 @@
         <div class="grid lg:grid-cols-3 gap-12">
             <article class="lg:col-span-2 reveal-left">
                 @if($service->featured_image)
-                <img src="{{ asset('storage/'.$service->featured_image) }}" alt="{{ $service->name }}"
+                <img src="{{ asset($service->featured_image) }}" alt="{{ $service->name }}"
                      class="w-full rounded-2xl mb-8 aspect-video object-cover shadow-sm">
                 @endif
                 <div class="prose prose-slate prose-lg max-w-none">{!! $service->description !!}</div>
