@@ -332,12 +332,13 @@
             <h2 class="text-4xl md:text-5xl font-heading text-navy-900 mb-4">Industries<br><em class="font-display not-italic text-brown-500">We Serve</em></h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+         
             @foreach($industries as $i => $industry)
             <a href="{{ route('industries.show', $industry->slug) }}"
                class="group bg-white border border-slate-100 rounded-2xl p-6 text-center hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 reveal"
                style="transition-delay:{{ $i*60 }}ms">
                 <div class="w-12 h-12 mx-auto rounded-xl bg-slate-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-all duration-300 mb-3">
-                    <x-icon name="{{ $industry->icon ?? 'building-office' }}" class="w-6 h-6"/>
+                    <x-icon name="{{ $industry->featured_image ?? 'building-office' }}" class="w-6 h-6"/>
                 </div>
                 <h3 class="font-semibold text-navy-800 group-hover:text-teal-700 text-sm transition-colors">{{ $industry->name }}</h3>
             </a>

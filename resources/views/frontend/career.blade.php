@@ -137,101 +137,82 @@
             </p>
         </div>
 
-        <div class="space-y-3">
+        @if($jobs->count())
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             @foreach($jobs as $i => $job)
-            <div class="group flex flex-col sm:flex-row sm:items-center justify-between gap-4
-                        bg-white border border-slate-200 rounded px-6 sm:px-8 py-5 sm:py-6
+            <div class="bg-white border border-slate-200 rounded-2xl p-6
                         hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5
                         transition-all duration-200 reveal"
                  style="transition-delay: {{ $i * 50 }}ms">
-                <div>
-                    <h3 class="text-[18px] font-semibold text-navy-900 mb-2">{{ $job['title'] }}</h3>
-                    <div class="flex flex-wrap items-center gap-4">
-                        <span class="inline-flex items-center gap-1.5 text-[13px] text-slate-500">
-                            <x-icon name="map-pin" class="w-4 h-4 shrink-0 text-slate-400"/>
-                            {{ $job['location'] }}
-                        </span>
-                        <span class="inline-flex items-center gap-1.5 text-[13px] text-slate-500">
-                            <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
-                            </svg>
-                            {{ $job['type'] }}
-                        </span>
-                    </div>
+                <h3 class="text-[17px] font-semibold text-navy-900 mb-4 leading-snug">{{ $job->position_name }}</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
+                        <x-icon name="map-pin" class="w-3.5 h-3.5 shrink-0 text-slate-400"/>
+                        {{ $job->location }}
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
+                        <x-icon name="briefcase" class="w-3.5 h-3.5 shrink-0 text-slate-400"/>
+                        {{ $job->employment_type === 'full-time' ? 'Full-time' : 'Part-time' }}
+                    </span>
                 </div>
-                <a href="{{ $job['applyUrl'] }}"
-                   class="inline-flex items-center justify-center px-6 py-2.5
-                          text-[13px] font-semibold uppercase tracking-[0.08em]
-                          border-2 border-teal-600 text-teal-600 rounded-sm
-                          hover:bg-teal-600 hover:text-white
-                          transition-all duration-200
-                          whitespace-nowrap shrink-0 self-start sm:self-auto">
-                    Find Out More
-                </a>
             </div>
             @endforeach
         </div>
+        @else
+        <div class="text-center py-16 bg-white rounded-2xl border border-slate-100">
+            <x-icon name="briefcase" class="w-10 h-10 text-slate-200 mx-auto mb-3"/>
+            <p class="text-slate-400 text-sm">No open positions at the moment. Check back soon.</p>
+        </div>
+        @endif
     </div>
 </section>
 
 {{-- ═══ WHY ALADA ═══ --}}
-<section class="py-20 bg-white" x-data="{ page: 0 }">
+@php
+$whyIcons = [
+    'light-bulb',
+    'chart-bar-square',
+    'building-office-2',
+    'globe-alt',
+    'academic-cap',
+    'heart',
+];
+$whyGradients = [
+    'from-teal-500 to-teal-700',
+    'from-blue-500 to-blue-700',
+    'from-amber-500 to-orange-600',
+    'from-emerald-500 to-emerald-700',
+    'from-violet-500 to-violet-700',
+    'from-rose-500 to-rose-700',
+];
+@endphp
+<section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {{-- Header row + navigation arrows --}}
-        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-12 reveal">
-            <div class="max-w-2xl">
-                <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-slate-500 mb-3">Why Alada</p>
-                <h2 class="font-heading font-bold text-navy-900 leading-tight mb-4 text-[28px] md:text-[38px]">
-                    {{ $whySection['heading'] }}
-                </h2>
-                <p class="text-base text-slate-500 leading-relaxed">
-                    {{ $whySection['subheading'] }}
-                </p>
-            </div>
-            <div class="flex items-center gap-2 shrink-0 lg:mt-12">
-                <button @click="page = Math.max(0, page - 1)"
-                        :class="page === 0 ? 'opacity-40 cursor-default' : 'hover:bg-teal-600 hover:border-teal-600 hover:text-white'"
-                        class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 transition-all duration-200"
-                        aria-label="Previous cards">
-                    <x-icon name="chevron-left" class="w-4 h-4"/>
-                </button>
-                <button @click="page = Math.min(1, page + 1)"
-                        :class="page === 1 ? 'opacity-40 cursor-default' : 'hover:bg-teal-600 hover:border-teal-600 hover:text-white'"
-                        class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 transition-all duration-200"
-                        aria-label="Next cards">
-                    <x-icon name="chevron-right" class="w-4 h-4"/>
-                </button>
-            </div>
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-slate-500 mb-3">Why Alada</p>
+            <h2 class="font-heading font-bold text-navy-900 leading-tight mb-4 text-[28px] md:text-[38px]">
+                {{ $whySection['heading'] }}
+            </h2>
+            <p class="text-base text-slate-500 leading-relaxed">
+                {{ $whySection['subheading'] }}
+            </p>
         </div>
 
-        {{-- Cards: 3 per page --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($whyCards as $i => $card)
-            <div x-show="{{ $i }} >= page * 3 && {{ $i }} < page * 3 + 3"
-                 x-transition:enter="transition-opacity duration-300 ease-out"
-                 x-transition:enter-start="opacity-0"
-                 x-transition:enter-end="opacity-100"
-                 class="border border-slate-200 rounded p-8 bg-white min-h-[220px]
-                        hover:shadow-[0_4px_24px_rgba(0,0,0,0.10)] transition-shadow duration-200">
-                <img src="{{ $card['icon'] }}" alt="{{ $card['title'] }}"
-                     class="w-12 h-12 mb-5 object-contain" loading="lazy">
-                <h3 class="text-base font-semibold text-navy-900 mb-3">{{ $card['title'] }}</h3>
-                <p class="text-sm text-slate-500 leading-[1.6]">{{ $card['body'] }}</p>
+            @php $gradient = $whyGradients[$i % count($whyGradients)]; $icon = $whyIcons[$i % count($whyIcons)]; @endphp
+            <div class="bg-gradient-to-br {{ $gradient }} rounded-2xl p-8 flex flex-col items-center text-center
+                        hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] hover:-translate-y-1
+                        transition-all duration-200 reveal"
+                 style="transition-delay: {{ $i * 80 }}ms">
+                <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+                    <x-icon name="{{ $icon }}" class="w-10 h-10 text-white"/>
+                </div>
+                <h3 class="text-base font-semibold text-white mb-3">{{ $card['title'] }}</h3>
+                <p class="text-sm text-white/80 leading-[1.6]">{{ $card['body'] }}</p>
             </div>
             @endforeach
-        </div>
-
-        {{-- Page dots --}}
-        <div class="flex justify-center gap-2 mt-8">
-            <button @click="page = 0"
-                    :class="page === 0 ? 'bg-teal-600 w-6' : 'bg-slate-300 w-2'"
-                    class="h-2 rounded-full transition-all duration-300"
-                    aria-label="Page 1"></button>
-            <button @click="page = 1"
-                    :class="page === 1 ? 'bg-teal-600 w-6' : 'bg-slate-300 w-2'"
-                    class="h-2 rounded-full transition-all duration-300"
-                    aria-label="Page 2"></button>
         </div>
 
     </div>

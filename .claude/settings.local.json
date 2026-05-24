@@ -28,7 +28,11 @@
       "PowerShell(php artisan make:migration add_order_to_case_studies_table --no-interaction)",
       "PowerShell(php artisan migrate --no-interaction)",
       "PowerShell(vendor/bin/pint --dirty --format agent)",
-      "PowerShell(Rename-Item *)"
+      "PowerShell(Rename-Item *)",
+      "PowerShell(php artisan make:model JobListing -m --no-interaction; php artisan make:controller Admin/JobListingController --no-interaction)",
+      "PowerShell(New-Item *)",
+      "Bash(cd /d D:\\\\projects\\\\blog-corporate)",
+      "Bash(vendor/bin/pint app/Http/Controllers/Frontend/CareerController.php --format agent)"
     ]
   },
   "enableAllProjectMcpServers": true,

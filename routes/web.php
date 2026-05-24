@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CaseStudyController as AdminCaseStudyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSlideController;
 use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
+use App\Http\Controllers\Admin\JobListingController;
 use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
@@ -69,6 +70,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('industries', AdminIndustryController::class);
 
     Route::resource('expertise', AdminServiceController::class);
+
+    Route::resource('job-listings', JobListingController::class);
 
     Route::get('hero-slides', [HeroSlideController::class, 'index'])->name('hero-slides.index');
     Route::post('hero-slides', [HeroSlideController::class, 'store'])->name('hero-slides.store');

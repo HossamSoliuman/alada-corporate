@@ -86,18 +86,10 @@
                 </div>
             </div>
 
-            {{-- Gallery images --}}
-            <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
-                <h3 class="font-semibold text-gray-800 pb-3 border-b border-gray-100">Gallery Images (vertical marquee)</h3>
-                <p class="text-xs text-gray-500">One image URL per line. Leave blank to use the default gallery.</p>
-                <textarea name="sections[gallery_images]" rows="12"
-                          placeholder="https://example.com/photo1.jpg&#10;https://example.com/photo2.jpg"
-                          class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm font-mono outline-none focus:ring-2 focus:ring-teal-500 resize-y">{{ old('sections.gallery_images', $sec['gallery_images'] ?? '') }}</textarea>
-            </div>
-
             {{-- Job openings --}}
             <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
                 <h3 class="font-semibold text-gray-800 pb-3 border-b border-gray-100">Job Openings Section</h3>
+                <p class="text-xs text-gray-500">Job listings are managed via <a href="{{ route('admin.job-listings.index') }}" class="text-teal-600 hover:underline">Job Listings</a> in the sidebar.</p>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1.5">Heading</label>
                     <input type="text" name="sections[jobs_heading]"
@@ -110,13 +102,6 @@
                     <textarea name="sections[jobs_subheading]" rows="2"
                               placeholder="Alada is expanding — join us in shaping the future..."
                               class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500 resize-none">{{ old('sections.jobs_subheading', $sec['jobs_subheading'] ?? '') }}</textarea>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Job Listings (JSON)</label>
-                    <p class="text-xs text-gray-500 mb-2">Array of objects with keys: <code class="bg-gray-100 px-1 rounded">title</code>, <code class="bg-gray-100 px-1 rounded">location</code>, <code class="bg-gray-100 px-1 rounded">type</code>, <code class="bg-gray-100 px-1 rounded">category</code>, <code class="bg-gray-100 px-1 rounded">label</code>, <code class="bg-gray-100 px-1 rounded">description</code>. Leave blank to use defaults.</p>
-                    <textarea name="sections[jobs]" rows="16"
-                              placeholder='[{"title":"Senior Civil Engineer","location":"USA / Remote","type":"Full-time","category":"engineering","label":"Engineering","description":"..."}]'
-                              class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm font-mono outline-none focus:ring-2 focus:ring-teal-500 resize-y">{{ old('sections.jobs', $sec['jobs'] ?? '') }}</textarea>
                 </div>
             </div>
 
@@ -135,13 +120,6 @@
                     <textarea name="sections[why_subheading]" rows="2"
                               placeholder="Be part of an environment where your skills are nurtured..."
                               class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500 resize-none">{{ old('sections.why_subheading', $sec['why_subheading'] ?? '') }}</textarea>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Cards (JSON)</label>
-                    <p class="text-xs text-gray-500 mb-2">Array of objects with keys: <code class="bg-gray-100 px-1 rounded">icon</code> (URL), <code class="bg-gray-100 px-1 rounded">title</code>, <code class="bg-gray-100 px-1 rounded">body</code>. Leave blank to use defaults.</p>
-                    <textarea name="sections[why_cards]" rows="16"
-                              placeholder='[{"icon":"https://...","title":"Innovation-Driven Workflows","body":"..."}]'
-                              class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm font-mono outline-none focus:ring-2 focus:ring-teal-500 resize-y">{{ old('sections.why_cards', $sec['why_cards'] ?? '') }}</textarea>
                 </div>
             </div>
 
