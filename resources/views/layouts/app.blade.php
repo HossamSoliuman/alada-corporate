@@ -396,7 +396,6 @@
     </main>
 
     @include('frontend.partials.footer')
-    @include('frontend.partials.whatsapp-float')
 
     @if ($settings->get('ga4_id'))
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ $settings->get('ga4_id') }}"></script>
