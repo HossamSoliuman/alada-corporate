@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CaseStudyController as AdminCaseStudyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSlideController;
 use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
+use App\Http\Controllers\Admin\CareerImageController;
 use App\Http\Controllers\Admin\JobListingController;
 use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
@@ -72,6 +73,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('expertise', AdminServiceController::class);
 
     Route::resource('job-listings', JobListingController::class);
+
+    Route::get('career-images', [CareerImageController::class, 'index'])->name('career-images.index');
+    Route::post('career-images', [CareerImageController::class, 'store'])->name('career-images.store');
+    Route::put('career-images/{careerImage}', [CareerImageController::class, 'update'])->name('career-images.update');
+    Route::delete('career-images/{careerImage}', [CareerImageController::class, 'destroy'])->name('career-images.destroy');
 
     Route::get('hero-slides', [HeroSlideController::class, 'index'])->name('hero-slides.index');
     Route::post('hero-slides', [HeroSlideController::class, 'store'])->name('hero-slides.store');

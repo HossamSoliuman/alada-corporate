@@ -32,7 +32,12 @@
       "PowerShell(php artisan make:model JobListing -m --no-interaction; php artisan make:controller Admin/JobListingController --no-interaction)",
       "PowerShell(New-Item *)",
       "Bash(cd /d D:\\\\projects\\\\blog-corporate)",
-      "Bash(vendor/bin/pint app/Http/Controllers/Frontend/CareerController.php --format agent)"
+      "Bash(vendor/bin/pint app/Http/Controllers/Frontend/CareerController.php --format agent)",
+      "PowerShell(php artisan make:model CareerImage -m --no-interaction 2>&1)",
+      "PowerShell(php artisan make:controller Admin/CareerImageController --no-interaction 2>&1)",
+      "PowerShell(php artisan migrate --no-interaction 2>&1)",
+      "PowerShell(vendor/bin/pint app/Http/Controllers/Admin/CareerImageController.php app/Http/Controllers/Frontend/CareerController.php app/Models/CareerImage.php --format agent 2>&1)",
+      "PowerShell(php artisan route:list --name=admin.career --no-interaction 2>&1)"
     ]
   },
   "enableAllProjectMcpServers": true,

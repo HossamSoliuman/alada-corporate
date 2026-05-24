@@ -1,10 +1,10 @@
 {{-- admin/job-listings/index.blade.php --}}
 @extends('layouts.admin')
-@section('title', 'Job Listings')
+@section('title', 'Careers')
 @section('content')
 <div class="flex items-center justify-between mb-6">
-    <h2 class="text-xl font-heading font-bold text-gray-900">Job Listings</h2>
-    <a href="{{ route('admin.job-listings.create') }}" class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-teal-700">+ New Job</a>
+    <h2 class="text-xl font-heading font-bold text-gray-900">Careers — Job Positions</h2>
+    <a href="{{ route('admin.job-listings.create') }}" class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-teal-700">+ New Position</a>
 </div>
 <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
     <table class="w-full text-sm">
