@@ -187,57 +187,68 @@
         <div class="hidden lg:flex items-end gap-4 overflow-visible reveal">
 
             {{-- 01 · tall --}}
-            <div class="flex-1 relative">
+            <div class="flex-1">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">01</span>
-                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Tendering Stage</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">BOQs, conceptual designs, visualizations, bid support.</p>
+                    <div class="mt-auto">
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Tendering Stage</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">BOQs, conceptual designs, visualizations, bid support.</p>
+                    </div>
                 </div>
-               
             </div>
 
             {{-- 02 · short --}}
-            <div class="flex-1 relative">
+            <div class="flex-1">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">02</span>
-                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Preliminary Design Stage</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
+                    <div class="mt-auto">
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Preliminary Design Stage</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
+                    </div>
                 </div>
-                </div>
+            </div>
 
             {{-- 03 · tall --}}
-            <div class="flex-1 relative">
+            <div class="flex-1">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">03</span>
-                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Detailed Design Stage</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Detailed engineering, coordination, IFC drawings, BIM, machine guidance.</p>
+                    <div class="mt-auto">
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Detailed Design Stage</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Detailed engineering, coordination, IFC drawings, BIM, machine guidance.</p>
+                    </div>
                 </div>
-                  </div>
+            </div>
 
             {{-- 04 · short --}}
-            <div class="flex-1 relative">
+            <div class="flex-1">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">04</span>
-                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Construction Stage</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
+                    <div class="mt-auto">
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Construction Stage</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
+                    </div>
                 </div>
-                 </div>
+            </div>
 
             {{-- 05 · tall --}}
-            <div class="flex-1 relative">
+            <div class="flex-1">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">05</span>
-                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Handover Stage</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">As-built documentation, consolidated RFIs, finalized coordinated models.</p>
+                    <div class="mt-auto">
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Handover Stage</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">As-built documentation, consolidated RFIs, finalized coordinated models.</p>
+                    </div>
                 </div>
-                 </div>
+            </div>
 
             {{-- 06 · short --}}
-            <div class="flex-1 relative">
+            <div class="flex-1">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
                     <span class="font-display text-8xl font-bold text-teal-600 leading-none">06</span>
-                    <h3 class="font-heading text-base font-bold text-navy-900 mt-6 mb-3 leading-snug">Operations & Maintenance Stage</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
+                    <div class="mt-auto">
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Operations & Maintenance Stage</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
+                    </div>
                 </div>
             </div>
 
