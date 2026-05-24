@@ -144,12 +144,14 @@
 {{-- ═══ PROVEN. SCALABLE. DELIVERABLE. ═══ --}}
 <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach([
-                ['Land Development',         '/images/Subdivision-land-course-hero-image.png'],
-                ['Transportation Infrastructure', '/images/Transportation Infrastructure.jpg'],
-                ['Industrial Plant & Piping', '/images/Process-Piping.jpg'],
-                ['Digital Twin & Parametric Modeling', '/images/Digital-Twin-Model.jpg'],
+                ['Urban & Infrastructure Development Engineering',   '/images/specialty/Urban & Infrastructure Development Engineering.png'],
+                ['Transportation Infrastructure Engineering',        '/images/specialty/Transportation Infrastructure Engineering.png'],
+                ['Industrial, LNG, Oil & Gas & Energy Engineering', '/images/specialty/Industrial, LNG, Oil & Gas & Energy Engineering.png'],
+                ['Environmental Engineering & Hydrogeology',        '/images/specialty/Environmental Engineering & Hydrogeology.png'],
+                ['Water, Wastewater & Drainage Engineering',        '/images/specialty/Water, Wastewater & Drainage Engineering.png'],
+                ['Structural Engineering',                          '/images/specialty/Structural Engineering.png'],
             ] as $i => [$title, $img])
             <div class="group rounded-3xl overflow-hidden reveal" style="transition-delay: {{ $i * 100 }}ms">
                 <div class="relative overflow-hidden aspect-[4/3]">
