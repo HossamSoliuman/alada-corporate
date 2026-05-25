@@ -1,4 +1,4 @@
-<aside class="w-64 bg-navy-900 text-white flex flex-col shrink-0 hidden lg:flex">
+<aside x-show="sidebarOpen" x-cloak class="w-64 bg-navy-900 text-white flex flex-col shrink-0 fixed inset-y-0 left-0 z-50 lg:static lg:z-auto lg:!flex">
     <div class="p-5 border-b border-white/10">
         <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
             <img src="{{ asset('images/alada-logo.png') }}" alt="Alada" class="h-9 w-auto brightness-0 invert opacity-90">
