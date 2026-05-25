@@ -8,10 +8,47 @@
         <div class="mt-8 max-w-3xl">
             <p class="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-4">Who We Are</p>
             <h1 class="text-5xl md:text-6xl font-heading text-white leading-tight mb-6">About <em class="font-display not-italic text-brown-300">Alada</em></h1>
-            <p class="text-xl text-slate-300 leading-relaxed">A globally integrated, multi-disciplinary engineering and infrastructure consultancy — established in the United States, delivering worldwide.</p>
+            <p class="text-xl text-slate-300 leading-relaxed">A globally integrated, multi-disciplinary engineering and infrastructure consultancy established in the United States, delivering worldwide.</p>
         </div>
     </div>
 </section>
+
+{{-- ═══ TEAM MEMBERS ═══ --}}
+@if($teamMembers->count())
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold leading-tight">
+                <span class="text-navy-900">Our Team</span><br>
+                <em class="font-display not-italic text-brown-500">Members</em>
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach($teamMembers as $i => $member)
+            <div class="bg-slate-50 rounded-2xl overflow-hidden reveal" style="transition-delay: {{ $i * 100 }}ms">
+                <div class="px-6 pt-6 pb-3">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">{{ $member->role }}</p>
+                    <h3 class="font-heading text-xl text-navy-900 font-semibold">{{ $member->name }}</h3>
+                </div>
+                <div class="px-6 pb-6">
+                    @if($member->photo)
+                    <div class="rounded-xl overflow-hidden aspect-[4/3]">
+                        <img src="{{ asset($member->photo) }}" alt="{{ $member->name }}"
+                             class="w-full h-full object-cover object-top"
+                             loading="lazy">
+                    </div>
+                    @else
+                    <div class="rounded-xl aspect-[4/3] bg-slate-200 flex items-center justify-center">
+                        <x-icon name="user-circle" class="w-16 h-16 text-slate-400"/>
+                    </div>
+                    @endif
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
 
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,12 +57,13 @@
                 <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Our Story</p>
                 <h2 class="text-3xl md:text-4xl font-heading text-navy-900 mb-6">Built for Complex,<br>High-Performance Projects</h2>
                 <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
-                    <p>Alada is built to deliver complex, high-performance infrastructure, industrial, and energy projects — leveraging a unique combination of U.S. engineering standards, advanced digital engineering methodologies, and globally distributed execution capabilities.</p>
-                    <p>The organization operates across the complete project lifecycle: feasibility studies, conceptual design, detailed engineering, BIM-based coordination, construction documentation, and project management. This integrated approach ensures seamless coordination between all project stakeholders, reducing risks, delays, and inefficiencies.</p>
+                    <p>Alada operates on a design-first engineering framework across all civil engineering sectors, advancing from feasibility assessment and conceptual development to detailed multidisciplinary design in alignment with Global standards. The organization executes projects through a globally integrated internal delivery model, leveraging distributed engineering teams to ensure consistency, scalability, and technical control across international operations.</p>
+                    <p>Project development is further enhanced through the application of integrated digital engineering technologies, including intelligent infrastructure platforms, simulation-driven design environments, and GIS-based spatial systems, enabling data-centric coordination, design validation, and performance optimization.</p>
+                    <p>Execution is governed by a structured internal engineering workflow, ensuring seamless interdisciplinary collaboration, risk mitigation, and efficient delivery across the complete project lifecycle.</p>
                 </div>
             </div>
             <div class="reveal-right space-y-4">
-                @foreach([['U.S. Engineering Standards','Every project benchmarked against international quality frameworks'],['Advanced Digital Methodologies','BIM, simulation and digital engineering tools throughout'],['Global Delivery Network','Offices in USA and India, projects across five continents'],['Complete Lifecycle Coverage','Feasibility through construction supervision in a single team']] as [$t,$d])
+                @foreach([['Global Engineering Standards','Compliance with international codes ensuring quality and safety'],['Global Project Execution Framework','U.S. based firm with an India delivery center, supporting global operations and executing projects across multiple countries'],['Lifecycle Engineering Solutions','End-to-end services from feasibility to construction support'],['Smart Engineering Platforms','Comprehensive digital engineering environment spanning CAD, BIM, and GIS, enabling integrated, data-centric design and coordination']] as [$t,$d])
                 <div class="flex gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-teal-200 transition-colors">
                     <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white shrink-0">
                         <x-icon name="check-circle" class="w-5 h-5"/>
@@ -59,7 +97,7 @@
                 <h2 class="text-xs font-semibold uppercase tracking-widest text-brown-100 mb-3">Our Mission</h2>
                 <p class="font-heading text-xl text-white leading-snug mb-5">Engineering excellence through innovation, efficiency and global infrastructure development.</p>
                 <ul class="space-y-2.5 text-sm text-brown-100">
-                    @foreach(['Adopting advanced BIM and digital simulation technologies','Delivering efficient and sustainable infrastructure solutions','Ensuring cost optimisation and high-quality delivery','Supporting global infrastructure development through innovation'] as $item)
+                    @foreach(['Delivering efficient and sustainable infrastructure solutions','Ensuring cost optimisation and high-quality delivery','Supporting global infrastructure development through innovation'] as $item)
                     <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white mt-1.5 shrink-0"></span>{{ $item }}</li>
                     @endforeach
                 </ul>
@@ -72,10 +110,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 reveal">
             <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Our Offices</p>
-            <h2 class="text-3xl md:text-4xl font-heading text-navy-900">Two Hubs,<br><em class="font-display not-italic text-brown-500">One Standard</em></h2>
+            <h2 class="text-3xl md:text-4xl font-heading text-navy-900">Global Dual- <br><em class="font-display not-italic text-brown-500">Hub Platform</em></h2>
         </div>
         <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            @foreach([['USA Headquarters','Strategy, client engagement, commercial and project leadership. All projects scoped and managed to U.S. engineering standards.','map-pin'],['India Engineering Center','Full engineering design, BIM coordination, CAD production, and technical delivery. Operates as a fully owned and integrated office.','building-office']] as $i => [$title,$desc,$icon])
+            @foreach([['USA','8 The Green, STE A, Dover, DE 19901','map-pin'],['India','Tower B1, Level 2, Office No-211, Symphony IT Park, Nanded City, Pune -411068','map-pin']] as $i => [$title,$desc,$icon])
             <div class="text-center p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal" style="transition-delay:{{ $i*150 }}ms">
                 <div class="w-14 h-14 mx-auto rounded-2xl bg-navy-900 flex items-center justify-center text-white mb-5">
                     <x-icon name="{{ $icon }}" class="w-7 h-7"/>

@@ -9,6 +9,7 @@ use App\Models\HeroSlide;
 use App\Models\Industry;
 use App\Models\Page;
 use App\Models\Service;
+use App\Models\SoftwareLogo;
 use App\Services\SeoService;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
             'featuredCaseStudies' => CaseStudy::published()->featured()->with(['category', 'industry'])->limit(3)->get(),
             'latestBlogs' => Blog::published()->with(['category', 'author'])->latest('published_at')->limit(3)->get(),
             'industries' => Industry::active()->limit(8)->get(),
+            'softwareLogos' => SoftwareLogo::ordered()->get(),
         ];
 
         $page = Page::where('slug', 'home')->first();

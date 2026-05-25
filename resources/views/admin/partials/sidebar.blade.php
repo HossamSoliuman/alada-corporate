@@ -20,6 +20,8 @@
             ['admin.expertise.index',     'cog-6-tooth',            'Expertise',          'admin/expertise'],
             ['admin.job-listings.index',  'briefcase',              'Careers',            'admin/job-listings'],
             ['admin.career-images.index','photo',                  'Career Gallery',     'admin/career-images'],
+            ['admin.team-members.index',  'user-group',             'Team Members',       'admin/team-members'],
+            ['admin.software-logos.index','computer-desktop',       'Softwares We Use',   'admin/software-logos'],
             ['admin.hero-slides.index',   'film',                   'Hero Video',         'admin/hero-slides'],
             ['admin.pages.index',         'document-arrow-down',    'Pages',              'admin/pages'],
             ['admin.users.index',         'user-circle',            'Users',              'admin/users'],

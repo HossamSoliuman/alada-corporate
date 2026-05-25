@@ -72,8 +72,8 @@
             <div class="reveal-left">
                 <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Who We Are</p>
                 <h2 class="text-4xl md:text-5xl font-heading text-navy-900 leading-tight mb-6">Engineering The Infrastructure<br><em class="font-display text-brown-500 not-italic">Of Tomorrow</em></h2>
-                <p class="text-slate-600 leading-relaxed mb-6">Alada is a globally integrated, multi-disciplinary engineering consultancy established in the United States, with a fully owned and operational India-based delivery model. We operate across the complete project lifecycle — from feasibility and conceptual design through to construction documentation and project management.</p>
-                <p class="text-slate-600 leading-relaxed mb-8">Our unique combination of U.S. engineering standards, advanced digital methodologies, and globally distributed execution ensures technically robust, cost-efficient, and scalable solutions across every environment.</p>
+                <p class="text-slate-600 leading-relaxed mb-6">Alada is a globally integrated, multi-disciplinary engineering consultancy established in the United States, with a fully owned and operational India based delivery model. We operate across the complete project lifecycle from feasibility and conceptual design through to construction documentation and project management.</p>
+                <p class="text-slate-600 leading-relaxed mb-8">Our unique combination of Global engineering standards, advanced digital methodologies, and globally distributed execution ensures technically robust, cost-efficient, and scalable solutions across every environment.</p>
                 <a href="{{ route('about') }}" class="inline-flex items-center gap-2 font-semibold text-teal-600 hover:text-navy-900 transition-colors group">
                     Discover Our Story
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
@@ -422,6 +422,30 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
             @foreach($latestBlogs as $i => $blog)
             @include('frontend.insights._card', ['blog' => $blog, 'delay' => $i * 100])
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
+{{-- ═══ SOFTWARES WE USE ═══ --}}
+@if($softwareLogos->count())
+<section class="py-16 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-navy-900">
+                Softwares <em class="font-display not-italic text-brown-500">We Use</em>
+            </h2>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 reveal">
+            @foreach($softwareLogos as $logo)
+            <div class="flex items-center justify-center h-14">
+                <img src="{{ asset($logo->path) }}"
+                     alt="{{ $logo->name ?? 'Software' }}"
+                     title="{{ $logo->name ?? '' }}"
+                     class="max-h-full w-auto object-contain transition-all duration-300 opacity-90 hover:opacity-100"
+                     loading="lazy">
+            </div>
             @endforeach
         </div>
     </div>

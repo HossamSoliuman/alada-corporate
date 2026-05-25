@@ -3,17 +3,19 @@
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\BlogTagController;
+use App\Http\Controllers\Admin\CareerImageController;
 use App\Http\Controllers\Admin\CaseStudyCategoryController;
 use App\Http\Controllers\Admin\CaseStudyController as AdminCaseStudyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSlideController;
 use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
-use App\Http\Controllers\Admin\CareerImageController;
 use App\Http\Controllers\Admin\JobListingController;
 use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SoftwareLogoController;
+use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\BlogController;
@@ -78,6 +80,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::post('career-images', [CareerImageController::class, 'store'])->name('career-images.store');
     Route::put('career-images/{careerImage}', [CareerImageController::class, 'update'])->name('career-images.update');
     Route::delete('career-images/{careerImage}', [CareerImageController::class, 'destroy'])->name('career-images.destroy');
+
+    Route::get('team-members', [TeamMemberController::class, 'index'])->name('team-members.index');
+    Route::post('team-members', [TeamMemberController::class, 'store'])->name('team-members.store');
+    Route::put('team-members/{teamMember}', [TeamMemberController::class, 'update'])->name('team-members.update');
+    Route::delete('team-members/{teamMember}', [TeamMemberController::class, 'destroy'])->name('team-members.destroy');
+
+    Route::get('software-logos', [SoftwareLogoController::class, 'index'])->name('software-logos.index');
+    Route::post('software-logos', [SoftwareLogoController::class, 'store'])->name('software-logos.store');
+    Route::put('software-logos/{softwareLogo}', [SoftwareLogoController::class, 'update'])->name('software-logos.update');
+    Route::delete('software-logos/{softwareLogo}', [SoftwareLogoController::class, 'destroy'])->name('software-logos.destroy');
 
     Route::get('hero-slides', [HeroSlideController::class, 'index'])->name('hero-slides.index');
     Route::post('hero-slides', [HeroSlideController::class, 'store'])->name('hero-slides.store');

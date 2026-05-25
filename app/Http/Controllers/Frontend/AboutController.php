@@ -3,21 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
-use App\Models\BlogCategory;
-use App\Models\BlogTag;
-use App\Models\CaseStudy;
-use App\Models\CaseStudyCategory;
-use App\Models\Industry;
-use App\Models\Lead;
 use App\Models\Page;
-use App\Models\Service;
-use App\Http\Requests\Frontend\StoreContactRequest;
-use App\Services\LeadService;
+use App\Models\TeamMember;
 use App\Services\SeoService;
-use App\Services\SitemapService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class AboutController extends Controller
 {
@@ -26,8 +14,10 @@ class AboutController extends Controller
     public function index()
     {
         $page = Page::where('slug', 'about')->firstOrFail();
-        $seo  = $this->seoService->for($page);
-        return view('frontend.about', compact('page', 'seo'));
+        $seo = $this->seoService->for($page);
+        $teamMembers = TeamMember::ordered()->get();
+
+        return view('frontend.about', compact('page', 'seo', 'teamMembers'));
     }
 }
 

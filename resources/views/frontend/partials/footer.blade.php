@@ -27,7 +27,7 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Expertise</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Services</h4>
                 <ul class="space-y-2.5">
                     @foreach($footerServices as $svc)
                     <li>
@@ -60,7 +60,7 @@
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">Offices</h4>
                 <div class="space-y-5 text-sm text-slate-300">
                     <div>
-                        <p class="font-semibold text-white mb-1.5">USA Headquarters</p>
+                        <p class="font-semibold text-white mb-1.5">USA</p>
                         @if($settings->get('address'))
                         <p class="leading-relaxed">{{ $settings->get('address') }}</p>
                         @else
@@ -68,8 +68,8 @@
                         @endif
                     </div>
                     <div>
-                        <p class="font-semibold text-white mb-1.5">India Engineering Center</p>
-                        <p class="leading-relaxed">India</p>
+                        <p class="font-semibold text-white mb-1.5">India</p>
+                        <p class="leading-relaxed">Tower B1, Level 2, Office No-211, Symphony IT Park, Nanded City, Pune -411068</p>
                     </div>
                     @if($settings->get('phone'))
                     <a href="tel:{{ $settings->get('phone') }}" class="flex items-center gap-2 hover:text-white transition-colors">
