@@ -32,6 +32,11 @@
                 @endif
             </div>
             <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5">YouTube Video URL</label>
+                <input type="url" name="youtube_url" value="{{ old('youtube_url', $service?->youtube_url) }}" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500" placeholder="https://www.youtube.com/watch?v=...">
+                <p class="text-xs text-gray-400 mt-1">Shown in the sidebar on the public expertise page. Leave blank to hide.</p>
+            </div>
+            <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Display Order</label>
                 <input type="number" name="order" value="{{ old('order', $service?->order ?? 0) }}" min="0" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500">
             </div>

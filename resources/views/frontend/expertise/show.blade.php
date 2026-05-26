@@ -135,6 +135,27 @@
                         View all projects <x-icon name="arrow-long-right" class="w-4 h-4"/>
                     </a>
                 </div>
+
+                @php
+                    $youtubeId = null;
+                    if ($service->youtube_url) {
+                        preg_match('~(?:youtu\.be/|youtube\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/|live/))([\w-]{11})~', $service->youtube_url, $m);
+                        $youtubeId = $m[1] ?? null;
+                    }
+                @endphp
+                @if($youtubeId)
+                <div class="border border-slate-200 rounded-2xl p-2 overflow-hidden">
+                    <div class="relative w-full overflow-hidden rounded-xl" style="aspect-ratio:16/9">
+                        <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube-nocookie.com/embed/{{ $youtubeId }}"
+                                title="{{ $service->name }} video"
+                                loading="lazy"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                @endif
             </aside>
         </div>
     </div>

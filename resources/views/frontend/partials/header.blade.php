@@ -80,8 +80,8 @@
     </div>
 
     {{-- Secondary Country/Region Nav --}}
-    <div class="hidden lg:block border-t border-slate-200/40 bg-navy-900/95 backdrop-blur-sm" x-data="{ hovered: null }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+    <div class="hidden lg:block border-t border-slate-200 bg-white" x-data="{ hovered: null }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
             @php
                 $regions = [
                     'Americas' => ['United States', 'Canada', 'Latin America'],
@@ -114,7 +114,7 @@
             @foreach ($regions as $region => $countries)
                 <div class="relative group" @mouseenter="hovered = '{{ $region }}'" @mouseleave="hovered = null">
                     <button
-                        class="px-5 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 uppercase tracking-widest transition-colors flex items-center gap-1.5">
+                        class="px-5 py-2.5 text-xs font-semibold text-navy-700 hover:text-brown-500 hover:bg-slate-50 uppercase tracking-widest transition-colors flex items-center gap-1.5">
                         {{ $region }}
                         <x-icon name="chevron-down" class="w-3 h-3" />
                     </button>
@@ -122,10 +122,10 @@
                         x-transition:enter="transition ease-out duration-150"
                         x-transition:enter-start="opacity-0 -translate-y-1"
                         x-transition:enter-end="opacity-100 translate-y-0"
-                        class="absolute top-full left-0 min-w-56 bg-navy-950 border border-white/10 shadow-2xl rounded-b-xl py-2 z-50">
+                        class="absolute top-full left-0 min-w-56 bg-white border border-slate-200 shadow-xl shadow-navy-900/10 rounded-b-xl py-2 z-50">
                         @foreach ($countries as $country)
                             <span
-                                class="block px-5 py-1.5 text-sm text-slate-300 hover:text-white hover:bg-white/10 cursor-default transition-colors">
+                                class="block px-5 py-1.5 text-sm text-navy-700 hover:text-brown-500 hover:bg-slate-50 cursor-default transition-colors">
                                 {{ $country }}
                             </span>
                         @endforeach

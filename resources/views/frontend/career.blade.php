@@ -179,7 +179,7 @@ $whyIcons = [
 ];
 $whyGradients = [
     'from-teal-500 to-teal-700',
-    'from-blue-500 to-blue-700',
+    'from-brown-400 to-brown-600',
     'from-amber-500 to-orange-600',
     'from-emerald-500 to-emerald-700',
     'from-violet-500 to-violet-700',

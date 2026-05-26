@@ -37,7 +37,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system'],
-                heading: ['Poppins', 'ui-sans-serif', 'system-ui'],
+                heading: ['Manrope', 'ui-sans-serif', 'system-ui'],
             },
             typography: {
                 DEFAULT: {

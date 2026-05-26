@@ -9,16 +9,16 @@ use Spatie\Sluggable\SlugOptions;
 
 class Service extends Model
 {
-    use HasSlug, HasSeoMeta;
+    use HasSeoMeta, HasSlug;
 
     protected $fillable = [
         'name', 'slug', 'short_description', 'description',
-        'icon', 'featured_image', 'is_featured', 'is_active', 'order',
+        'icon', 'featured_image', 'youtube_url', 'is_featured', 'is_active', 'order',
     ];
 
     protected $casts = [
         'is_featured' => 'boolean',
-        'is_active'   => 'boolean',
+        'is_active' => 'boolean',
     ];
 
     public function getSlugOptions(): SlugOptions

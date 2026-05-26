@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -72,8 +72,8 @@
                     },
                     fontFamily: {
                         sans: ['"Inter"', 'ui-sans-serif', 'system-ui'],
-                        heading: ['"Poppins"', 'ui-sans-serif', 'system-ui'],
-                        display: ['"Poppins"', 'ui-sans-serif', 'system-ui'],
+                        heading: ['"Manrope"', 'ui-sans-serif', 'system-ui'],
+                        display: ['"Manrope"', 'ui-sans-serif', 'system-ui'],
                     },
                 }
             }
@@ -98,12 +98,18 @@
         h2,
         h3,
         h4 {
-            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-family: 'Manrope', ui-sans-serif, system-ui;
             font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-weight: 800;
+            line-height: 1.08;
         }
 
         .font-display {
-            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-family: 'Manrope', ui-sans-serif, system-ui;
         }
 
         button,
@@ -111,7 +117,7 @@
         [type="submit"],
         [role="button"],
         a[class*="btn"] {
-            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-family: 'Manrope', ui-sans-serif, system-ui;
             font-weight: 500;
         }
 
@@ -140,7 +146,7 @@
         .prose h2,
         .prose h3,
         .prose h4 {
-            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-family: 'Manrope', ui-sans-serif, system-ui;
             font-weight: 700;
         }
 
@@ -264,7 +270,7 @@
 
         /* Count-up */
         .count-up {
-            font-family: 'Poppins', ui-sans-serif, system-ui;
+            font-family: 'Manrope', ui-sans-serif, system-ui;
             font-weight: 700;
         }
 

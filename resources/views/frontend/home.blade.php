@@ -172,10 +172,10 @@
 <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {{-- Header --}}
+        <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4 reveal">Our Involvement</p>
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-20">
             <div class="reveal-left">
-                <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Our Involvement</p>
-                <h2 class="text-4xl md:text-5xl font-heading text-navy-900 leading-tight">Project Lifecycle.<br><em class="font-display not-italic text-brown-500">Dedicated. Value Driven.</em></h2>
+                <h2 class="text-3xl md:text-4xl font-heading text-navy-900 leading-tight">Project Lifecycle. <em class="font-display not-italic text-brown-500">Dedicated. Value Driven.</em></h2>
             </div>
             <p class="reveal-right text-slate-500 leading-relaxed">
                 Alada supports its partners at every stage — from bidding and early planning through detailed design, construction, and as-built handover. Backed by rigorous engineering and digital workflows, we deliver seamless coordination, accurate deliverables, and practical solutions that keep projects moving forward — an integrated extension of your team from concept to completion.
@@ -373,34 +373,8 @@
         </div>
 
         <div class="reveal-scale">
-            <img src="{{ asset('images/Our%20Expertise.svg') }}" alt="Map of Alada's global project footprint across infrastructure and industry"
+            <img src="{{ asset('images/alada-map.png') }}" alt="Map of Alada's global project footprint across infrastructure and industry"
                  loading="lazy" class="w-full h-auto select-none pointer-events-none">
-        </div>
-    </div>
-</section>
-
-{{-- ═══ GLOBAL STATS BAND ═══ --}}
-<section class="bg-navy-900 py-16 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.04]">
-        <svg viewBox="0 0 1000 200" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <defs><pattern id="grid2" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.4"/></pattern></defs>
-            <rect width="100%" height="100%" fill="url(#grid2)"/>
-        </svg>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            @foreach([
-                ['5000', '+', 'Delivered Projects',     'Project lifecycle consistently delivered on time'],
-                ['55',   '+', 'Delighted Clients',       'Consistently positive feedback from valued clients'],
-                ['100',  '+', 'Team of Skilled Experts', 'A strong, skilled team providing diverse expertise'],
-            ] as [$num, $suf, $label, $sub])
-            <div class="reveal">
-                <div class="font-display text-6xl md:text-7xl font-bold text-white mb-2"
-                     data-count="{{ $num }}" data-suffix="{{ $suf }}">{{ $num }}{{ $suf }}</div>
-                <div class="text-sm font-semibold text-teal-400 uppercase tracking-widest mb-1">{{ $label }}</div>
-                <div class="text-xs text-slate-500">{{ $sub }}</div>
-            </div>
-            @endforeach
         </div>
     </div>
 </section>
@@ -453,7 +427,7 @@
 @endif
 
 {{-- ═══ CTA ═══ --}}
-<section class="py-28 bg-navy-900 relative overflow-hidden texture">
+<section class="py-28 bg-slate-50 relative overflow-hidden texture">
     <div class="absolute right-0 bottom-0 w-96 h-96 opacity-10">
         <div class="absolute inset-0 rounded-full border-2 border-slate-300" style="margin:0"></div>
         <div class="absolute inset-0 rounded-full border border-slate-300" style="margin:24px"></div>
@@ -463,15 +437,15 @@
     </div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="reveal">
-            <p class="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-5">Start a Conversation</p>
-            <h2 class="text-4xl md:text-6xl font-heading text-white mb-6">Ready to Build<br><em class="font-display not-italic text-brown-300">Something Great?</em></h2>
-            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">From feasibility to final delivery — tell us about your project and let Alada's global engineering team develop the solution.</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-5">Start a Conversation</p>
+            <h2 class="text-4xl md:text-6xl font-heading text-navy-900 mb-6">Ready to Build<br><em class="font-display not-italic text-brown-500">Something Great?</em></h2>
+            <p class="text-slate-500 text-lg mb-10 max-w-2xl mx-auto">From feasibility to final delivery — tell us about your project and let Alada's global engineering team develop the solution.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="{{ route('contact') }}" class="group inline-flex items-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brown-900/30 text-lg">
                     Get in Touch
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
                 </a>
-                <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 border border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300">
+                <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 border border-navy-900/20 text-navy-900 hover:bg-navy-900/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300">
                     Our Services
                 </a>
             </div>
