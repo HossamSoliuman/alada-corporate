@@ -56,24 +56,24 @@ class CaseStudyController extends Controller
         ]);
 
         if ($request->hasFile('featured_image')) {
-            $paths = $this->imageService->upload($request->file('featured_image'), 'public', 'case-studies');
+            $paths = $this->imageService->upload($request->file('featured_image'), 'public', 'uploads/case-studies');
             $validated['featured_image'] = $paths['large'];
         }
 
         if ($request->hasFile('pdf_file')) {
-            $pdfDir = public_path('case-studies/pdfs');
+            $pdfDir = public_path('uploads/case-studies/pdfs');
             if (! is_dir($pdfDir)) {
                 mkdir($pdfDir, 0755, true);
             }
             $pdfName = Str::uuid().'.'.$request->file('pdf_file')->getClientOriginalExtension();
             $request->file('pdf_file')->move($pdfDir, $pdfName);
-            $validated['pdf_file'] = 'case-studies/pdfs/'.$pdfName;
+            $validated['pdf_file'] = 'uploads/case-studies/pdfs/'.$pdfName;
         }
 
         if ($request->hasFile('gallery')) {
             $gallery = [];
             foreach ($request->file('gallery') as $file) {
-                $paths = $this->imageService->upload($file, 'public', 'case-studies/gallery');
+                $paths = $this->imageService->upload($file, 'public', 'uploads/case-studies/gallery');
                 $gallery[] = $paths['large'];
             }
             $validated['gallery'] = $gallery;
@@ -117,7 +117,7 @@ class CaseStudyController extends Controller
         ]);
 
         if ($request->hasFile('featured_image')) {
-            $paths = $this->imageService->upload($request->file('featured_image'), 'public', 'case-studies');
+            $paths = $this->imageService->upload($request->file('featured_image'), 'public', 'uploads/case-studies');
             $validated['featured_image'] = $paths['large'];
         }
 

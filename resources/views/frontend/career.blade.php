@@ -140,17 +140,17 @@
         @if($jobs->count())
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             @foreach($jobs as $i => $job)
-            <div class="card-glass rounded-2xl p-6
-                        hover:-translate-y-0.5
+            <div class="bg-white border border-slate-200 rounded-2xl p-6
+                        hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5
                         transition-all duration-200 reveal"
                  style="transition-delay: {{ $i * 50 }}ms">
-                <h3 class="text-[17px] font-semibold text-white mb-4 leading-snug">{{ $job->position_name }}</h3>
+                <h3 class="text-[17px] font-semibold text-navy-900 mb-4 leading-snug">{{ $job->position_name }}</h3>
                 <div class="flex flex-wrap gap-2">
-                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-300 bg-white/10 px-3 py-1.5 rounded-full">
+                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
                         <x-icon name="map-pin" class="w-3.5 h-3.5 shrink-0 text-slate-400"/>
                         {{ $job->location }}
                     </span>
-                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-300 bg-white/10 px-3 py-1.5 rounded-full">
+                    <span class="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
                         <x-icon name="briefcase" class="w-3.5 h-3.5 shrink-0 text-slate-400"/>
                         {{ $job->employment_type === 'full-time' ? 'Full-time' : 'Part-time' }}
                     </span>
@@ -159,9 +159,9 @@
             @endforeach
         </div>
         @else
-        <div class="text-center py-16 card-glass rounded-2xl">
-            <x-icon name="briefcase" class="w-10 h-10 text-slate-500 mx-auto mb-3"/>
-            <p class="text-slate-300 text-sm">No open positions at the moment. Check back soon.</p>
+        <div class="text-center py-16 bg-white rounded-2xl border border-slate-100">
+            <x-icon name="briefcase" class="w-10 h-10 text-slate-200 mx-auto mb-3"/>
+            <p class="text-slate-400 text-sm">No open positions at the moment. Check back soon.</p>
         </div>
         @endif
     </div>
@@ -176,6 +176,14 @@ $whyIcons = [
     'globe-alt',
     'academic-cap',
     'heart',
+];
+$whyGradients = [
+    'from-teal-500 to-teal-700',
+    'from-brown-400 to-brown-600',
+    'from-amber-500 to-orange-600',
+    'from-emerald-500 to-emerald-700',
+    'from-violet-500 to-violet-700',
+    'from-rose-500 to-rose-700',
 ];
 @endphp
 <section class="py-20 bg-slate-50">
@@ -193,16 +201,16 @@ $whyIcons = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($whyCards as $i => $card)
-            @php $icon = $whyIcons[$i % count($whyIcons)]; @endphp
-            <div class="card-glass rounded-2xl p-8 flex flex-col items-center text-center
-                        hover:-translate-y-1
+            @php $gradient = $whyGradients[$i % count($whyGradients)]; $icon = $whyIcons[$i % count($whyIcons)]; @endphp
+            <div class="bg-gradient-to-br {{ $gradient }} rounded-2xl p-8 flex flex-col items-center text-center
+                        hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] hover:-translate-y-1
                         transition-all duration-200 reveal"
                  style="transition-delay: {{ $i * 80 }}ms">
-                <div class="w-20 h-20 rounded-2xl glass-chip flex items-center justify-center mb-6">
-                    <x-icon name="{{ $icon }}" class="w-10 h-10"/>
+                <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+                    <x-icon name="{{ $icon }}" class="w-10 h-10 text-white"/>
                 </div>
                 <h3 class="text-base font-semibold text-white mb-3">{{ $card['title'] }}</h3>
-                <p class="text-sm text-slate-300 leading-[1.6]">{{ $card['body'] }}</p>
+                <p class="text-sm text-white/80 leading-[1.6]">{{ $card['body'] }}</p>
             </div>
             @endforeach
         </div>

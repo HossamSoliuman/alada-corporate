@@ -25,10 +25,10 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($teamMembers as $i => $member)
-            <div class="card-glass rounded-2xl overflow-hidden reveal" style="transition-delay: {{ $i * 100 }}ms">
+            <div class="bg-slate-50 rounded-2xl overflow-hidden reveal" style="transition-delay: {{ $i * 100 }}ms">
                 <div class="px-6 pt-6 pb-3">
-                    <p class="text-xs font-semibold uppercase tracking-widest text-brown-300 mb-1">{{ $member->role }}</p>
-                    <h3 class="font-heading text-xl text-white font-semibold">{{ $member->name }}</h3>
+                    <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">{{ $member->role }}</p>
+                    <h3 class="font-heading text-xl text-navy-900 font-semibold">{{ $member->name }}</h3>
                 </div>
                 <div class="px-6 pb-6">
                     @if($member->photo)
@@ -64,13 +64,13 @@
             </div>
             <div class="reveal-right space-y-4">
                 @foreach([['Global Engineering Standards','Compliance with international codes ensuring quality and safety'],['Global Project Execution Framework','U.S. based firm with an India delivery center, supporting global operations and executing projects across multiple countries'],['Lifecycle Engineering Solutions','End-to-end services from feasibility to construction support'],['Smart Engineering Platforms','Comprehensive digital engineering environment spanning CAD, BIM, and GIS, enabling integrated, data-centric design and coordination']] as [$t,$d])
-                <div class="flex gap-4 p-5 card-glass rounded-2xl transition-colors">
+                <div class="flex gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-teal-200 transition-colors">
                     <div class="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white shrink-0">
                         <x-icon name="check-circle" class="w-5 h-5"/>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-white mb-1">{{ $t }}</h4>
-                        <p class="text-sm text-slate-300">{{ $d }}</p>
+                        <h4 class="font-semibold text-navy-900 mb-1">{{ $t }}</h4>
+                        <p class="text-sm text-slate-500">{{ $d }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -82,7 +82,7 @@
 <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12">
-            <div class="card-glass rounded-3xl p-10 text-white reveal-left">
+            <div class="bg-navy-900 rounded-3xl p-10 text-white reveal-left">
                 <div class="w-12 h-12 rounded-xl bg-teal-600/30 flex items-center justify-center text-teal-400 mb-6">
                     <x-icon name="sparkles" class="w-6 h-6"/>
                 </div>
@@ -114,12 +114,12 @@
         </div>
         <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             @foreach([['USA','8 The Green, STE A, Dover, DE 19901','map-pin'],['India','Tower B1, Level 2, Office No-211, Symphony IT Park, Nanded City, Pune -411068','map-pin']] as $i => [$title,$desc,$icon])
-            <div class="text-center p-8 card-glass rounded-3xl reveal" style="transition-delay:{{ $i*150 }}ms">
-                <div class="w-14 h-14 mx-auto rounded-2xl glass-chip flex items-center justify-center mb-5">
+            <div class="text-center p-8 bg-slate-50 rounded-3xl border border-slate-100 reveal" style="transition-delay:{{ $i*150 }}ms">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-navy-900 flex items-center justify-center text-white mb-5">
                     <x-icon name="{{ $icon }}" class="w-7 h-7"/>
                 </div>
-                <h3 class="font-heading text-xl text-white mb-3">{{ $title }}</h3>
-                <p class="text-sm text-slate-300 leading-relaxed">{{ $desc }}</p>
+                <h3 class="font-heading text-xl text-navy-900 mb-3">{{ $title }}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{{ $desc }}</p>
             </div>
             @endforeach
         </div>
@@ -130,7 +130,7 @@
     <div class="absolute inset-0 bg-gradient-to-br from-navy-950/80 to-transparent"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <p class="font-display italic text-5xl md:text-6xl text-white leading-tight mb-8">"Alada represents the next generation of engineering firms — delivering innovative, sustainable, and globally integrated infrastructure solutions."</p>
-        <a href="{{ route('contact') }}" class="btn-glossy inline-flex items-center gap-3 font-semibold px-10 py-4 text-lg group">
+        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 text-lg group">
             Work With Us
             <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
         </a>

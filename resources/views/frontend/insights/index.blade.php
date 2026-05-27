@@ -29,29 +29,29 @@
                     </div>
                 </form>
 
-                <div class="card-glass rounded-2xl p-5">
+                <div class="bg-white rounded-2xl border border-slate-100 p-5">
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">Categories</h3>
                     <div class="space-y-1">
-                        <a href="{{ route('insights.index') }}" class="block px-3 py-2 rounded-lg text-sm {{ !request('category') ? 'bg-white/10 text-white font-semibold' : 'text-slate-300 hover:bg-white/5' }} transition-colors">
+                        <a href="{{ route('insights.index') }}" class="block px-3 py-2 rounded-lg text-sm {{ !request('category') ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-slate-600 hover:bg-slate-50' }} transition-colors">
                             All Posts
                         </a>
                         @foreach($categories as $cat)
                         <a href="{{ route('insights.category', $cat->slug) }}"
-                           class="flex items-center justify-between px-3 py-2 rounded-lg text-sm {{ request('category') === $cat->slug ? 'bg-white/10 text-white font-semibold' : 'text-slate-300 hover:bg-white/5' }} transition-colors">
+                           class="flex items-center justify-between px-3 py-2 rounded-lg text-sm {{ request('category') === $cat->slug ? 'bg-teal-50 text-teal-700 font-semibold' : 'text-slate-600 hover:bg-slate-50' }} transition-colors">
                             <span>{{ $cat->name }}</span>
-                            <span class="text-xs text-slate-300 bg-white/10 px-1.5 py-0.5 rounded-full">{{ $cat->blogs_count }}</span>
+                            <span class="text-xs text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">{{ $cat->blogs_count }}</span>
                         </a>
                         @endforeach
                     </div>
                 </div>
 
                 @if($latestTags->count())
-                <div class="card-glass rounded-2xl p-5">
+                <div class="bg-white rounded-2xl border border-slate-100 p-5">
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">Tags</h3>
                     <div class="flex flex-wrap gap-2">
                         @foreach($latestTags as $tag)
                         <a href="{{ route('insights.tag', $tag->slug) }}"
-                           class="text-xs px-3 py-1.5 rounded-full border border-white/15 text-slate-300 hover:border-brown-400 hover:text-brown-200 hover:bg-white/10 transition-all">
+                           class="text-xs px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-teal-400 hover:text-teal-700 hover:bg-teal-50 transition-all">
                             {{ $tag->name }}
                         </a>
                         @endforeach
@@ -69,9 +69,9 @@
                 </div>
                 <div class="mt-10">{{ $blogs->links() }}</div>
                 @else
-                <div class="text-center py-20 card-glass rounded-2xl">
-                    <x-icon name="pencil-square" class="w-12 h-12 text-slate-500 mx-auto mb-3"/>
-                    <p class="text-slate-300">No articles found.</p>
+                <div class="text-center py-20 bg-white rounded-2xl border border-slate-100">
+                    <x-icon name="pencil-square" class="w-12 h-12 text-slate-200 mx-auto mb-3"/>
+                    <p class="text-slate-400">No articles found.</p>
                 </div>
                 @endif
             </div>

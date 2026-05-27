@@ -5,8 +5,8 @@
 
             <div class="lg:col-span-1">
                 <img src="{{ asset('images/alada-logo.png') }}" alt="Alada" class="h-14 w-auto mb-5 brightness-0 invert opacity-90">
-                <p class="font-display italic text-white text-lg mb-2">Growing With Time</p>
-                <p class="text-white text-sm leading-relaxed mb-6">Global engineering, infrastructure & energy solutions delivered with U.S. standards and worldwide reach.</p>
+                <p class="font-display italic text-white/90 text-lg mb-2">Growing With Time</p>
+                <p class="text-white/70 text-sm leading-relaxed mb-6">Global engineering, infrastructure & energy solutions delivered with U.S. standards and worldwide reach.</p>
 
                 <div class="flex gap-3">
                     @foreach(['linkedin','twitter','facebook','instagram'] as $s)
@@ -27,12 +27,12 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-5">Services</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Services</h4>
                 <ul class="space-y-2.5">
                     @foreach($footerServices as $svc)
                     <li>
                         <a href="{{ route('expertise.show',$svc->slug) }}"
-                           class="text-sm text-white hover:text-white transition-colors flex items-center gap-2 group">
+                           class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-2 group">
                             <span class="w-1 h-1 rounded-full bg-white/50 group-hover:bg-white transition-colors"></span>
                             {{ $svc->name }}
                         </a>
@@ -42,12 +42,12 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-5">Company</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Company</h4>
                 <ul class="space-y-2.5">
                     @foreach([['about','About Alada'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['insights.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
                     <li>
                         <a href="{{ $link[0] === 'page.show' ? route($link[0], 'careers') : route($link[0]) }}"
-                           class="text-sm text-white hover:text-white transition-colors flex items-center gap-2 group">
+                           class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-2 group">
                             <span class="w-1 h-1 rounded-full bg-white/50 group-hover:bg-white transition-colors"></span>
                             {{ $link[1] }}
                         </a>
@@ -57,8 +57,8 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-5">Offices</h4>
-                <div class="space-y-5 text-sm text-white">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Offices</h4>
+                <div class="space-y-5 text-sm text-white/80">
                     <div>
                         <p class="font-semibold text-white mb-1.5">USA</p>
                         @if($settings->get('address'))
@@ -73,13 +73,13 @@
                     </div>
                     @if($settings->get('phone'))
                     <a href="tel:{{ $settings->get('phone') }}" class="flex items-center gap-2 hover:text-white transition-colors">
-                        <x-icon name="phone" class="w-4 h-4 text-white shrink-0"/>
+                        <x-icon name="phone" class="w-4 h-4 text-white/70 shrink-0"/>
                         {{ $settings->get('phone') }}
                     </a>
                     @endif
                     @if($settings->get('contact_email'))
                     <a href="mailto:{{ $settings->get('contact_email') }}" class="flex items-center gap-2 hover:text-white transition-colors">
-                        <x-icon name="envelope" class="w-4 h-4 text-white shrink-0"/>
+                        <x-icon name="envelope" class="w-4 h-4 text-white/70 shrink-0"/>
                         {{ $settings->get('contact_email') }}
                     </a>
                     @endif
@@ -88,10 +88,10 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 py-6">
-            <p class="text-white text-xs">
+            <p class="text-white/60 text-xs">
                 {!! $settings->get('footer_text', '© '.date('Y').' Alada. All rights reserved.') !!}
             </p>
-            <div class="flex gap-5 text-xs text-white">
+            <div class="flex gap-5 text-xs text-white/60">
                 <a href="{{ route('page.show', 'privacy-policy') }}" class="hover:text-white transition-colors">Privacy Policy</a>
                 <a href="{{ route('page.show', 'terms-conditions') }}" class="hover:text-white transition-colors">Terms</a>
                 <a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>

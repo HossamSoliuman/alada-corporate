@@ -1,4 +1,4 @@
-<header id="site-header" class="bg-white/95 backdrop-blur-sm relative z-50 border-b border-slate-200/60"
+<header id="site-header" class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-200/60"
     x-data="{ mobileOpen: false, servicesOpen: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20 transition-all duration-300">
@@ -66,7 +66,7 @@
                 @endif
 
                 <a href="{{ route('contact') }}"
-                    class="ml-2 btn-glossy inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 group">
+                    class="ml-2 inline-flex items-center gap-2 bg-navy-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
                     Get in Touch
                     <x-icon name="arrow-long-right" class="w-4 h-4 arrow-nudge" />
                 </a>
@@ -144,7 +144,7 @@
                     class="block px-4 py-3 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">{{ $l }}</a>
             @endforeach
             <a href="{{ route('contact') }}"
-                class="btn-glossy block px-4 py-3 text-sm font-semibold text-center mt-2">Get
+                class="block px-4 py-3 rounded-xl text-sm font-semibold text-white bg-navy-900 text-center mt-2 hover:bg-teal-600 transition-colors">Get
                 in Touch</a>
         </div>
     </div>
