@@ -102,25 +102,25 @@
             </article>
 
             <aside class="space-y-6 reveal-right">
-                <div class="bg-navy-900 rounded-2xl p-6 text-white">
+                <div class="card-glass rounded-2xl p-6 text-white">
                     <h3 class="font-heading text-lg mb-3">Start a Project</h3>
-                    <p class="text-sm text-slate-400 mb-5">Tell us about your project and we'll outline how Alada can deliver it.</p>
-                    <a href="{{ route('contact') }}" class="block w-full text-center bg-brown-500 hover:bg-brown-400 text-white py-3 px-6 rounded-xl font-semibold transition-colors text-sm">
+                    <p class="text-sm text-slate-300 mb-5">Tell us about your project and we'll outline how Alada can deliver it.</p>
+                    <a href="{{ route('contact') }}" class="btn-glossy block w-full text-center py-3 px-6 font-semibold text-sm">
                         Get in Touch
                     </a>
                 </div>
 
                 @if($related->count())
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <h3 class="font-semibold text-navy-900 mb-4 text-sm uppercase tracking-wide">Related Expertise</h3>
+                <div class="card-glass rounded-2xl p-6">
+                    <h3 class="font-semibold text-white mb-4 text-sm uppercase tracking-wide">Related Expertise</h3>
                     <div class="space-y-3">
                         @foreach($related as $rel)
                         <a href="{{ route('expertise.show', $rel->slug) }}"
-                           class="flex items-center gap-3 p-3 rounded-xl hover:bg-white border border-transparent hover:border-slate-200 transition-all group">
-                            <div class="w-9 h-9 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all shrink-0">
+                           class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/10 border border-transparent hover:border-white/20 transition-all group">
+                            <div class="w-9 h-9 rounded-lg glass-chip flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-all shrink-0">
                                 <x-icon name="{{ $rel->icon ?? 'building-office-2' }}" class="w-4 h-4"/>
                             </div>
-                            <span class="text-sm font-medium text-navy-700 leading-tight">{{ $rel->name }}</span>
+                            <span class="text-sm font-medium text-slate-200 leading-tight">{{ $rel->name }}</span>
                             <x-icon name="chevron-right" class="w-4 h-4 text-slate-400 ml-auto shrink-0"/>
                         </a>
                         @endforeach
@@ -128,10 +128,10 @@
                 </div>
                 @endif
 
-                <div class="border border-slate-200 rounded-2xl p-6">
-                    <h3 class="font-semibold text-navy-900 mb-2 text-sm">Delivered Worldwide</h3>
-                    <p class="text-xs text-slate-500 mb-4">USA · UK · Middle East · ANZ · Asia</p>
-                    <a href="{{ route('case-studies.index') }}" class="flex items-center gap-2 text-xs font-semibold text-teal-600 hover:text-navy-900 transition-colors">
+                <div class="card-glass rounded-2xl p-6">
+                    <h3 class="font-semibold text-white mb-2 text-sm">Delivered Worldwide</h3>
+                    <p class="text-xs text-slate-300 mb-4">USA · UK · Middle East · ANZ · Asia</p>
+                    <a href="{{ route('case-studies.index') }}" class="flex items-center gap-2 text-xs font-semibold text-brown-300 hover:text-brown-200 transition-colors">
                         View all projects <x-icon name="arrow-long-right" class="w-4 h-4"/>
                     </a>
                 </div>
@@ -144,7 +144,7 @@
                     }
                 @endphp
                 @if($youtubeId)
-                <div class="border border-slate-200 rounded-2xl p-2 overflow-hidden">
+                <div class="card-glass rounded-2xl p-2 overflow-hidden">
                     <div class="relative w-full overflow-hidden rounded-xl" style="aspect-ratio:16/9">
                         <iframe class="absolute inset-0 w-full h-full"
                                 src="https://www.youtube-nocookie.com/embed/{{ $youtubeId }}"

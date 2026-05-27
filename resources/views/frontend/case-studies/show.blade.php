@@ -52,17 +52,17 @@
             <aside class="space-y-6">
                 @if($caseStudy->pdf_file)
                 <a href="{{ route('case-studies.download', $caseStudy->slug) }}"
-                   class="flex items-center gap-3 w-full bg-teal-600 text-white px-5 py-4 rounded-xl font-semibold hover:bg-navy-900 transition-colors">
+                   class="btn-glossy-navy flex items-center gap-3 w-full px-5 py-4 font-semibold">
                     📄 Download PDF
                 </a>
                 @endif
 
                 @if($caseStudy->cta_title)
-                <div class="bg-teal-50 border border-primary-100 rounded-2xl p-6">
-                    <h3 class="font-heading font-bold text-navy-900 mb-3">{{ $caseStudy->cta_title }}</h3>
-                    @if($caseStudy->cta_text)<p class="text-sm text-slate-600 mb-4">{{ $caseStudy->cta_text }}</p>@endif
+                <div class="card-glass rounded-2xl p-6">
+                    <h3 class="font-heading font-bold text-white mb-3">{{ $caseStudy->cta_title }}</h3>
+                    @if($caseStudy->cta_text)<p class="text-sm text-slate-300 mb-4">{{ $caseStudy->cta_text }}</p>@endif
                     <a href="{{ $caseStudy->cta_link ?? route('contact') }}"
-                       class="block text-center bg-teal-600 text-white py-3 rounded-xl font-semibold hover:bg-navy-900 transition-colors text-sm">
+                       class="btn-glossy block text-center py-3 font-semibold text-sm">
                         Get Started
                     </a>
                 </div>

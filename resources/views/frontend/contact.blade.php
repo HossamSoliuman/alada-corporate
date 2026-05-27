@@ -48,15 +48,15 @@
                         </div>
                     </div>
 
-                    <div class="bg-navy-900 rounded-2xl p-6 text-white">
+                    <div class="card-glass rounded-2xl p-6 text-white">
                         <p class="font-display italic text-lg text-slate-300 mb-2">"Growing With Time"</p>
                         <p class="text-sm text-slate-400">Alada delivers engineering excellence with U.S. standards across
                             every continent.</p>
                     </div>
                 </div>
 
-                <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-10 reveal-right">
-                    <h2 class="text-2xl font-heading text-navy-900 mb-8">Send a Message</h2>
+                <div class="lg:col-span-2 card-glass rounded-2xl p-8 md:p-10 reveal-right">
+                    <h2 class="text-2xl font-heading text-white mb-8">Send a Message</h2>
                     @include('frontend.partials.contact-form')
                 </div>
             </div>

@@ -36,14 +36,14 @@
             </article>
 
             <aside class="space-y-6 reveal-right">
-                <div class="bg-navy-900 rounded-2xl p-6 text-white">
+                <div class="card-glass rounded-2xl p-6 text-white">
                     <h3 class="font-heading text-lg mb-3">Discuss a Project</h3>
-                    <p class="text-sm text-slate-400 mb-5">Speak with Alada's engineering team about your infrastructure needs.</p>
-                    <a href="{{ route('contact') }}" class="block text-center bg-brown-500 hover:bg-brown-400 text-white py-3 rounded-xl text-sm font-semibold transition-colors">Contact Alada</a>
+                    <p class="text-sm text-slate-300 mb-5">Speak with Alada's engineering team about your infrastructure needs.</p>
+                    <a href="{{ route('contact') }}" class="btn-glossy block text-center py-3 text-sm font-semibold">Contact Alada</a>
                 </div>
                 @if($related->count())
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                    <h3 class="font-semibold text-navy-900 mb-4 text-sm">Related Articles</h3>
+                <div class="card-glass rounded-2xl p-6">
+                    <h3 class="font-semibold text-white mb-4 text-sm">Related Articles</h3>
                     <div class="space-y-4">
                         @foreach($related as $rel)
                         <a href="{{ route('insights.show', $rel->slug) }}" class="flex gap-3 group">
@@ -51,7 +51,7 @@
                             <img src="{{ asset($rel->featured_image) }}" alt="{{ $rel->title }}" class="w-16 h-16 object-cover rounded-xl shrink-0">
                             @endif
                             <div>
-                                <p class="text-sm font-medium text-navy-900 group-hover:text-teal-600 leading-snug transition-colors">{{ $rel->title }}</p>
+                                <p class="text-sm font-medium text-slate-200 group-hover:text-brown-300 leading-snug transition-colors">{{ $rel->title }}</p>
                                 <p class="text-xs text-slate-400 mt-1">{{ $rel->published_at?->format('M d, Y') }}</p>
                             </div>
                         </a>

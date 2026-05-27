@@ -25,7 +25,7 @@
 
             <div class="reveal delay-200 flex flex-col sm:flex-row gap-4">
                 <a href="{{ route('expertise.index') }}"
-                   class="group inline-flex items-center justify-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brown-900/30">
+                   class="group btn-glossy inline-flex items-center justify-center gap-3 font-semibold px-8 py-4">
                     Explore Services
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
                 </a>
@@ -86,12 +86,12 @@
                     ['Rapid Value Creation',  'Fast-tracked design cycles without compromising quality or compliance'],
                     ['Tech-Forward Approach', 'BIM, digital twin, and parametric modeling embedded across all disciplines'],
                 ] as [$t, $d])
-                <div class="bg-white rounded-2xl p-5 border border-slate-100 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 text-center sm:text-left">
-                    <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-3 mx-auto sm:mx-0">
+                <div class="card-glass rounded-2xl p-5 transition-all duration-300 text-center sm:text-left">
+                    <div class="glass-chip w-10 h-10 rounded-xl flex items-center justify-center mb-3 mx-auto sm:mx-0">
                         <x-icon name="check-circle" class="w-5 h-5"/>
                     </div>
-                    <h4 class="font-semibold text-navy-900 text-sm mb-1">{{ $t }}</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed">{{ $d }}</p>
+                    <h4 class="font-semibold text-white text-sm mb-1">{{ $t }}</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">{{ $d }}</p>
                 </div>
                 @endforeach
             </div>
@@ -112,27 +112,27 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($featuredServices as $i => $service)
             <a href="{{ route('expertise.show',$service->slug) }}"
-               class="service-card group bg-white border border-slate-100 rounded-2xl p-7 flex flex-col reveal"
+               class="service-card card-glass group rounded-2xl p-7 flex flex-col reveal"
                style="transition-delay: {{ $i * 80 }}ms">
                 <div class="flex items-start justify-between mb-5">
-                    <div class="icon-wrap w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                    <div class="icon-wrap glass-chip w-12 h-12 rounded-xl flex items-center justify-center">
                         <x-icon name="{{ $service->icon ?? 'building-office-2' }}" class="w-6 h-6"/>
                     </div>
-                    <div class="arrow-wrap text-brown-500">
+                    <div class="arrow-wrap text-brown-300">
                         <x-icon name="arrow-long-right" class="w-5 h-5"/>
                     </div>
                 </div>
-                <h3 class="font-heading text-lg text-navy-900 mb-2 leading-snug">{{ $service->name }}</h3>
-                <p class="text-sm text-slate-500 leading-relaxed flex-1">{{ $service->short_description }}</p>
-                <div class="mt-5 pt-4 border-t border-slate-50">
-                    <span class="text-xs font-semibold text-teal-600 uppercase tracking-wide">Learn More</span>
+                <h3 class="font-heading text-lg text-white mb-2 leading-snug">{{ $service->name }}</h3>
+                <p class="text-sm text-slate-300 leading-relaxed flex-1">{{ $service->short_description }}</p>
+                <div class="mt-5 pt-4 border-t border-white/10">
+                    <span class="text-xs font-semibold text-brown-300 uppercase tracking-wide">Learn More</span>
                 </div>
             </a>
             @endforeach
         </div>
 
         <div class="text-center mt-10 reveal">
-            <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 bg-navy-900 text-white font-semibold px-8 py-4 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
+            <a href="{{ route('expertise.index') }}" class="btn-glossy-navy inline-flex items-center gap-3 font-semibold px-8 py-4 group">
                 All Engineering Expertise
                 <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
             </a>
@@ -182,110 +182,56 @@
             </p>
         </div>
 
-        {{-- Desktop: horizontal zigzag timeline --}}
-        {{-- Tall cards (01,03,05): h-[400px] — start at top. Short cards (02,04,06): h-[370px] — bottom-aligned, so they start 90px lower. --}}
-        <div class="hidden lg:flex items-end gap-4 overflow-visible reveal">
+        @php
+            $lifecycleSteps = [
+                ['num' => '01', 'icon' => 'clipboard-document-list', 'title' => 'Tendering Stage', 'desc' => 'BOQs, conceptual designs, visualizations, bid support.'],
+                ['num' => '02', 'icon' => 'pencil-square', 'title' => 'Preliminary Design Stage', 'desc' => 'Project setup, workflows, feasibility studies, preliminary engineering designs.'],
+                ['num' => '03', 'icon' => 'cube-transparent', 'title' => 'Detailed Design Stage', 'desc' => 'Detailed engineering, coordination, IFC drawings, BIM, machine guidance.'],
+                ['num' => '04', 'icon' => 'building-office-2', 'title' => 'Construction Stage', 'desc' => 'Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.'],
+                ['num' => '05', 'icon' => 'shield-check', 'title' => 'Handover Stage', 'desc' => 'As-built documentation, consolidated RFIs, finalized coordinated models.'],
+                ['num' => '06', 'icon' => 'cog-6-tooth', 'title' => 'Operations & Maintenance Stage', 'desc' => 'Digital twin, asset registers, updated as-built lifecycle data.'],
+            ];
+        @endphp
 
-            {{-- 01 · tall --}}
-            <div class="flex-1">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
-                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">01</span>
-                    <div class="mt-auto">
-                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Tendering Stage</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">BOQs, conceptual designs, visualizations, bid support.</p>
+        {{-- Desktop: horizontal icon timeline --}}
+        <div class="hidden lg:flex items-start reveal">
+            @foreach ($lifecycleSteps as $step)
+                <div class="group flex-1 flex flex-col items-center text-center px-3">
+                    {{-- Big circular icon --}}
+                    <div class="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center text-navy-900 group-hover:bg-navy-900 group-hover:text-white transition-all duration-300 mb-6">
+                        <x-icon name="{{ $step['icon'] }}" class="w-9 h-9" />
                     </div>
-                </div>
-            </div>
-
-            {{-- 02 · short --}}
-            <div class="flex-1">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
-                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">02</span>
-                    <div class="mt-auto">
-                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Preliminary Design Stage</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
+                    {{-- Number badge on the connecting line --}}
+                    <div class="relative w-full flex justify-center mb-6">
+                        <span class="absolute top-1/2 -translate-y-1/2 h-px bg-slate-200 {{ $loop->first ? 'left-1/2 right-0' : ($loop->last ? 'left-0 right-1/2' : 'left-0 right-0') }}"></span>
+                        <span class="relative z-10 w-9 h-9 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center text-xs font-bold text-navy-900 group-hover:border-brown-400 group-hover:text-brown-500 transition-all duration-300">{{ $step['num'] }}</span>
                     </div>
+                    {{-- Title + paragraph --}}
+                    <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">{{ $step['title'] }}</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">{{ $step['desc'] }}</p>
                 </div>
-            </div>
-
-            {{-- 03 · tall --}}
-            <div class="flex-1">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
-                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">03</span>
-                    <div class="mt-auto">
-                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Detailed Design Stage</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Detailed engineering, coordination, IFC drawings, BIM, machine guidance.</p>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 04 · short --}}
-            <div class="flex-1">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
-                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">04</span>
-                    <div class="mt-auto">
-                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Construction Stage</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 05 · tall --}}
-            <div class="flex-1">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[400px] flex flex-col">
-                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">05</span>
-                    <div class="mt-auto">
-                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Handover Stage</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">As-built documentation, consolidated RFIs, finalized coordinated models.</p>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 06 · short --}}
-            <div class="flex-1">
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 h-[370px] flex flex-col">
-                    <span class="font-display text-8xl font-bold text-teal-600 leading-none">06</span>
-                    <div class="mt-auto">
-                        <h3 class="font-heading text-base font-bold text-navy-900 mb-3 leading-snug">Operations & Maintenance Stage</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
-        {{-- Mobile: vertical stack --}}
-        <div class="lg:hidden space-y-4">
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
-                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">01</span>
-                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Tendering Stage</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">BOQs, conceptual designs, visualizations, bid support.</p>
-            </div>
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
-                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">02</span>
-                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Preliminary Design Stage</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">Project setup, workflows, feasibility studies, preliminary engineering designs.</p>
-            </div>
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
-                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">03</span>
-                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Detailed Design Stage</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">Detailed engineering, coordination, IFC drawings, BIM, machine guidance.</p>
-            </div>
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
-                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">04</span>
-                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Construction Stage</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">Design for temporary works, 4D/5D, quantities, utility coordination, RFI support.</p>
-            </div>
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
-                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">05</span>
-                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Handover Stage</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">As-built documentation, consolidated RFIs, finalized coordinated models.</p>
-            </div>
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 reveal">
-                <span class="font-display text-6xl font-bold text-teal-600 leading-none block mb-3">06</span>
-                <h3 class="font-heading text-base font-bold text-navy-900 mb-2">Operations & Maintenance Stage</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">Digital twin, asset registers, updated as-built lifecycle data.</p>
-            </div>
+        {{-- Mobile: vertical icon timeline --}}
+        <div class="lg:hidden space-y-8">
+            @foreach ($lifecycleSteps as $step)
+                <div class="flex gap-5">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 shrink-0 rounded-full bg-slate-100 flex items-center justify-center text-navy-900">
+                            <x-icon name="{{ $step['icon'] }}" class="w-8 h-8" />
+                        </div>
+                        @unless ($loop->last)
+                            <span class="flex-1 w-px bg-slate-200 my-2"></span>
+                        @endunless
+                    </div>
+                    <div class="pb-2">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white border-2 border-slate-200 text-xs font-bold text-navy-900 mb-2">{{ $step['num'] }}</span>
+                        <h3 class="font-heading text-base font-bold text-navy-900 mb-1.5">{{ $step['title'] }}</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">{{ $step['desc'] }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -308,7 +254,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
             @foreach($featuredCaseStudies as $i => $cs)
             <a href="{{ route('case-studies.show', $cs->slug) }}"
-               class="group block bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-navy-900/10 transition-all duration-500 reveal"
+               class="group block card-glass rounded-2xl overflow-hidden reveal"
                style="transition-delay:{{ $i*100 }}ms">
                 @if($cs->featured_image)
                 <div class="aspect-[4/3] overflow-hidden">
@@ -322,9 +268,9 @@
                 @endif
                 <div class="p-6">
                     <div class="flex items-center gap-2 mb-3">
-                        @if($cs->industry)<span class="text-xs font-semibold text-teal-600 uppercase tracking-wide">{{ $cs->industry->name }}</span>@endif
+                        @if($cs->industry)<span class="text-xs font-semibold text-brown-300 uppercase tracking-wide">{{ $cs->industry->name }}</span>@endif
                     </div>
-                    <h3 class="font-heading text-lg text-navy-900 group-hover:text-teal-600 transition-colors leading-snug mb-2">{{ $cs->title }}</h3>
+                    <h3 class="font-heading text-lg text-white group-hover:text-brown-300 transition-colors leading-snug mb-2">{{ $cs->title }}</h3>
                     @if($cs->client_name)<p class="text-xs text-slate-400">{{ $cs->client_name }}</p>@endif
                 </div>
             </a>
@@ -346,12 +292,12 @@
          
             @foreach($industries as $i => $industry)
             <a href="{{ route('industries.show', $industry->slug) }}"
-               class="group bg-white border border-slate-100 rounded-2xl p-6 text-center hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 reveal"
+               class="group card-glass rounded-2xl p-6 text-center reveal"
                style="transition-delay:{{ $i*60 }}ms">
-                <div class="w-12 h-12 mx-auto rounded-xl bg-slate-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-all duration-300 mb-3">
+                <div class="glass-chip w-12 h-12 mx-auto rounded-xl group-hover:bg-teal-600 flex items-center justify-center group-hover:text-white transition-all duration-300 mb-3">
                     <x-icon name="{{ $industry->featured_image ?? 'building-office' }}" class="w-6 h-6"/>
                 </div>
-                <h3 class="font-semibold text-navy-800 group-hover:text-teal-700 text-sm transition-colors">{{ $industry->name }}</h3>
+                <h3 class="font-semibold text-white group-hover:text-brown-300 text-sm transition-colors">{{ $industry->name }}</h3>
             </a>
             @endforeach
         </div>
@@ -371,11 +317,11 @@
                 Alada has built a strong footprint across regions spanning the infrastructure and industrial sectors. We continue to expand our capabilities and partnerships to deliver sustainable, compliant solutions in a rapidly evolving environment.
             </p>
         </div>
+    </div>
 
-        <div class="reveal-scale">
-            <img src="{{ asset('images/alada-map.png') }}" alt="Map of Alada's global project footprint across infrastructure and industry"
-                 loading="lazy" class="w-full h-auto select-none pointer-events-none">
-        </div>
+    <div class="reveal-scale w-full">
+        <img src="{{ asset('images/alada-map.png') }}" alt="Map of Alada's global project footprint across infrastructure and industry"
+             loading="lazy" class="w-full h-auto select-none pointer-events-none mix-blend-multiply">
     </div>
 </section>
 
@@ -435,17 +381,17 @@
         <div class="absolute inset-0 rounded-full border border-slate-300" style="margin:72px"></div>
         <div class="absolute inset-0 rounded-full border border-slate-300" style="margin:96px"></div>
     </div>
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="reveal">
-            <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-5">Start a Conversation</p>
-            <h2 class="text-4xl md:text-6xl font-heading text-navy-900 mb-6">Ready to Build<br><em class="font-display not-italic text-brown-500">Something Great?</em></h2>
-            <p class="text-slate-500 text-lg mb-10 max-w-2xl mx-auto">From feasibility to final delivery — tell us about your project and let Alada's global engineering team develop the solution.</p>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="card-glass rounded-3xl p-10 md:p-16 text-center reveal">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brown-300 mb-5">Start a Conversation</p>
+            <h2 class="text-4xl md:text-6xl font-heading text-white mb-6">Ready to Build<br><em class="font-display not-italic text-brown-300">Something Great?</em></h2>
+            <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">From feasibility to final delivery — tell us about your project and let Alada's global engineering team develop the solution.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="{{ route('contact') }}" class="group inline-flex items-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brown-900/30 text-lg">
+                <a href="{{ route('contact') }}" class="group btn-glossy inline-flex items-center gap-3 font-semibold px-10 py-4 text-lg">
                     Get in Touch
                     <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
                 </a>
-                <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 border border-navy-900/20 text-navy-900 hover:bg-navy-900/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300">
+                <a href="{{ route('expertise.index') }}" class="inline-flex items-center gap-3 border border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300">
                     Our Services
                 </a>
             </div>
