@@ -8,7 +8,8 @@
         </div>
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Icon</label>
-            <input type="text" name="icon" value="{{ old('icon', $industry?->icon) }}" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500" placeholder="🏭">
+            <input type="text" name="icon" value="{{ old('icon', $industry?->icon) }}" class="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm outline-none focus:ring-2 focus:ring-teal-500" placeholder="fa-city">
+            <p class="mt-1 text-xs text-gray-400">Font Awesome icon name, e.g. <code>fa-city</code>, <code>fa-industry</code>.</p>
         </div>
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-1.5">Order</label>
