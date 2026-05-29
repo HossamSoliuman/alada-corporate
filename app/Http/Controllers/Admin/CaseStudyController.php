@@ -111,6 +111,9 @@ class CaseStudyController extends Controller
             'solution' => 'required|string',
             'result' => 'required|string',
             'featured_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+            'remove_gallery' => 'nullable|array',
+            'remove_gallery.*' => 'nullable|string',
             'is_featured' => 'boolean',
             'is_published' => 'boolean',
             'order' => 'integer|min:0',
@@ -120,6 +123,18 @@ class CaseStudyController extends Controller
             $paths = $this->imageService->upload($request->file('featured_image'), 'public', 'uploads/case-studies');
             $validated['featured_image'] = $paths['large'];
         }
+
+        $toRemove = $request->input('remove_gallery', []);
+        $gallery = array_values(array_filter($caseStudy->gallery ?? [], fn ($path) => ! in_array($path, $toRemove)));
+
+        if ($request->hasFile('gallery')) {
+            foreach ($request->file('gallery') as $file) {
+                $paths = $this->imageService->upload($file, 'public', 'uploads/case-studies/gallery');
+                $gallery[] = $paths['large'];
+            }
+        }
+
+        $validated['gallery'] = $gallery ?: null;
 
         $validated['is_featured'] = $request->boolean('is_featured');
         $validated['is_published'] = $request->boolean('is_published');

@@ -51,6 +51,24 @@
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Gallery (multiple)</label>
+                @if($caseStudy?->gallery)
+                    <div class="grid grid-cols-3 gap-2 mb-3">
+                        @foreach($caseStudy->gallery as $image)
+                            <div x-data="{ marked: false }" class="relative rounded-lg overflow-hidden">
+                                <img src="{{ asset($image) }}" class="w-full h-20 object-cover" :class="{ 'opacity-40': marked }">
+                                <button type="button" @click="marked = !marked"
+                                    class="absolute top-1 right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-colors"
+                                    :class="marked ? 'bg-red-500 text-white' : 'bg-white/80 text-gray-700 hover:bg-red-500 hover:text-white'">
+                                    <span x-text="marked ? '✓' : '×'"></span>
+                                </button>
+                                <input type="checkbox" name="remove_gallery[]" value="{{ $image }}" :checked="marked" class="sr-only">
+                                <div x-show="marked" class="absolute inset-0 bg-red-500/10 flex items-center justify-center pointer-events-none">
+                                    <span class="text-red-600 text-xs font-semibold bg-white/90 px-1.5 py-0.5 rounded">Remove</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
                 <input type="file" name="gallery[]" accept="image/*" multiple class="text-sm text-gray-600 w-full">
             </div>
             <div>
