@@ -76,7 +76,7 @@
                     <p class="text-slate-600 leading-relaxed mb-8">Our unique combination of Global engineering standards,
                         advanced digital methodologies, and globally distributed execution ensures technically robust,
                         cost-efficient, and scalable solutions across every environment.</p>
-                    <a href="{{ route('about') }}"
+                    <a href="{{ route('company-overview') }}"
                         class="inline-flex items-center gap-2 font-semibold text-teal-600 hover:text-navy-900 transition-colors group">
                         Discover Our Story
                         <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge" />
@@ -144,25 +144,6 @@
             </div>
         </section>
     @endif
-
-    {{-- ═══ PROVEN. SCALABLE. DELIVERABLE. ═══ --}}
-    <section class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach ([['Urban & Infrastructure Development Engineering', '/images/specialty/Urban & Infrastructure Development Engineering.webp'], ['Transportation Infrastructure Engineering', '/images/specialty/Transportation Infrastructure Engineering.webp'], ['Industrial, LNG, Oil & Gas & Energy Engineering', '/images/specialty/Industrial, LNG, Oil & Gas & Energy Engineering.webp'], ['Environmental Engineering & Hydrogeology', '/images/specialty/Environmental Engineering & Hydrogeology.webp'], ['Water, Wastewater & Drainage Engineering', '/images/specialty/Water, Wastewater & Drainage Engineering.webp'], ['Structural Engineering', '/images/specialty/Structural Engineering.webp']] as $i => [$title, $img])
-                    <div class="group rounded-3xl overflow-hidden reveal" style="transition-delay: {{ $i * 100 }}ms">
-                        <div class="relative overflow-hidden aspect-[4/3]">
-                            <img src="{{ $img }}" alt="{{ $title }}" loading="lazy"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        </div>
-                        <div class="pt-5 pb-2 px-1">
-                            <h3 class="font-heading text-2xl text-navy-900 leading-snug">{{ $title }}</h3>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 
     {{-- ═══ PROJECT LIFECYCLE ═══ --}}
     <section class="py-24 bg-white">
@@ -316,37 +297,60 @@
         </section>
     @endif
 
-    {{-- ═══ INDUSTRIES ═══ --}}
-    @if ($industries->count())
-        <section class="py-24 bg-slate-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal">
-                    <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">Sectors</p>
-                    <h2 class="text-4xl md:text-5xl font-heading text-navy-900 mb-4">Industries<br><em
-                            class="font-display not-italic text-brown-500">We Serve</em></h2>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+{{-- ═══ INDUSTRIES ═══ --}}
+@if ($industries->count())
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4">
+                    Sectors
+                </p>
 
-                    @foreach ($industries as $i => $industry)
-                        @php
-                            $iconName = $industry->icon ?: 'building';
-                            $iconClass = \Illuminate\Support\Str::startsWith($iconName, 'fa-') ? $iconName : 'fa-' . $iconName;
-                        @endphp
-                        <a href="{{ route('industries.show', $industry->slug) }}"
-                            class="group bg-white border border-slate-100 rounded-2xl p-6 text-center hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 reveal"
-                            style="transition-delay:{{ $i * 60 }}ms">
-                            <div
-                                class="w-12 h-12 mx-auto rounded-xl bg-slate-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-all duration-300 mb-3">
-                                <i class="fa-solid {{ $iconClass }} text-xl"></i>
-                            </div>
-                            <h3 class="font-semibold text-navy-800 group-hover:text-teal-700 text-sm transition-colors">
-                                {{ $industry->name }}</h3>
-                        </a>
-                    @endforeach
-                </div>
+                <h2 class="text-4xl md:text-5xl font-heading text-navy-900 mb-4">
+                    Industries<br>
+                    <em class="font-display not-italic text-brown-500">
+                        We Serve
+                    </em>
+                </h2>
             </div>
-        </section>
-    @endif
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+                @foreach ($industries as $i => $industry)
+
+                    @php
+                        $iconName = $industry->icon ?: 'building';
+                        $iconClass = \Illuminate\Support\Str::startsWith($iconName, 'fa-')
+                            ? $iconName
+                            : 'fa-' . $iconName;
+                    @endphp
+
+                    <div
+                        class="group bg-white border border-slate-100 rounded-2xl p-6 text-center hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 reveal cursor-pointer"
+                        style="transition-delay:{{ $i * 60 }}ms">
+
+                        <div
+                            class="w-12 h-12 mx-auto rounded-xl bg-slate-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-all duration-300 mb-3">
+
+                            <i class="fa-solid {{ $iconClass }} text-xl"></i>
+
+                        </div>
+
+                        <h3
+                            class="font-semibold text-navy-800 group-hover:text-teal-700 text-sm transition-colors">
+
+                            {{ $industry->name }}
+
+                        </h3>
+
+                    </div>
+
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+@endif
 
     {{-- ═══ PROJECT FOOTPRINT ═══ --}}
     <section class="py-24 bg-white">

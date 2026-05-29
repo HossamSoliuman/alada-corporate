@@ -5,7 +5,8 @@
       "PowerShell(*)",
       "Read(*)",
       "Write(*)",
-      "Edit(*)"
+      "Edit(*)",
+      "WebFetch(domain:www.lektus.com)"
     ]
   },
   "enableAllProjectMcpServers": true,

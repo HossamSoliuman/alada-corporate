@@ -44,7 +44,7 @@
             <div>
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Company</h4>
                 <ul class="space-y-2.5">
-                    @foreach([['about','About Alada'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['insights.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
+                    @foreach([['company-overview','Company Overview'],['our-team','Our Team'],['why-choose-us','Why Choose Us'],['business-models','Business Models'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['insights.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
                     <li>
                         <a href="{{ $link[0] === 'page.show' ? route($link[0], 'careers') : route($link[0]) }}"
                            class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-2 group">
@@ -60,16 +60,13 @@
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Offices</h4>
                 <div class="space-y-5 text-sm text-white/80">
                     <div>
-                        <p class="font-semibold text-white mb-1.5">USA</p>
+                        <p class="font-semibold text-white mb-1.5">USA HEADQUARTERS</p>
                         @if($settings->get('address'))
                         <p class="leading-relaxed">{{ $settings->get('address') }}</p>
                         @else
                         <p class="leading-relaxed">United States</p>
                         @endif
-                    </div>
-                    <div>
-                        <p class="font-semibold text-white mb-1.5">India</p>
-                        <p class="leading-relaxed">Tower B1, Level 2, Office No-211, Symphony IT Park, Nanded City, Pune -411068</p>
+                        
                     </div>
                     @if($settings->get('phone'))
                     <a href="tel:{{ $settings->get('phone') }}" class="flex items-center gap-2 hover:text-white transition-colors">
@@ -77,6 +74,11 @@
                         {{ $settings->get('phone') }}
                     </a>
                     @endif
+                    <div>
+                        <p class="font-semibold text-white mb-1.5">INDIA HUB</p>
+                        <p class="leading-relaxed">Tower B1, Level 2, Office No-211, Symphony IT Park, Nanded City, Pune -411068</p>
+                    </div>
+                    
                     @if($settings->get('contact_email'))
                     <a href="mailto:{{ $settings->get('contact_email') }}" class="flex items-center gap-2 hover:text-white transition-colors">
                         <x-icon name="envelope" class="w-4 h-4 text-white/70 shrink-0"/>
@@ -93,7 +95,7 @@
             </p>
             <div class="flex gap-5 text-xs text-white/60">
                 <a href="{{ route('page.show', 'privacy-policy') }}" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="{{ route('page.show', 'terms-conditions') }}" class="hover:text-white transition-colors">Terms</a>
+                <a href="{{ route('page.show', 'terms-conditions') }}" class="hover:text-white transition-colors">Terms & Conditions</a>
                 <a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
             </div>
         </div>

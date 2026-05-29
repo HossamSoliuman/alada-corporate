@@ -18,11 +18,15 @@ class SitemapService
 
             // Static pages
             $urls->push(['loc' => url('/'), 'lastmod' => now()->toAtomString(), 'priority' => '1.0']);
-            $urls->push(['loc' => route('about'), 'lastmod' => now()->toAtomString(), 'priority' => '0.8']);
+            $urls->push(['loc' => route('company-overview'), 'lastmod' => now()->toAtomString(), 'priority' => '0.8']);
+            $urls->push(['loc' => route('our-team'), 'lastmod' => now()->toAtomString(), 'priority' => '0.7']);
+            $urls->push(['loc' => route('why-choose-us'), 'lastmod' => now()->toAtomString(), 'priority' => '0.7']);
+            $urls->push(['loc' => route('business-models'), 'lastmod' => now()->toAtomString(), 'priority' => '0.7']);
             $urls->push(['loc' => route('contact'), 'lastmod' => now()->toAtomString(), 'priority' => '0.8']);
 
-            // Dynamic pages
-            Page::published()->get()->each(function ($page) use ($urls) {
+            // Dynamic pages (skip those that have dedicated routes above)
+            $aboutSlugs = ['company-overview', 'our-team', 'why-choose-us', 'business-models'];
+            Page::published()->whereNotIn('slug', $aboutSlugs)->get()->each(function ($page) use ($urls) {
                 $urls->push(['loc' => route('page.show', $page->slug), 'lastmod' => $page->updated_at->toAtomString(), 'priority' => '0.6']);
             });
 

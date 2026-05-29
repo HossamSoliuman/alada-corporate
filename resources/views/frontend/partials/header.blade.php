@@ -13,8 +13,32 @@
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="{{ route('home') }}"
                     class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">Home</a>
-                <a href="{{ route('about') }}"
-                    class="text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">About</a>
+
+                <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
+                    <button
+                        class="flex items-center gap-1 text-sm font-medium text-navy-700 hover:text-teal-600 transition-colors tracking-wide">
+                        About Us
+                        <x-icon name="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200"
+                            ::class="open ? 'rotate-180' : ''" />
+                    </button>
+                    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-end="opacity-0 translate-y-2"
+                        class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white rounded-2xl shadow-2xl shadow-navy-900/10 border border-slate-100 p-2 z-50">
+                        @foreach ([['company-overview', 'building-office-2', 'Company Overview'], ['our-team', 'users', 'Our Team'], ['why-choose-us', 'shield-check', 'Why Choose Us'], ['business-models', 'squares-2x2', 'Business Models']] as [$r, $icon, $label])
+                            <a href="{{ route($r) }}"
+                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 group-hover/item:bg-teal-600 group-hover/item:text-white transition-all shrink-0">
+                                    <x-icon name="{{ $icon }}" class="w-4 h-4" />
+                                </div>
+                                <span class="text-sm font-medium text-navy-700 leading-tight">{{ $label }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
 
                 <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
                     <button
@@ -139,7 +163,16 @@
         x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
         class="lg:hidden border-t border-slate-100 bg-white">
         <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            @foreach ([['home', 'Home'], ['about', 'About'], ['expertise.index', 'Expertise'], ['case-studies.index', 'Projects'], ['insights.index', 'Insights'], ['careers', 'Careers']] as [$r, $l])
+            <a href="{{ route('home') }}"
+                class="block px-4 py-3 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">Home</a>
+
+            <p class="px-4 pt-3 pb-1 text-xs font-semibold uppercase tracking-widest text-slate-400">About Us</p>
+            @foreach ([['company-overview', 'Company Overview'], ['our-team', 'Our Team'], ['why-choose-us', 'Why Choose Us'], ['business-models', 'Business Models']] as [$r, $l])
+                <a href="{{ route($r) }}"
+                    class="block px-6 py-2.5 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">{{ $l }}</a>
+            @endforeach
+
+            @foreach ([['expertise.index', 'Expertise'], ['case-studies.index', 'Projects'], ['insights.index', 'Insights'], ['careers', 'Careers']] as [$r, $l])
                 <a href="{{ route($r) }}"
                     class="block px-4 py-3 rounded-xl text-sm font-medium text-navy-700 hover:bg-slate-50 transition-colors">{{ $l }}</a>
             @endforeach

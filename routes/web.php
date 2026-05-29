@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\HeroSlideController;
 use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
 use App\Http\Controllers\Admin\JobListingController;
 use App\Http\Controllers\Admin\LeadController;
+use App\Http\Controllers\Admin\PageCardController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -32,7 +33,12 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+Route::get('/company-overview', [AboutController::class, 'companyOverview'])->name('company-overview');
+Route::get('/our-team', [AboutController::class, 'ourTeam'])->name('our-team');
+Route::get('/why-choose-us', [AboutController::class, 'whyChooseUs'])->name('why-choose-us');
+Route::get('/business-models', [AboutController::class, 'businessModels'])->name('business-models');
+Route::redirect('/about', '/company-overview', 301);
 
 Route::get('/expertise', [ServiceController::class, 'index'])->name('expertise.index');
 Route::get('/expertise/{slug}', [ServiceController::class, 'show'])->name('expertise.show');
@@ -98,6 +104,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('pages', [AdminPageController::class, 'index'])->name('pages.index');
     Route::get('pages/{page}/edit', [AdminPageController::class, 'edit'])->name('pages.edit');
     Route::put('pages/{page}', [AdminPageController::class, 'update'])->name('pages.update');
+
+    Route::post('pages/{page}/cards', [PageCardController::class, 'store'])->name('page-cards.store');
+    Route::put('page-cards/{pageCard}', [PageCardController::class, 'update'])->name('page-cards.update');
+    Route::delete('page-cards/{pageCard}', [PageCardController::class, 'destroy'])->name('page-cards.destroy');
 
     Route::get('leads/export', [LeadController::class, 'export'])->name('leads.export');
     Route::resource('leads', LeadController::class)->only(['index', 'show', 'update', 'destroy']);

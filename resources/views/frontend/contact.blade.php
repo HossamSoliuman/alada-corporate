@@ -24,14 +24,15 @@
                         <div class="space-y-4">
                             @foreach ([
             ['map-pin', 'USA Headquarters', $settings->get('address', 'United States')],
+            ['phone', 'Phone', $settings->get('phone', '—')],
             [
                 'building-office',
-                'India',
+                'India HUB',
                 'Tower B1,Level 2,office No-211, Symphony IT Park,
                      Nanded City ,Pune -411068',
             ],
             ['envelope', 'Email', $settings->get('contact_email', 'info@alada.com')],
-            ['phone', 'Phone', $settings->get('phone', '—')],
+            
         ] as [$icon, $label, $val])
                                 <div class="flex gap-4">
                                     <div
@@ -50,7 +51,7 @@
 
                     <div class="bg-navy-900 rounded-2xl p-6 text-white">
                         <p class="font-display italic text-lg text-slate-300 mb-2">"Growing With Time"</p>
-                        <p class="text-sm text-slate-400">Alada delivers engineering excellence with U.S. standards across
+                        <p class="text-sm text-slate-400">Alada delivers engineering excellence with Global standards across
                             every continent.</p>
                     </div>
                 </div>

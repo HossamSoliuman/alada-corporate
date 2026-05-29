@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Traits\HasSeoMeta;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Page extends Model
 {
@@ -15,7 +16,7 @@ class Page extends Model
     ];
 
     protected $casts = [
-        'sections'     => 'array',
+        'sections' => 'array',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];
@@ -23,5 +24,10 @@ class Page extends Model
     public function scopePublished($query)
     {
         return $query->where('is_published', true);
+    }
+
+    public function cards(): HasMany
+    {
+        return $this->hasMany(PageCard::class)->orderBy('order')->orderBy('id');
     }
 }
