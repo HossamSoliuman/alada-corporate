@@ -12,7 +12,7 @@
             @endif
         </div>
         @endif
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 {{ ($gridCols ?? 4) === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4' }} {{ ($colGapOnly ?? false) ? 'gap-x-6' : 'gap-6' }}">
             @foreach($cards as $i => $card)
             <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 service-card reveal" style="transition-delay: {{ ($i % 4) * 100 }}ms">
                 @if($card->image)

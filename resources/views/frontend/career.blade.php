@@ -179,26 +179,26 @@ $whyIcons = [
 ];
 @endphp
 
-<section class="py-20 bg-slate-50">
+<section class="py-10 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Section Heading --}}
-        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-            <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-slate-500 mb-3">
+        <div class="text-center max-w-2xl mx-auto mb-8 reveal">
+            <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-slate-500 mb-2">
                 Why Alada
             </p>
 
-            <h2 class="font-heading font-bold text-navy-900 leading-tight mb-4 text-[28px] md:text-[38px]">
+            <h2 class="font-heading font-bold text-navy-900 leading-tight mb-2 text-[24px] md:text-[30px]">
                 {{ $whySection['heading'] }}
             </h2>
 
-            <p class="text-base text-slate-500 leading-relaxed">
+            <p class="text-sm text-slate-500 leading-relaxed">
                 {{ $whySection['subheading'] }}
             </p>
         </div>
 
         {{-- Cards --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
             @foreach($whyCards as $i => $card)
 
@@ -207,36 +207,27 @@ $whyIcons = [
             @endphp
 
             <div
-                class="group bg-white border border-[#dbe4ec] rounded-[24px] p-8 flex flex-col
+                class="group bg-white border border-[#dbe4ec] rounded-[20px] p-5 flex flex-col
                        hover:border-[#c8d4df]
                        hover:shadow-[0_12px_35px_rgba(15,23,42,0.06)]
                        hover:-translate-y-1
                        transition-all duration-300 ease-out reveal"
                 style="transition-delay: {{ $i * 80 }}ms">
 
-                {{-- Icon + Arrow --}}
-                <div class="flex justify-between items-start mb-8">
-
-                    <div class="w-14 h-14 rounded-2xl bg-[#edf4fa] flex items-center justify-center">
-                        <x-icon
-                            name="{{ $icon }}"
-                            class="w-6 h-6 text-[#355a7c]" />
-                    </div>
-                    
-
-
+                {{-- Icon --}}
+                <div class="mx-auto w-11 h-11 rounded-full bg-[#edf4fa] flex items-center justify-center mb-4">
+                    <x-icon name="{{ $icon }}" class="w-5 h-5 text-[#355a7c]" />
                 </div>
 
                 {{-- Title --}}
-                <h3 class="text-[20px] leading-[1.45] font-medium text-[#16324f] mb-4 text-center">
+                <h3 class="text-[16px] leading-snug font-medium text-[#16324f] mb-2 text-center">
                     {{ $card['title'] }}
                 </h3>
 
                 {{-- Description --}}
-                <p class="text-[15px] leading-8 text-[#60758d] flex-grow">
+                <p class="text-[13px] leading-6 text-[#60758d] flex-grow text-center">
                     {{ $card['body'] }}
                 </p>
-
 
             </div>
 

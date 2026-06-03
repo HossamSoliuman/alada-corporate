@@ -353,7 +353,7 @@
 @endif
 
     {{-- ═══ PROJECT FOOTPRINT ═══ --}}
-    <section class="py-24 bg-white" style="padding-bottom: 20px;">
+    <section class="py-24 bg-white" style="padding-bottom: 0;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12">
                 <div class="reveal-left">
@@ -434,6 +434,9 @@
             <div class="absolute inset-0 rounded-full border border-slate-300" style="margin:72px"></div>
             <div class="absolute inset-0 rounded-full border border-slate-300" style="margin:96px"></div>
         </div>
+        <img src="{{ asset('images/Tree Trunk Alada.png') }}" alt=""
+             class="absolute right-0 top-0 h-full w-auto object-cover object-left pointer-events-none select-none opacity-20"
+             aria-hidden="true">
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="reveal">
                 <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-5">Start a Conversation</p>

@@ -25,7 +25,7 @@
 @include('frontend.partials.about-two-column', ['sec' => $sec])
 
 {{-- ═══ CARDS ═══ --}}
-@include('frontend.partials.about-cards', ['cards' => $cards, 'cardsLabel' => 'Flexible by Design', 'cardsHeading' => 'Our Engagement Models'])
+@include('frontend.partials.about-cards', ['cards' => $cards, 'cardsLabel' => 'Flexible by Design', 'cardsHeading' => 'Our Engagement Models', 'gridCols' => 3, 'colGapOnly' => true])
 
 {{-- ═══ CTA ═══ --}}
 <section class="py-20 bg-navy-900 texture relative overflow-hidden">
