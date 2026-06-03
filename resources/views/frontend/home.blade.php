@@ -146,7 +146,7 @@
     @endif
 
     {{-- ═══ PROJECT LIFECYCLE ═══ --}}
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white" style="padding-top: 0px;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- Header --}}
             <p class="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-4 reveal">Our Involvement</p>
@@ -353,7 +353,7 @@
 @endif
 
     {{-- ═══ PROJECT FOOTPRINT ═══ --}}
-    <section class="py-24 bg-white">
+    <section class="py-24 bg-white" style="padding-bottom: 20px;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12">
                 <div class="reveal-left">
@@ -379,7 +379,7 @@
 
     {{-- ═══ LATEST INSIGHTS ═══ --}}
     @if ($latestBlogs->count())
-        <section class="py-24 bg-white">
+        <section class="py-24 bg-white" style="padding-top: 0px;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
                     <div class="reveal-left">

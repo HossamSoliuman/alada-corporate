@@ -80,7 +80,7 @@
                         </div>
                         <a href="mailto:{{ $contactEmail }}"
                            class="text-base font-medium text-navy-900 hover:text-teal-600 transition-colors break-all">
-                            {{ $contactEmail }}
+                            hr@aladasolutions.com
                         </a>
                     </div>
                     @endif
@@ -177,42 +177,71 @@ $whyIcons = [
     'academic-cap',
     'heart',
 ];
-$whyGradients = [
-    'from-teal-500 to-teal-700',
-    'from-brown-400 to-brown-600',
-    'from-amber-500 to-orange-600',
-    'from-emerald-500 to-emerald-700',
-    'from-violet-500 to-violet-700',
-    'from-rose-500 to-rose-700',
-];
 @endphp
+
 <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+        {{-- Section Heading --}}
         <div class="text-center max-w-2xl mx-auto mb-14 reveal">
-            <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-slate-500 mb-3">Why Alada</p>
+            <p class="text-[12px] font-semibold uppercase tracking-[0.1em] text-slate-500 mb-3">
+                Why Alada
+            </p>
+
             <h2 class="font-heading font-bold text-navy-900 leading-tight mb-4 text-[28px] md:text-[38px]">
                 {{ $whySection['heading'] }}
             </h2>
+
             <p class="text-base text-slate-500 leading-relaxed">
                 {{ $whySection['subheading'] }}
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{-- Cards --}}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
             @foreach($whyCards as $i => $card)
-            @php $gradient = $whyGradients[$i % count($whyGradients)]; $icon = $whyIcons[$i % count($whyIcons)]; @endphp
-            <div class="bg-gradient-to-br {{ $gradient }} rounded-2xl p-8 flex flex-col items-center text-center
-                        hover:shadow-[0_8px_32px_rgba(0,0,0,0.18)] hover:-translate-y-1
-                        transition-all duration-200 reveal"
-                 style="transition-delay: {{ $i * 80 }}ms">
-                <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
-                    <x-icon name="{{ $icon }}" class="w-10 h-10 text-white"/>
+
+            @php
+                $icon = $whyIcons[$i % count($whyIcons)];
+            @endphp
+
+            <div
+                class="group bg-white border border-[#dbe4ec] rounded-[24px] p-8 flex flex-col
+                       hover:border-[#c8d4df]
+                       hover:shadow-[0_12px_35px_rgba(15,23,42,0.06)]
+                       hover:-translate-y-1
+                       transition-all duration-300 ease-out reveal"
+                style="transition-delay: {{ $i * 80 }}ms">
+
+                {{-- Icon + Arrow --}}
+                <div class="flex justify-between items-start mb-8">
+
+                    <div class="w-14 h-14 rounded-2xl bg-[#edf4fa] flex items-center justify-center">
+                        <x-icon
+                            name="{{ $icon }}"
+                            class="w-6 h-6 text-[#355a7c]" />
+                    </div>
+                    
+
+
                 </div>
-                <h3 class="text-base font-semibold text-white mb-3">{{ $card['title'] }}</h3>
-                <p class="text-sm text-white/80 leading-[1.6]">{{ $card['body'] }}</p>
+
+                {{-- Title --}}
+                <h3 class="text-[20px] leading-[1.45] font-medium text-[#16324f] mb-4 text-center">
+                    {{ $card['title'] }}
+                </h3>
+
+                {{-- Description --}}
+                <p class="text-[15px] leading-8 text-[#60758d] flex-grow">
+                    {{ $card['body'] }}
+                </p>
+
+
             </div>
+
             @endforeach
+
         </div>
 
     </div>

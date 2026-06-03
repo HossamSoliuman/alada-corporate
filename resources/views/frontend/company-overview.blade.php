@@ -49,15 +49,15 @@
                     <x-icon name="sparkles" class="w-6 h-6"/>
                 </div>
                 <h2 class="text-xs font-semibold uppercase tracking-widest text-teal-400 mb-3">Our Vision</h2>
-                <p class="font-heading text-2xl md:text-3xl text-white leading-snug mb-4">"To be recognized as a global leader in delivering innovative, sustainable, and technology-driven engineering solutions."</p>
-                <p class="text-slate-400 text-sm leading-relaxed">Shaping the infrastructure of the future through engineering excellence and digital innovation.</p>
+                <p class="font-heading text-xl md:text-2xl text-white leading-relaxed max-w-lg mb-4">"To be a globally trusted engineering partner, shaping the future of infrastructure through innovation, digital transformation, and engineering excellence."</p>
+                
             </div>
             <div class="bg-brown-500 rounded-3xl p-10 text-white reveal-right">
                 <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-white mb-6">
                     <x-icon name="chart-bar" class="w-6 h-6"/>
                 </div>
                 <h2 class="text-xs font-semibold uppercase tracking-widest text-brown-100 mb-3">Our Mission</h2>
-                <p class="font-heading text-xl text-white leading-snug mb-5">Engineering excellence through innovation, efficiency and global infrastructure development.</p>
+                <p class="font-heading text-lg md:text-xl text-white/95 leading-relaxed max-w-lg mb-6">To empower clients with scalable engineering and digital delivery solutions that drive project success, operational efficiency, and sustainable growth.</p>
                 <ul class="space-y-2.5 text-sm text-brown-100">
                     @foreach(['Delivering efficient and sustainable infrastructure solutions','Ensuring cost optimisation and high-quality delivery','Supporting global infrastructure development through innovation'] as $item)
                     <li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white mt-1.5 shrink-0"></span>{{ $item }}</li>

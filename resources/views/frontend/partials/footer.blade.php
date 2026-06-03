@@ -1,12 +1,12 @@
-<footer class="bg-brown-500 text-white">
+<footer class="bg-white text-[#19587F] border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-20 border-b border-white/10">
 
             <div class="lg:col-span-1">
-                <img src="{{ asset('images/alada-logo.png') }}" alt="Alada" class="h-14 w-auto mb-5 brightness-0 invert opacity-90">
+                <img src="{{ asset('images/alada-logo.png') }}" alt="Alada" class="h-14 w-auto">
                 <p class="font-display italic text-white/90 text-lg mb-2">Growing With Time</p>
-                <p class="text-white/70 text-sm leading-relaxed mb-6">Global engineering, infrastructure & energy solutions delivered with U.S. standards and worldwide reach.</p>
+                <p class="text-[#19587F] text-sm leading-relaxed mb-6">Global engineering, infrastructure & energy solutions delivered with U.S. standards and worldwide reach.</p>
 
                 <div class="flex gap-3">
                     @foreach(['linkedin','twitter','facebook','instagram'] as $s)
@@ -27,13 +27,13 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Services</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-[#19587F] mb-5">Services</h4>
                 <ul class="space-y-2.5">
                     @foreach($footerServices as $svc)
                     <li>
                         <a href="{{ route('expertise.show',$svc->slug) }}"
-                           class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-2 group">
-                            <span class="w-1 h-1 rounded-full bg-white/50 group-hover:bg-white transition-colors"></span>
+                           class="text-sm text-[#19587F]/80 hover:text-[#19587F]">
+                            <span class="w-1 h-1 rounded-full bg-[#19587F]/50 group-hover:bg-white transition-colors"></span>
                             {{ $svc->name }}
                         </a>
                     </li>
@@ -42,13 +42,13 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Company</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-[#19587F] mb-5">Company</h4>
                 <ul class="space-y-2.5">
                     @foreach([['company-overview','Company Overview'],['our-team','Our Team'],['why-choose-us','Why Choose Us'],['business-models','Business Models'],['expertise.index','Our Expertise'],['case-studies.index','Projects'],['insights.index','Insights'],['contact','Contact Us'],['page.show','Careers']] as $link)
                     <li>
                         <a href="{{ $link[0] === 'page.show' ? route($link[0], 'careers') : route($link[0]) }}"
-                           class="text-sm text-white/80 hover:text-white transition-colors flex items-center gap-2 group">
-                            <span class="w-1 h-1 rounded-full bg-white/50 group-hover:bg-white transition-colors"></span>
+                           class="text-sm text-[#19587F]/80 hover:text-[#19587F]">
+                            <span class="w-1 h-1 rounded-full bg-[#19587F]/50 group-hover:bg-[#19587F] transition-colors"></span>
                             {{ $link[1] }}
                         </a>
                     </li>
@@ -57,10 +57,10 @@
             </div>
 
             <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white/70 mb-5">Offices</h4>
-                <div class="space-y-5 text-sm text-white/80">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-[#19587F] mb-5">Offices</h4>
+                <div class="space-y-5 text-sm text-[#19587F]/80">
                     <div>
-                        <p class="font-semibold text-white mb-1.5">USA HEADQUARTERS</p>
+                        <p class="font-semibold text-[#19587F] mb-1.5">USA HEADQUARTERS</p>
                         @if($settings->get('address'))
                         <p class="leading-relaxed">{{ $settings->get('address') }}</p>
                         @else
@@ -70,18 +70,18 @@
                     </div>
                     @if($settings->get('phone'))
                     <a href="tel:{{ $settings->get('phone') }}" class="flex items-center gap-2 hover:text-white transition-colors">
-                        <x-icon name="phone" class="w-4 h-4 text-white/70 shrink-0"/>
+                        <x-icon name="phone" class="w-4 h-4 text-[#19587F] shrink-0"/>
                         {{ $settings->get('phone') }}
                     </a>
                     @endif
                     <div>
-                        <p class="font-semibold text-white mb-1.5">INDIA HUB</p>
+                        <p class="font-semibold text-[#19587F] mb-1.5">INDIA HUB</p>
                         <p class="leading-relaxed">Tower B1, Level 2, Office No-211, Symphony IT Park, Nanded City, Pune -411068</p>
                     </div>
                     
                     @if($settings->get('contact_email'))
                     <a href="mailto:{{ $settings->get('contact_email') }}" class="flex items-center gap-2 hover:text-white transition-colors">
-                        <x-icon name="envelope" class="w-4 h-4 text-white/70 shrink-0"/>
+                        <x-icon name="envelope" class="w-4 h-4 text-[#19587F] shrink-0"/>
                         {{ $settings->get('contact_email') }}
                     </a>
                     @endif
@@ -90,7 +90,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 py-6">
-            <p class="text-white/60 text-xs">
+            <p class="text-[#19587F]/70 text-xs">
                 {!! $settings->get('footer_text', '© '.date('Y').' Alada. All rights reserved.') !!}
             </p>
             <div class="flex gap-5 text-xs text-white/60">
