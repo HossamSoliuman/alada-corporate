@@ -44,7 +44,7 @@
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <h2 class="text-3xl md:text-4xl font-heading text-white mb-4">Need an Integrated Solution?</h2>
         <p class="text-slate-400 mb-8">Our multi-disciplinary teams combine expertise across engineering disciplines to deliver seamless, end-to-end project delivery.</p>
-        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 group">
+        <a href="{{ route('contact') }}" class="btn-glossy inline-flex items-center gap-3 text-white font-semibold px-8 py-4 rounded-xl group">
             Discuss Your Project
             <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
         </a>

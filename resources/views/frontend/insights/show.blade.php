@@ -39,7 +39,7 @@
                 <div class="bg-navy-900 rounded-2xl p-6 text-white">
                     <h3 class="font-heading text-lg mb-3">Discuss a Project</h3>
                     <p class="text-sm text-slate-400 mb-5">Speak with Alada's engineering team about your infrastructure needs.</p>
-                    <a href="{{ route('contact') }}" class="block text-center bg-brown-500 hover:bg-brown-400 text-white py-3 rounded-xl text-sm font-semibold transition-colors">Contact Alada</a>
+                    <a href="{{ route('contact') }}" class="btn-glossy block text-center text-white py-3 rounded-xl text-sm font-semibold">Contact Alada</a>
                 </div>
                 @if($related->count())
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">

@@ -32,7 +32,7 @@
     <div class="absolute inset-0 bg-gradient-to-br from-navy-950/80 to-transparent"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <p class="max-w-6xl mx-auto font-medium text-3xl md:text-[52px] text-white leading-[1.05] tracking-[-0.02em] mb-8 text-center">"From fixed scope to strategic partnership a model that fits the way you work."</p>
-        <a href="{{ route('contact') }}" class="inline-flex items-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 text-lg group">
+        <a href="{{ route('contact') }}" class="btn-glossy inline-flex items-center gap-3 text-white font-semibold px-10 py-4 rounded-xl text-lg group">
             Discuss Your Project
             <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge"/>
         </a>

@@ -25,7 +25,7 @@
 
                 <div class="reveal delay-200 flex flex-col sm:flex-row gap-4">
                     <a href="{{ route('expertise.index') }}"
-                        class="group inline-flex items-center justify-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brown-900/30">
+                        class="btn-glossy group inline-flex items-center justify-center gap-3 text-white font-semibold px-8 py-4 rounded-xl">
                         Explore Services
                         <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge" />
                     </a>
@@ -446,7 +446,7 @@
                     about your project and let Alada's global engineering team develop the solution.</p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="{{ route('contact') }}"
-                        class="group inline-flex items-center gap-3 bg-brown-500 hover:bg-brown-400 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-brown-900/30 text-lg">
+                        class="btn-glossy group inline-flex items-center gap-3 text-white font-semibold px-10 py-4 rounded-xl text-lg">
                         Get in Touch
                         <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge" />
                     </a>

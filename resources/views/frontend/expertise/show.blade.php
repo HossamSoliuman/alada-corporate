@@ -105,7 +105,7 @@
                 <div class="bg-navy-900 rounded-2xl p-6 text-white">
                     <h3 class="font-heading text-lg mb-3">Start a Project</h3>
                     <p class="text-sm text-slate-400 mb-5">Tell us about your project and we'll outline how Alada can deliver it.</p>
-                    <a href="{{ route('contact') }}" class="block w-full text-center bg-brown-500 hover:bg-brown-400 text-white py-3 px-6 rounded-xl font-semibold transition-colors text-sm">
+                    <a href="{{ route('contact') }}" class="btn-glossy block w-full text-center text-white py-3 px-6 rounded-xl font-semibold text-sm">
                         Get in Touch
                     </a>
                 </div>

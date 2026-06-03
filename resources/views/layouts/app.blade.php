@@ -124,6 +124,24 @@
             font-weight: 500;
         }
 
+        /* Glossy CTA buttons (brand brown) */
+        .btn-glossy {
+            background: linear-gradient(180deg, #9a755a 0%, #8e6b51 55%, #7a5a43 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 8px 20px rgba(56, 37, 18, .30);
+            transition: background .3s ease, box-shadow .3s ease, transform .3s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .btn-glossy:hover {
+            background: linear-gradient(180deg, #a8815f 0%, #97735a 55%, #855f47 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .38), 0 12px 26px rgba(56, 37, 18, .38);
+            transform: translateY(-2px);
+        }
+
+        .btn-glossy:active {
+            transform: translateY(0);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, .22), 0 4px 12px rgba(56, 37, 18, .30);
+        }
+
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
