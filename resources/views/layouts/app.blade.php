@@ -142,6 +142,91 @@
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, .22), 0 4px 12px rgba(56, 37, 18, .30);
         }
 
+        /* Glossy navy button (secondary CTA) */
+        a.btn-glossy-navy,
+        button.btn-glossy-navy {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #1e4f6e 0%, #112d3f 55%, #0d3041 100%);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: .75rem;
+            box-shadow: 0 10px 24px -8px rgba(8, 26, 36, .55),
+                inset 0 1px 0 rgba(255, 255, 255, .22),
+                inset 0 -1px 0 rgba(0, 0, 0, .25);
+            transition: transform .3s cubic-bezier(.16, 1, .3, 1), box-shadow .3s ease, filter .3s ease;
+        }
+
+        a.btn-glossy-navy::before,
+        button.btn-glossy-navy::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 55% 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        a.btn-glossy-navy:hover,
+        button.btn-glossy-navy:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1);
+        }
+
+        /* Soft-glass dark card */
+        .card-glass.card-glass {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(155deg, #112d3f 0%, #0d3041 45%, #081a24 100%);
+            border: 1px solid rgba(255, 255, 255, .08);
+            box-shadow: 0 22px 50px -16px rgba(8, 26, 36, .55),
+                inset 0 1px 0 rgba(255, 255, 255, .06);
+            color: #c1cfd2;
+        }
+
+        .card-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(115% 80% at 0% 0%, rgba(255, 255, 255, .10), rgba(255, 255, 255, 0) 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card-glass::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(191, 131, 78, .9), transparent);
+            opacity: .55;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card-glass>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        a.card-glass {
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s ease;
+        }
+
+        a.card-glass:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 32px 60px -18px rgba(8, 26, 36, .7),
+                inset 0 1px 0 rgba(255, 255, 255, .08);
+        }
+
+        /* Icon chip inside glass cards */
+        .glass-chip {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .12);
+            color: #cc9c71;
+        }
+
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;

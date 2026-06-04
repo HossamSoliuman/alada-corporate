@@ -85,13 +85,13 @@
                 <div class="reveal-right grid grid-cols-1 sm:grid-cols-2 gap-4">
                     @foreach ([['Consulting Expertise', 'Renowned International Civil Engineers with Diverse Skill Set'], ['Robust Delivery', 'Consistent on-time, on-budget project completion globally'], ['Rapid Value Creation', 'Fast-tracked design cycles without compromising quality or compliance'], ['Tech-Forward Approach', 'BIM, digital twin, and parametric modeling embedded across all disciplines']] as [$t, $d])
                         <div
-                            class="bg-white rounded-2xl p-5 border border-slate-100 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 text-center sm:text-left">
+                            class="card-glass rounded-2xl p-5 transition-all duration-300 text-center sm:text-left">
                             <div
-                                class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-3 mx-auto sm:mx-0">
+                                class="glass-chip w-10 h-10 rounded-xl flex items-center justify-center mb-3 mx-auto sm:mx-0">
                                 <x-icon name="check-circle" class="w-5 h-5" />
                             </div>
-                            <h4 class="font-semibold text-navy-900 text-sm mb-1">{{ $t }}</h4>
-                            <p class="text-xs text-slate-500 leading-relaxed">{{ $d }}</p>
+                            <h4 class="font-semibold text-white text-sm mb-1">{{ $t }}</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">{{ $d }}</p>
                         </div>
                     @endforeach
                 </div>
@@ -114,21 +114,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ($featuredServices as $i => $service)
                         <a href="{{ route('expertise.show', $service->slug) }}"
-                            class="service-card group bg-white border border-slate-100 rounded-2xl p-7 flex flex-col reveal"
+                            class="service-card card-glass group rounded-2xl p-7 flex flex-col reveal"
                             style="transition-delay: {{ $i * 80 }}ms">
                             <div class="flex items-start justify-between mb-5">
                                 <div
-                                    class="icon-wrap w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                                    class="icon-wrap glass-chip w-12 h-12 rounded-xl flex items-center justify-center">
                                     <x-icon name="{{ $service->icon ?? 'building-office-2' }}" class="w-6 h-6" />
                                 </div>
-                                <div class="arrow-wrap text-brown-500">
+                                <div class="arrow-wrap text-brown-300">
                                     <x-icon name="arrow-long-right" class="w-5 h-5" />
                                 </div>
                             </div>
-                            <h3 class="font-heading text-lg text-navy-900 mb-2 leading-snug">{{ $service->name }}</h3>
-                            <p class="text-sm text-slate-500 leading-relaxed flex-1">{{ $service->short_description }}</p>
-                            <div class="mt-5 pt-4 border-t border-slate-50">
-                                <span class="text-xs font-semibold text-teal-600 uppercase tracking-wide">Learn More</span>
+                            <h3 class="font-heading text-lg text-white mb-2 leading-snug">{{ $service->name }}</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed flex-1">{{ $service->short_description }}</p>
+                            <div class="mt-5 pt-4 border-t border-white/10">
+                                <span class="text-xs font-semibold text-brown-300 uppercase tracking-wide">Learn More</span>
                             </div>
                         </a>
                     @endforeach
@@ -136,7 +136,7 @@
 
                 <div class="text-center mt-10 reveal">
                     <a href="{{ route('expertise.index') }}"
-                        class="inline-flex items-center gap-3 bg-navy-900 text-white font-semibold px-8 py-4 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
+                        class="btn-glossy-navy inline-flex items-center gap-3 text-white font-semibold px-8 py-4 rounded-xl group">
                         All Engineering Expertise
                         <x-icon name="arrow-long-right" class="w-5 h-5 arrow-nudge" />
                     </a>
@@ -326,18 +326,18 @@
                     @endphp
 
                     <div
-                        class="group bg-white border border-slate-100 rounded-2xl p-6 text-center hover:border-teal-200 hover:shadow-lg hover:shadow-teal-900/5 transition-all duration-300 reveal cursor-pointer"
+                        class="group card-glass rounded-2xl p-6 text-center transition-all duration-300 reveal cursor-pointer"
                         style="transition-delay:{{ $i * 60 }}ms">
 
                         <div
-                            class="w-12 h-12 mx-auto rounded-xl bg-slate-50 group-hover:bg-teal-600 flex items-center justify-center text-teal-600 group-hover:text-white transition-all duration-300 mb-3">
+                            class="glass-chip w-12 h-12 mx-auto rounded-xl group-hover:bg-teal-600 flex items-center justify-center group-hover:text-white transition-all duration-300 mb-3">
 
                             <i class="fa-solid {{ $iconClass }} text-xl"></i>
 
                         </div>
 
                         <h3
-                            class="font-semibold text-navy-800 group-hover:text-teal-700 text-sm transition-colors">
+                            class="font-semibold text-white group-hover:text-brown-300 text-sm transition-colors">
 
                             {{ $industry->name }}
 

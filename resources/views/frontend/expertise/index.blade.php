@@ -18,21 +18,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($services as $i => $service)
             <a href="{{ route('expertise.show', $service->slug) }}"
-               class="service-card group bg-white border border-slate-100 rounded-2xl p-7 flex flex-col reveal"
+               class="service-card card-glass group rounded-2xl p-7 flex flex-col reveal"
                style="transition-delay: {{ $i * 60 }}ms">
                 <div class="flex items-start justify-between mb-5">
-                    <div class="icon-wrap w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                    <div class="icon-wrap w-12 h-12 rounded-xl glass-chip flex items-center justify-center">
                         <x-icon name="{{ $service->icon ?? 'building-office-2' }}" class="w-6 h-6"/>
                     </div>
                     @if($service->is_featured)
-                    <span class="text-xs font-semibold bg-brown-50 text-brown-600 px-2.5 py-1 rounded-full">Featured</span>
+                    <span class="text-xs font-semibold bg-white/10 text-brown-300 px-2.5 py-1 rounded-full">Featured</span>
                     @endif
                 </div>
-                <h3 class="font-heading text-lg text-navy-900 mb-2 leading-snug flex-1">{{ $service->name }}</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-5">{{ $service->short_description }}</p>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-                    <span class="text-xs font-semibold text-teal-600 uppercase tracking-wide">Explore</span>
-                    <div class="arrow-wrap text-brown-500"><x-icon name="arrow-long-right" class="w-5 h-5"/></div>
+                <h3 class="font-heading text-lg text-white mb-2 leading-snug flex-1">{{ $service->name }}</h3>
+                <p class="text-sm text-slate-300 leading-relaxed mb-5">{{ $service->short_description }}</p>
+                <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                    <span class="text-xs font-semibold text-brown-300 uppercase tracking-wide">Explore</span>
+                    <div class="arrow-wrap text-brown-300"><x-icon name="arrow-long-right" class="w-5 h-5"/></div>
                 </div>
             </a>
             @endforeach
