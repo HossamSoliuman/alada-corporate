@@ -90,7 +90,7 @@
                 @endif
 
                 <a href="{{ route('contact') }}"
-                    class="ml-2 inline-flex items-center gap-2 bg-navy-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
+                    class="btn-glossy ml-2 inline-flex items-center gap-2   text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-teal-600 transition-all duration-300 group">
                     Get in Touch
                     <x-icon name="arrow-long-right" class="w-4 h-4 arrow-nudge" />
                 </a>
