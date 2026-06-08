@@ -32,7 +32,7 @@ class SitemapService
 
             // Services
             Service::active()->get()->each(function ($s) use ($urls) {
-                $urls->push(['loc' => route('services.show', $s->slug), 'lastmod' => $s->updated_at->toAtomString(), 'priority' => '0.8']);
+                $urls->push(['loc' => route('expertise.show', $s->slug), 'lastmod' => $s->updated_at->toAtomString(), 'priority' => '0.8']);
             });
 
             // Industries
@@ -47,7 +47,7 @@ class SitemapService
 
             // Blogs
             Blog::published()->latest('published_at')->get()->each(function ($b) use ($urls) {
-                $urls->push(['loc' => route('blog.show', $b->slug), 'lastmod' => $b->updated_at->toAtomString(), 'priority' => '0.6']);
+                $urls->push(['loc' => route('insights.show', $b->slug), 'lastmod' => $b->updated_at->toAtomString(), 'priority' => '0.6']);
             });
 
             return view('sitemap.index', ['urls' => $urls])->render();
